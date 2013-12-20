@@ -26,13 +26,19 @@
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Item Condition') ?></h2>
+      	<div class="input-box">
         <ul class="form-list">
             <li>
-                <div class="input-box">
-                	<?php echo 'Waiting Qubbaj for his check box conditions :)'; ?>
-                </div>
+                	<input type="radio" name="condition" value="new" class="radio required-entry" />New
+            </li>
+            <li>
+                	<input type="radio" name="condition" value="used" class="radio required-entry" />Used
+            </li>
+            <li>
+                	<input type="radio" name="condition" value="other" class="radio required-entry" />Other
             </li>
     	</ul>
+    	</div>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Price & Quntity') ?></h2>
@@ -59,7 +65,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                	<?php echo 'Waiting Qubbaj for his check box conditions :)'; ?>
+                	<input type="text" name="title" id="title" value="" class="input-text required-entry" />
                 </div>
             </li>
     	</ul>
