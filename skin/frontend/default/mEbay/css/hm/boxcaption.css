@@ -1,0 +1,27 @@
+.clear_both{clear:both;overflow:hidden;height:1px;}
+/* hover images*/
+.boxcaption h3{ margin: 5px 10px 0 10px; color:#fff; font:14px Arial, sans-serif; letter-spacing:-1px;text-align:left;  line-height:19px; }
+.boxcaption h3 a{ color:#fff;}
+.boxcaption h3 a:hover{text-decoration:none;}
+.caption .boxcaption {top: 100px;left: 0;}
+.boxgrid{ width: 135px; height: 135px; float:left; background:#161613; border:2px solid #b0c1cb; overflow: hidden; position: relative; }
+.boxgrid img{position: absolute;top: 0;left: 0;border: 0; background:#fff;}
+.boxgrid p{padding: 0 10px;color:#afafaf;font-weight:bold; font:10pt "Lucida Grande", Arial, sans-serif;}
+.boxcaption{ float: left;position: absolute;background: #4a6576 ;height: 100px;width: 100%;}
+.group_box {
+margin:7px 2px 0px 2px;
+}
+.box_price {
+float:left;
+}
+.box_price span {
+font-size:11px;color:#E26703;
+font-weight:bold;
+}
+.box_adtocat {
+float:right;
+}
+.box_adtocat a {
+color:#E26703;
+font-size:11px;
+}

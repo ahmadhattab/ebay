@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink">
+                <name>our_new_section</name>
+                <path>pulsestorm_customerpage/index/index</path>
+                <label>Our New Account Section</label>
+            </action>
+        </reference>
+    </customer_account>
+</layout>

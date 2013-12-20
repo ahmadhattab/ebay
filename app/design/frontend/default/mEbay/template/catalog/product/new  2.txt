@@ -1,0 +1,12 @@
+<div class="banner_index">{{block type="easybanner/banner" name="banner" banner_id="mkadeerny"  template="easybanner/simpleslider.phtml"}}</div>
+<div class="bestseller_block">{{block type="bestseller/bestseller" name="bestseller" template="hm/bestseller.phtml"}}</div>
+<div>{{block type="ajaxhometabs/showTabs" name="showTabs" template="ajaxhometabs/showTabs.phtml"}}</div>
+
+
+<div class="banner_index"><img src="{{skin url="images/slider-banner/slider3.jpg"}}" width="750" alt=""/></div>
+<div class="bestseller_block">
+{{block type="core/template" show_total="4" name="product_bestseller" as="product_bestseller" template="catalog/product/bestseller.phtml"}}
+</div>
+<div>
+{{block type="core/template" name="new_products" as="new_products" template="catalog/product/new_products.phtml"}}
+</div>

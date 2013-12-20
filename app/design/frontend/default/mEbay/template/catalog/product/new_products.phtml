@@ -1,0 +1,79 @@
+<?php
+//{{block type="core/template" show_total="100" name="product_featured" as="product_featured" template="catalog/product/featured.phtml"}}
+
+
+
+$totalPerPage = ($this->show_total) ? $this->show_total : 15;
+//echo $totalPerPage;
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+
+$storeId = Mage::app()->getStore()->getId();
+
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+						->addAttributeToSelect('*')     
+					    ->setStoreId($storeId)
+                        ->addStoreFilter($storeId)	
+					    ->addAttributeToFilter('visibility', $visibility)
+						//->addAttributeToFilter('featured', true)
+						->setOrder('created_at', 'desc')
+						->addAttributeToSelect('status') 
+						->setPageSize($totalPerPage);
+Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($_productCollection);
+Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($_productCollection);
+//Mage::getSingleton('catalog/product_visibility')->addVisibleInSearchFilterToCollection($_productCollection);
+
+?>
+<div id="module">
+	<div id="tabs">
+		<ul class="">	
+		<li id="topnewest_grid" class="tab_ori tab_active">New Products</li>	
+		<li id="topbestsell_grid" class="tab_ori">Top Sellers</li>	
+		<li id="toprate_grid" class="tab_ori">Top Rated</li>	</ul>				
+		<div style="clear:both"></div>	
+	</div>
+			
+	<div id="content"> 
+	<div class="category-products">
+	<?php $_collectionSize = $_productCollection->count() ?>
+	<?php $_columnCount = 5 //$this->getColumnCount(); ?>
+	<?php $i=0; foreach ($_productCollection as $_product): ?>
+	<?php if ($i++%$_columnCount==0): ?>
+		<ul class="products-grid">
+		<?php endif ?>
+			<li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+				<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135,140); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" />
+				</a>
+				<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h2>
+				<div class="price-box">
+					<span class="regular-price">
+						<span class="price"><?php echo $this->helper('checkout')->formatPrice($_product->getPrice()) ?></span>                
+					</span>
+				</div> 
+				<div class="actions">
+                    <?php if($_product->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product); ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    <ul class="add-to-links">
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <a href="<?php echo $this->helper('catalog/product_compare')->getAddUrl($_product); ?>" rel="nofollow" class="link-compare">
+							<?php echo $this->__('Add to Compare') ?>
+						</a>
+                    </ul>
+                </div>
+			</li>
+		<?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+		</ul>
+	<?php endif ?>
+	<?php endforeach ?>
+	<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+	</div>
+	</div>
+	</div>

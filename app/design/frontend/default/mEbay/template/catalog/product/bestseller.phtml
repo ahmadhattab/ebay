@@ -1,0 +1,84 @@
+
+
+<?php
+//{{block type="core/template" show_total="4" name="product_bestseller" as="product_bestseller" template="catalog/product/bestseller.phtml}}
+
+$totalPerPage = ($this->show_total) ? $this->show_total : 4;
+
+$counter = 4;
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+
+$storeId = Mage::app()->getStore()->getId();
+
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+						->addOrderedQty()
+						->addAttributeToSelect('*')     
+					    ->setStoreId($storeId)
+                        ->addStoreFilter($storeId)	
+					    //->addAttributeToFilter('visibility', $visibility)
+						->setOrder('ordered_qty', 'desc')
+						->addAttributeToSelect('status')
+						->setPageSize($totalPerPage);
+//Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($_productCollection);
+Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($_productCollection);
+//Mage::getSingleton('catalog/product_visibility')->addVisibleInSearchFilterToCollection($_productCollection);
+
+      
+
+// // if product is part of configurable product get first parent product
+ $junkProducts = new Varien_Data_Collection();
+ foreach ($_productCollection as $k => $p) {
+	 $p = $p->loadParentProductIds();
+	 $parentIds = $p->getData('parent_product_ids');	
+	 if (is_array($parentIds) && !empty($parentIds)) {
+		 if (!$junkProducts->getItemById($parentIds[0])) {
+			 $parentProduct = Mage::getModel('catalog/product')->setStoreId($storeId)->load($parentIds[0]);
+			 if ($parentProduct->isVisibleInCatalog()) {
+				 $junkProducts->addItem($parentProduct);
+			 }
+		 }
+	 } else {
+		 if (!$junkProducts->getItemById($k)) {
+			 $junkProducts->addItem($p);
+		 }
+	 }		
+ }
+ $_productCollection = $junkProducts;
+// //end if product is part of configurable product get first parent product
+?>
+<div class="category-title">
+	<h2><?php echo $this->__('Bestsellers Products') ?></h2>
+</div>
+<div class="listing-type-grid catalog-listing">
+<div class="product_body" >
+<?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = 4 //$this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="jcarousel-static">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <div class="boxseller">
+				<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(152, 142); ?>" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" />
+				</a>
+                <div class="box_caption">
+					<h5><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h5>
+					<div class="seller_price">								
+						<span><?php echo $this->helper('checkout')->formatPrice($_product->getPrice()) ?></span>  								
+					</div>						
+					
+				</div>
+				</div>
+                
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+	</div>
+</div>
