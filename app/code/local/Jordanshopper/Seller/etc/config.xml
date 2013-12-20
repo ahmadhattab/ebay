@@ -23,4 +23,11 @@
 			</updates>
 		</layout>
 	</frontend>
+	<global>
+		<blocks>
+			<seller>
+				<class>Jordanshopper_Seller_Block</class>
+			</seller>
+		</blocks>
+	</global>
 </config>

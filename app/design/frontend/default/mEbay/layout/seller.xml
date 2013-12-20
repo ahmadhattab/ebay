@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+	<seller_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="seller/seller" name="" template="jordanshopper/seller.phtml" />
+		</reference>
+	</seller_index_index>
     <customer_account>
         <reference name="customer_account_navigation">
             <action method="addLink">
-                <name>our_new_section</name>
-                <path>pulsestorm_customerpage/index/index</path>
-                <label>Our New Account Section</label>
+                <name>seller_item</name>
+                <path>seller</path>
+                <label>Sell an item</label>
             </action>
         </reference>
     </customer_account>

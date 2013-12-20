@@ -3,7 +3,12 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 {
 	public function indexAction()
 	{
-		echo 'Seller';
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	public function sellerPostAction(){
+		echo 'Done';
 		die();
 	}
 }
