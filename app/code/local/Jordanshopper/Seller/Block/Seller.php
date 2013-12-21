@@ -12,22 +12,25 @@ class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 	        $actualCategoryId = $object->getCurrentCategory()->getId();        
 	        $actualCategory = Mage::getModel('catalog/category')->load($actualCategoryId);
 	        $subCategories = explode(',', $actualCategory->getChildren());        
-	        echo "<ul>";
+	        $output = "<ul>";
 	        foreach ($subCategories as $subCategoryId) {
 	            $category = Mage::getModel('catalog/category')->load($subCategoryId);                 
 	           if ($category->getIsActive()) {
-	                echo "<li><input type='checkbox' value='{$category->getId()}'>{$category->getName()}</li>";                               
+	                $output .= "<li><input type='checkbox' value='{$category->getId()}'>{$category->getName()}";                               
 	           }
 	            if($category->hasChildren()){                
-	                echo "<li><ul>";
+	                $output .= "<ul>";
 	                $subCategoriesList = $category->getChildrenCategories();
 	                foreach ($subCategoriesList as $subcategory){
-	                    echo "<li><input type='checkbox' value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";                               
+	                    $output .= "<li><input type='checkbox' value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";                               
 	                }
-	                echo "</ul></li>";
-	            }
+                            $output .= "</ul></li>";
+                    }else{
+                        $output .= "</li>";
+                    }
 	        }
-        	echo "</ul>";
+                    $output .= "</ul>";
+                    return $output;
     	}
 
 }
