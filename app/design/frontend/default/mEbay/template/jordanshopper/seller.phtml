@@ -2,7 +2,7 @@
     <h1><?php echo $this->__('Sell an item') ?></h1>
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate">
+<form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
  <div class="fieldset">
         <?php echo $this->getBlockHtml('formkey')?>
         <h2 class="legend"><?php echo $this->__('Item Title') ?> <em style="color:red;">*</em></h2>
@@ -68,8 +68,8 @@
         <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
         <ul class="form-list">
             <li>
-                <div class="input-box">
-                	<?php echo 'Waiting Qubbaj for his check box conditions :)'; ?>
+                <div class="input-box" id="inp">
+                	<input type="file" name="file" id="file" class="required-file"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
                 </div>
             </li>
     	</ul>
@@ -80,6 +80,7 @@
             <li>
                 <div class="input-box">
                 	<input type="text" name="description" id="description" value="" class="input-text required-entry" />
+                	
                 </div>
             </li>
     	</ul>
@@ -93,4 +94,13 @@
 <script type="text/javascript">
 //<![CDATA[
     var dataForm = new VarienForm('form-validate', true);
+    var dyname = 1;
+    function createNewUpload(){
+        dyname = dyname + 1;
+    	var input = document.createElement('input');
+	    input.type = "file";
+	    input.name = "upload" + (dyname + 1);
+	    input.id = "upload" + (dyname + 1);
+ 	    document.getElementById('inp').appendChild(input);
+    }
 </script>
