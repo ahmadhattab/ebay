@@ -7,7 +7,7 @@ class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 	}
 	public function getCategoryTree()
     	{        
-	        // make it as parent an childs
+	        // make it as parent an childs 
                 $object = new Mage_Catalog_Block_Navigation();
 	        $actualCategoryId = $object->getCurrentCategory()->getId();        
 	        $actualCategory = Mage::getModel('catalog/category')->load($actualCategoryId);
