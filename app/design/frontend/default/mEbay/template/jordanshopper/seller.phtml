@@ -14,12 +14,12 @@
             </li>
     	</ul>
     </div>
-     <div class="fieldset">
-        <h2 class="legend"><?php echo $this->__('Select Categories') ?> <em style="color:red;">*</em></h2>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Select Categories') ?></h2>
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                	<?php echo 'Waiting Salam\'s Code :)'; ?>
+                	<?php print_r($this-> getCategoryTree()); ?>
                 </div>
             </li>
     	</ul>
