@@ -1,8 +1,8 @@
 <?php
 $this->startSetup();
 $this->run("
-        DROP TABLE IF EXISTS `{$this->getTable('seller_setup')}`;
-         CREATE TABLE `{$this->getTable('seller_setup')}` (
+        DROP TABLE IF EXISTS `{$this->getTable('jordanshopper_seller')}`;
+         CREATE TABLE `{$this->getTable('jordanshopper_seller')}` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `seller_id` int(11) NOT NULL,
             `product_title` varchar(255) NOT NULL,                                    
