@@ -1,8 +1,8 @@
 <?php
 $this->startSetup();
 $this->run("
-        DROP TABLE IF EXISTS `{$this->getTable('jordanshopper_seller/seller')}`;
-         CREATE TABLE `{$this->getTable('jordanshopper_seller/seller')}` (
+        DROP TABLE IF EXISTS `{$this->getTable('seller_setup')}`;
+         CREATE TABLE `{$this->getTable('seller_setup')}` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `seller_id` int(11) NOT NULL,
             `product_title` varchar(255) NOT NULL,                                    
@@ -19,7 +19,7 @@ $this->run("
             `retains` text,                                    
             `status` varchar(255) NOT NULL,                                                
             `created_at` timestamp NULL DEFAULT NULL,
-            PRIMARY KEY (`id`),           
+            PRIMARY KEY (`id`)           
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ");
     
