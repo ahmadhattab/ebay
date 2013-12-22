@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Jordanshopper_Seller>
-            <version>1.0.1.2</version>
+            <version>1.0.1</version>
         </Jordanshopper_Seller>
     </modules>
     <frontend>
@@ -30,18 +30,26 @@
             </seller>
         </blocks>
         <models>
-            <jordanshopper_seller>
+            <seller>
                 <class>Jordanshopper_Seller_Model</class>
                 <resourceModel>Jordanshopper_Seller_Model_Resource</resourceModel>
-            </jordanshopper_seller>
+            </seller>
+            <seller_resource>
+                <class>Jordanshopper_Seller_Model_Resource</class>
+                <entities>
+                    <seller>
+                        <table>jordanshopper_seller</table>
+                    </seller>
+                </entities>
+            </seller_resource>
         </models>
         <resources>
-            <jordanshopper_seller_setup>
+            <seller_setup>
                 <setup>
                     <module>Jordanshopper_Seller</module>
                     <class>Jordanshopper_Seller_Model_Resource_Setup</class>
                 </setup>
-            </jordanshopper_seller_setup>
+            </seller_setup>
         </resources>
     </global>
 </config>
