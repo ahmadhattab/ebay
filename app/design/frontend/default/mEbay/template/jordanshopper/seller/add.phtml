@@ -1,0 +1,174 @@
+<div class="page-title">
+    <h1><?php echo $this->__('Sell an item') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
+ <div class="fieldset">
+        <?php echo $this->getBlockHtml('formkey')?>
+        <h2 class="legend"><?php echo $this->__('Item Title') ?> <em style="color:red;">*</em></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box">
+                    <input type="text" name="title" id="title" value="" class="input-text required-entry" />
+                </div>
+            </li>
+    	</ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Select Categories') ?></h2>
+                <div class="input-box category">
+                	<?php echo $this-> getCategoryTree(); ?>
+                </div>
+    </div>
+     <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Item Subtitle') ?> <em style="color:red;">*</em></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box">
+                    <input type="text" name="subtitle" id="subtitle" value="" class="input-text required-entry" />
+                </div>
+            </li>
+    	</ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Item Condition') ?> <em style="color:red;">*</em></h2>
+      	<div class="input-box">
+        <ul class="form-list">
+            <li>
+                	<input type="radio" name="condition" value="new" class="radio required-entry" />New
+            </li>
+            <li>
+                	<input type="radio" name="condition" value="used" class="radio required-entry" />Used
+            </li>
+            <li>
+                	<input type="radio" name="condition" value="other" class="radio required-entry" />Other
+            </li>
+    	</ul>
+    		<input style="display: none" name="text" name="condition-other" id="condition-other" value="" class="input-text required-entry" />
+    	</div>
+    </div>
+    <div class="fieldset ">
+    	<h2 class="legend"><?php echo $this->__('Item Location'); ?> <em style="color:red;">*</em></h2>
+    	<ul class="form-list">
+        	<li>
+    	<div class="input-box">
+    		<select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value); setCityName(this.options[this.selectedIndex].text);">
+				<option value="Al-sareeh">Al-sareeh</option>
+				<option value="Amman" selected="selected">Amman</option>
+				<option value="Aqaba">Aqaba</option>
+				<option value="Irbid">Irbid</option>
+				<option value="Jerash">Jerash</option>
+				<option value="Karak">Karak</option>
+				<option value="Maa'N">Maa'N</option>
+				<option value="Mafraq">Mafraq</option>
+				<option value="Ramtha">Ramtha</option>
+				<option value="Sult">Sult</option>
+				<option value="Zarqa">Zarqa</option>
+			</select>
+    	</div>
+    	</li>
+    	</ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Price & Quntity') ?> <em style="color:red;">*</em></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box">
+                	<ul class="form-list">
+                		<li>
+                			<div class="add-to-cart">
+                				<label for="price">Price:</label>
+                				<input type="text" name="price" id="price" value="" class="input-text required-entry" />
+                				<strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
+                			</div>
+                		</li>
+                		<li>
+                			<div class="add-to-cart">
+                				<label for="qty">Qty:</label>
+                				<input type="text" name="qty" id="qty" value="" class="input-text required-entry" />
+                			</div>
+                		</li>
+                	</ul>
+                </div>
+            </li>
+    	</ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Delivery') ?> <em style="color:red;">*</em></h2>
+        <div class="input-box">
+        	<ul class="form-list">
+            	<li>
+               		<input type="radio" name="delivery" value="none" class="radio required-entry" />None
+            	</li>
+            	<li>
+                	<input type="radio" name="delivery" value="free" class="radio required-entry" />Free
+            	</li>
+        	    <li>
+                	<input type="radio" name="delivery" value="charge" class="radio required-entry" />Delivery Charge
+    	        </li>
+	    	</ul>
+    	</div>
+    </div>
+        <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Payment Method') ?> <em style="color:red;">*</em></h2>
+        <div class="input-box">
+        	<ul class="form-list">
+            	<li>
+               		<input type="radio" name="payment" value="cod" class="radio required-entry" />Cash On Delivery
+            	</li>
+            	<li>
+                	<input type="radio" name="payment" value="paypal" class="radio required-entry" />Paypal
+            	</li>
+	    	</ul>
+    	</div>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box" id="inp">
+                	<input type="file" name="file" id="file" class="required-file"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                </div>
+            </li>
+    	</ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Description') ?></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box desc">
+                	<textarea name="textarea" class="jqte-test required-entry"></textarea>                	
+                </div>
+            </li>
+    	</ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <p class="back-link"><a href="<?php echo Mage::getUrl('seller/index'); ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+    </div>
+</form>
+<script>
+	jQuery('.jqte-test').jqte();
+	
+	// settings of status
+	var jqteStatus = true;
+	jQuery(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		jQuery('.jqte-test').jqte({"status" : jqteStatus})
+	});
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    var dyname = 1;
+    function createNewUpload(){
+        dyname = dyname + 1;
+    	var input = document.createElement('input');
+	    input.type = "file";
+	    input.name = "upload" + (dyname + 1);
+	    input.id = "upload" + (dyname + 1);
+ 	    document.getElementById('inp').appendChild(input);
+    }
+</script>
