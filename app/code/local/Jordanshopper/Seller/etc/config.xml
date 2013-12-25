@@ -29,6 +29,11 @@
                 <class>Jordanshopper_Seller_Block</class>
             </seller>
         </blocks>
+        <helpers>
+        	<seller>
+        		<class>Jordanshopper_Seller_Helper</class>
+        	</seller>
+        </helpers>
         <models>
             <seller>
                 <class>Jordanshopper_Seller_Model</class>
