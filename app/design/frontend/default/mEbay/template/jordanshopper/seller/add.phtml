@@ -9,7 +9,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                    <input type="text" name="title" id="title" value="" class="input-text required-entry" />
+                    <input type="text" name="product_title" id="title" value="" class="input-text " />
                 </div>
             </li>
     	</ul>
@@ -25,7 +25,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                    <input type="text" name="subtitle" id="subtitle" value="" class="input-text required-entry" />
+                    <input type="text" name="subtitle" id="subtitle" value="" class="input-text " />
                 </div>
             </li>
     	</ul>
@@ -35,16 +35,16 @@
       	<div class="input-box">
         <ul class="form-list">
             <li>
-                	<input type="radio" name="condition" value="new" class="radio required-entry" />New
+                	<input type="radio" name="item_conditions" value="new" class="radio " />New
             </li>
             <li>
-                	<input type="radio" name="condition" value="used" class="radio required-entry" />Used
+                	<input type="radio" name="item_conditions" value="used" class="radio " />Used
             </li>
             <li>
-                	<input type="radio" name="condition" value="other" class="radio required-entry" />Other
+                	<input type="radio" name="item_conditions" value="other" class="radio " />Other
             </li>
     	</ul>
-    		<input style="display: none" name="text" name="condition-other" id="condition-other" value="" class="input-text required-entry" />
+    		<input name="condition-other" id="condition-other" value="" class="input-text " />
     	</div>
     </div>
     <div class="fieldset ">
@@ -52,7 +52,7 @@
     	<ul class="form-list">
         	<li>
     	<div class="input-box">
-    		<select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value); setCityName(this.options[this.selectedIndex].text);">
+    		<select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value); setCityName(this.options[this.selectedIndex].text);" name="item_location">
 				<option value="Al-sareeh">Al-sareeh</option>
 				<option value="Amman" selected="selected">Amman</option>
 				<option value="Aqaba">Aqaba</option>
@@ -78,14 +78,14 @@
                 		<li>
                 			<div class="add-to-cart">
                 				<label for="price">Price:</label>
-                				<input type="text" name="price" id="price" value="" class="input-text required-entry" />
+                                                <input type="text" name="price" id="price" value="" class="input-text " />
                 				<strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
                 			</div>
                 		</li>
                 		<li>
                 			<div class="add-to-cart">
                 				<label for="qty">Qty:</label>
-                				<input type="text" name="qty" id="qty" value="" class="input-text required-entry" />
+                				<input type="text" name="qty" id="qty" value="" class="input-text " />
                 			</div>
                 		</li>
                 	</ul>
@@ -98,13 +98,13 @@
         <div class="input-box">
         	<ul class="form-list">
             	<li>
-               		<input type="radio" name="delivery" value="none" class="radio required-entry" />None
+               		<input type="radio" name="delivery_details" value="none" class="radio " />None
             	</li>
             	<li>
-                	<input type="radio" name="delivery" value="free" class="radio required-entry" />Free
+                	<input type="radio" name="delivery_details" value="free" class="radio " />Free
             	</li>
         	    <li>
-                	<input type="radio" name="delivery" value="charge" class="radio required-entry" />Delivery Charge
+                	<input type="radio" name="delivery_details" value="charge" class="radio " />Delivery Charge
     	        </li>
 	    	</ul>
     	</div>
@@ -114,10 +114,10 @@
         <div class="input-box">
         	<ul class="form-list">
             	<li>
-               		<input type="radio" name="payment" value="cod" class="radio required-entry" />Cash On Delivery
+               		<input type="radio" name="payment_method" value="cod" class="radio " />Cash On Delivery
             	</li>
             	<li>
-                	<input type="radio" name="payment" value="paypal" class="radio required-entry" />Paypal
+                	<input type="radio" name="payment_method" value="paypal" class="radio " />Paypal
             	</li>
 	    	</ul>
     	</div>
@@ -127,7 +127,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box" id="inp">
-                	<input type="file" name="file" id="file" class="required-file"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                	<input type="file" name="images" id="file" class="required-file"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
                 </div>
             </li>
     	</ul>
@@ -137,7 +137,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                	<textarea name="textarea" class="jqte-test required-entry"></textarea>                	
+                	<textarea name="description" class="jqte-test "></textarea>                	
                 </div>
             </li>
     	</ul>
