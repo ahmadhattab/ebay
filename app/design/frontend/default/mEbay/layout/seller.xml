@@ -1,13 +1,36 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
 	<seller_index_index>
+		<update handle="customer_account"/>
+		<reference name="root">
+            <action method="setHeaderTitle" translate="title" module="customer"><title>My Account</title></action>
+        </reference>
+        <reference name="content">
+			<block type="seller/seller_dashboard" name="seller_dashboard" as="sellerbashoard" template="jordanshopper/seller/dashboard.phtml" />
+		</reference>
+	</seller_index_index>
+	<seller_index_add>
 		<reference name="root">
 			<action method="setTemplate"><template>page/1column.phtml</template></action>
 		</reference>
-		<reference name="content">
-			<block type="seller/seller" name="" template="jordanshopper/seller.phtml" />
+		<reference name="head">
+			<action method="addJs">
+    			<script>jquery.min.js</script>
+			</action>
+			<action method="addJs">
+    			<script>editor/jquery-te-1.4.0.min.js</script>
+			</action>
+			<action method="addJs">
+    			<script>noConflict.js</script>
+			</action>
+			<action method="addCss">
+    			<name>css/editor/jquery-te-1.4.0.css</name>
+			</action>
 		</reference>
-	</seller_index_index>
+		<reference name="content">
+			<block type="seller/seller" name="additem" as="additem" template="jordanshopper/seller/add.phtml" />
+		</reference>
+	</seller_index_add>
     <customer_account>
         <reference name="customer_account_navigation">
             <action method="addLink">

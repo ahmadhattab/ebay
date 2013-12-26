@@ -1846,3 +1846,11 @@ background:#F3F3F3;
 .form-search {text-align:center;}
 .form-search .title {text-transform:uppercase;color:#203548;}
 .form-subscribe-header {display: none;}
+.seller-dashboard {width: 750px; text-align: center;}
+.seller-dashboard.bottom { margin-top: 20px; }
+.total-seller {width: 48%; text-align:center; border: 1px solid #dedede; float:left; margin-top: 20px;}
+.total-seller.first { margin-right: 20px;}
+.total-seller h4 {background: #f3f3f3; padding: 10px;}
+.seller-dashboard h1 {font-size: 40px;padding: 10px;}
+.category ul, ol{ list-style-type: circle !important; padding: 0 15px;}
+.input-box.desc {width: 100% !important;}
