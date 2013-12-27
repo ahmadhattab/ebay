@@ -1854,3 +1854,22 @@ background:#F3F3F3;
 .seller-dashboard h1 {font-size: 40px;padding: 10px;}
 .category ul, ol{ list-style-type: circle !important; padding: 0 15px;}
 .input-box.desc {width: 100% !important;}
+.image-box {width: 400px;}
+.images {
+	width: 300px;
+	height: 20px;
+	border: 1px solid #BBB;
+	border-right: 0;
+	color: #888;
+	padding: 5px;
+	
+	-webkit-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-radius: 5px;
+	
+	outline: none;
+}
+.image-box .images{ margin-bottom: 10px;}

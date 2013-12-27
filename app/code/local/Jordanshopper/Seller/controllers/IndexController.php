@@ -15,8 +15,8 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 	public function sellerPostAction(){
             $params = $this->getRequest()->getParams();
             echo '<pre>';
-            $profile  = Mage::getModel('markavip_dataflow/profile');
-            print_r($profile->getData());
+            //$profile  = Mage::getModel('markavip_dataflow/profile');
+            //print_r($profile->getData());
             print_r($params);
             print_r($_FILES);
             // get post Seller values 
