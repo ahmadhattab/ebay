@@ -36,7 +36,7 @@
         </helpers>
         <models>
             <seller>
-                <class>Jordanshopper_Seller_Model_Mysql4</class>
+                <class>Jordanshopper_Seller_Model</class>
                 <resourceModel>seller_mysql4</resourceModel>
             </seller>
             <seller_mysql4>

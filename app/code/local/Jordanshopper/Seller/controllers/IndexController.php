@@ -13,11 +13,11 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 	}
 	
 	public function sellerPostAction(){
-            $params       = $this->getRequest()->getParams();
+            //$params       = $this->getRequest()->getParams();
             $sellerModel  = Mage::getModel('seller/seller')->load(1);
-            print_r($sellerModel);die;
-            echo '<pre>';            
-            print_r($sellerModel->getData());die;
+            echo '<pre>';
+            echo $sellerModel->getId();
+			die();
             // get post Seller values 
             $productTitle       = $this->getRequest()->getParam('product_title');
             $category           = $this->getRequest()->getParam('category');
