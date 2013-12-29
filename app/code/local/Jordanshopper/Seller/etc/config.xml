@@ -36,25 +36,37 @@
         </helpers>
         <models>
             <seller>
-                <class>Jordanshopper_Seller_Model</class>
-                <resourceModel>Jordanshopper_Seller_Model_Resource</resourceModel>
+                <class>Jordanshopper_Seller_Model_Mysql4</class>
+                <resourceModel>seller_mysql4</resourceModel>
             </seller>
-            <seller_resource>
-                <class>Jordanshopper_Seller_Model_Resource</class>
+            <seller_mysql4>
+                <class>Jordanshopper_Seller_Model_mysql4</class>
                 <entities>
                     <seller>
                         <table>jordanshopper_seller</table>
                     </seller>
                 </entities>
-            </seller_resource>
+            </seller_mysql4>
         </models>
         <resources>
             <seller_setup>
                 <setup>
                     <module>Jordanshopper_Seller</module>
-                    <class>Jordanshopper_Seller_Model_Resource_Setup</class>
                 </setup>
-            </seller_setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </seller_setup>            
+            <seller_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </seller_write>
+            <seller_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </seller_read>
         </resources>
     </global>
 </config>

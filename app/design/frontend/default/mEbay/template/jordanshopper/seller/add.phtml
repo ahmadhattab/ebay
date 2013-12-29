@@ -3,8 +3,8 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
- <div class="fieldset">
-        <?php echo $this->getBlockHtml('formkey')?>
+    <div class="fieldset">
+        <?php echo $this->getBlockHtml('formkey') ?>
         <h2 class="legend"><?php echo $this->__('Item Title') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">
             <li>
@@ -12,15 +12,15 @@
                     <input type="text" name="product_title" id="title" value="" class="input-text images" />
                 </div>
             </li>
-    	</ul>
+        </ul>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Select Categories') ?></h2>
-                <div class="input-box category">
-                	<?php echo $this-> getCategoryTree(); ?>
-                </div>
+        <div class="input-box category">
+            <?php echo $this->getCategoryTree(); ?>
+        </div>
     </div>
-     <div class="fieldset">
+    <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Item Subtitle') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">
             <li>
@@ -28,166 +28,167 @@
                     <input type="text" name="subtitle" id="subtitle" value="" class="input-text images" />
                 </div>
             </li>
-    	</ul>
+        </ul>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Item Condition') ?> <em style="color:red;">*</em></h2>
-      	<div class="input-box">
-        <ul class="form-list">
-            <li>
-                	<input type="radio" name="item_conditions" value="new" class="radio " onclick="check(this.value)"/>New
-            </li>
-            <li>
-                	<input type="radio" name="item_conditions" value="used" class="radio " onclick="check(this.value)"/>Used
-            </li>
-            <li>
-                	<input type="radio" name="item_conditions" value="other" class="radio " onclick="check(this.value)"/>Other
-            </li>
-            <li>
-            	    		<input type="text" name="condition-other" id="condition-other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
-            </li>
-    	</ul>
-    		<script>
-    			function check(value)
-    			{
-        			if(value == 'other')
-        			{
-            			$('condition-other').show();
-        			}
-        			else
-        			{
-        				$('condition-other').hide();
-        			}
-    			}
-    		</script>
-    	</div>
+        <div class="input-box">
+            <ul class="form-list">
+                <li>
+                    <input type="radio" name="item_conditions" value="new" class="radio " onclick="check(this.value)"/>New
+                </li>
+                <li>
+                    <input type="radio" name="item_conditions" value="used" class="radio " onclick="check(this.value)"/>Used
+                </li>
+                <li>
+                    <input type="radio" name="item_conditions" value="other" class="radio " onclick="check(this.value)"/>Other
+                </li>
+                <li>
+                    <input type="text" name="item_conditions" id="condition-other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
+                </li>
+            </ul>
+            <script>
+                        function check(value)
+                        {
+                            if (value == 'other')
+                            {
+                                $('condition-other').show();
+                            }
+                            else
+                            {
+                                $('condition-other').hide();
+                            }
+                        }
+            </script>
+        </div>
     </div>
     <div class="fieldset ">
-    	<h2 class="legend"><?php echo $this->__('Item Location'); ?> <em style="color:red;">*</em></h2>
-    	<ul class="form-list">
-        	<li>
-    	<div class="input-box">
-    		<select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value); setCityName(this.options[this.selectedIndex].text);" name="item_location">
-				<option value="Al-sareeh">Al-sareeh</option>
-				<option value="Amman" selected="selected">Amman</option>
-				<option value="Aqaba">Aqaba</option>
-				<option value="Irbid">Irbid</option>
-				<option value="Jerash">Jerash</option>
-				<option value="Karak">Karak</option>
-				<option value="Maa'N">Maa'N</option>
-				<option value="Mafraq">Mafraq</option>
-				<option value="Ramtha">Ramtha</option>
-				<option value="Sult">Sult</option>
-				<option value="Zarqa">Zarqa</option>
-			</select>
-    	</div>
-    	</li>
-    	</ul>
+        <h2 class="legend"><?php echo $this->__('Item Location'); ?> <em style="color:red;">*</em></h2>
+        <ul class="form-list">
+            <li>
+                <div class="input-box">
+                    <select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value);
+                                setCityName(this.options[this.selectedIndex].text);" name="item_location">
+                        <option value="Al-sareeh">Al-sareeh</option>
+                        <option value="Amman" selected="selected">Amman</option>
+                        <option value="Aqaba">Aqaba</option>
+                        <option value="Irbid">Irbid</option>
+                        <option value="Jerash">Jerash</option>
+                        <option value="Karak">Karak</option>
+                        <option value="Maa'N">Maa'N</option>
+                        <option value="Mafraq">Mafraq</option>
+                        <option value="Ramtha">Ramtha</option>
+                        <option value="Sult">Sult</option>
+                        <option value="Zarqa">Zarqa</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Price & Quntity') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                	<ul class="form-list">
-                		<li>
-                			<div class="add-to-cart">
-                				<label for="price">Price:</label>
-                                                <input type="text" name="price" id="price" value="" class="input-text images" />
-                				<strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
-                			</div>
-                		</li>
-                		<li>
-                			<div class="add-to-cart">
-                				<label for="qty">Qty:</label>
-                				<input type="text" name="qty" id="qty" value="" class="input-text images" />
-                			</div>
-                		</li>
-                	</ul>
+                    <ul class="form-list">
+                        <li>
+                            <div class="add-to-cart">
+                                <label for="price">Price:</label>
+                                <input type="text" name="price" id="price" value="" class="input-text images" />
+                                <strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="add-to-cart">
+                                <label for="qty">Qty:</label>
+                                <input type="text" name="qty" id="qty" value="" class="input-text images" />
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
-    	</ul>
+        </ul>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Delivery') ?> <em style="color:red;">*</em></h2>
         <div class="input-box">
-        	<ul class="form-list">
-            	<li>
-               		<input type="radio" name="delivery_details" value="none" class="radio " onclick="delivery(this.value)"/>None
-            	</li>
-            	<li>
-                	<input type="radio" name="delivery_details" value="free" class="radio " onclick="delivery(this.value)"/>Free
-            	</li>
-        	    <li>
-                	<input type="radio" name="delivery_details" value="charge" class="radio " onclick="delivery(this.value)"/>Delivery Charge
-    	        </li>
-    	        <li>
-    	        	<input type="text" name="delivery_cost" id="delivery_cost" class="images required-entry input-text" style="display: none;"/>
-    	        </li>
-	    	</ul>
-    	</div>
-    	<script>
-    		function delivery(value)
-    		{
-        		if(value == "charge")
-        		{
-            		$('delivery_cost').show();
-        		}
-        		else
-        		{
-            		$('delivery_cost').hide();
-        		}
-    		}
-    	</script>
+            <ul class="form-list">
+                <li>
+                    <input type="radio" name="delivery_details" value="none" class="radio " onclick="delivery(this.value)"/>None
+                </li>
+                <li>
+                    <input type="radio" name="delivery_details" value="free" class="radio " onclick="delivery(this.value)"/>Free
+                </li>
+                <li>
+                    <input type="radio" name="delivery_details" value="charge" class="radio " onclick="delivery(this.value)"/>Delivery Charge
+                </li>
+                <li>
+                    <input type="text" name="delivery_details" id="delivery_cost" class="images required-entry input-text" style="display: none;"/>
+                </li>
+            </ul>
+        </div>
+        <script>
+                            function delivery(value)
+                            {
+                                if (value == "charge")
+                                {
+                                    $('delivery_cost').show();
+                                }
+                                else
+                                {
+                                    $('delivery_cost').hide();
+                                }
+                            }
+        </script>
     </div>
-        <div class="fieldset">
+    <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Payment Method') ?> <em style="color:red;">*</em></h2>
         <div class="input-box">
-        	<ul class="form-list">
-            	<li>
-               		<input type="radio" name="payment_method" value="cod" class="radio " onclick="payment(this.value)"/>Cash On Delivery
-            	</li>
-            	<li>
-                	<input type="radio" name="payment_method" value="paypal" class="radio " onclick="payment(this.value)"/>Paypal
-            	</li>
-            	<li>
-            	    		<input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="" style="display: none;" class="input-text " />
-            	</li>
-	    	</ul>
-    	</div>
-    	<script>
-    		function payment(value)
-    		{
-        		if (value == "paypal")
-        		{
-            		$('paypal_email').show();
-        		}
-        		else
-        		{
-            		$('paypal_email').hide();
-        		}
-    		}
-    	</script>
+            <ul class="form-list">
+                <li>
+                    <input type="radio" name="payment_method" value="cod" class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                </li>
+                <li>
+                    <input type="radio" name="payment_method" value="paypal" class="radio " onclick="payment(this.value)"/>Paypal
+                </li>
+                <li>
+                    <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="" style="display: none;" class="input-text " />
+                </li>
+            </ul>
+        </div>
+        <script>
+                            function payment(value)
+                            {
+                                if (value == "paypal")
+                                {
+                                    $('paypal_email').show();
+                                }
+                                else
+                                {
+                                    $('paypal_email').hide();
+                                }
+                            }
+        </script>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
         <ul class="form-list">
             <li>
                 <div class="image-box" id="inp">
-                	<input type="file" name="images" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                    <input type="file" name="images" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
                 </div>
             </li>
-    	</ul>
+        </ul>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Description') ?></h2>
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                	<textarea name="description" class="jqte-test "></textarea>                	
+                    <textarea name="description" class="jqte-test "></textarea>                	
                 </div>
             </li>
-    	</ul>
+        </ul>
     </div>
     <div class="buttons-set">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
@@ -196,27 +197,27 @@
     </div>
 </form>
 <script>
-	jQuery('.jqte-test').jqte();
-	
-	// settings of status
-	var jqteStatus = true;
-	jQuery(".status").click(function()
-	{
-		jqteStatus = jqteStatus ? false : true;
-		jQuery('.jqte-test').jqte({"status" : jqteStatus})
-	});
+                            jQuery('.jqte-test').jqte();
+
+                            // settings of status
+                            var jqteStatus = true;
+                            jQuery(".status").click(function()
+                            {
+                                jqteStatus = jqteStatus ? false : true;
+                                jQuery('.jqte-test').jqte({"status": jqteStatus})
+                            });
 </script>
 <script type="text/javascript">
 //<![CDATA[
     var dataForm = new VarienForm('form-validate', true);
     var dyname = 1;
-    function createNewUpload(){
+    function createNewUpload() {
         dyname = dyname + 1;
-    	var input = document.createElement('input');
-	    input.type = "file";
-	    input.name = "upload" + (dyname + 1);
-	    input.id = "upload" + (dyname + 1);
-	    input.className = "images";
- 	    document.getElementById('inp').appendChild(input);
+        var input = document.createElement('input');
+        input.type = "file";
+        input.name = "upload" + (dyname + 1);
+        input.id = "upload" + (dyname + 1);
+        input.className = "images";
+        document.getElementById('inp').appendChild(input);
     }
 </script>

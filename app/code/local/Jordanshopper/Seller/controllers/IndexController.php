@@ -13,12 +13,11 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 	}
 	
 	public function sellerPostAction(){
-            $params = $this->getRequest()->getParams();
-            echo '<pre>';
-            //$profile  = Mage::getModel('markavip_dataflow/profile');
-            //print_r($profile->getData());
-            print_r($params);
-            print_r($_FILES);
+            $params       = $this->getRequest()->getParams();
+            $sellerModel  = Mage::getModel('seller/seller')->load(1);
+            print_r($sellerModel);die;
+            echo '<pre>';            
+            print_r($sellerModel->getData());die;
             // get post Seller values 
             $productTitle       = $this->getRequest()->getParam('product_title');
             $category           = $this->getRequest()->getParam('category');
@@ -36,7 +35,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             
             // make some validation before store these values in jordanshopper_seller
             if (isset($productTitle) && !empty($productTitle)) {
-                
+                trim($productTitle);   
             }
             if ((isset($category) && !empty($category)) || (isset($subcategory) && !empty($subcategory))) {
                 

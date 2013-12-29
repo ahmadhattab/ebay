@@ -4,11 +4,11 @@
  *
  * @author Salameh Yasin <salameh.yaseen@gmail.com> 
  */
-class Jordanshopper_Seller_Model_Resource_Seller_Collection 
+class Jordanshopper_Seller_Model_Mysql4_Seller_Resource_Seller_Collection 
     extends Mage_Core_Model_Mysql4_Collection_Abstract
 {
     public function _construct()
     {
-        $this->_init('jordanshopper_seller/seller');
+        $this->_init('seller/seller');
     }
 }
