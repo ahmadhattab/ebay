@@ -16,13 +16,13 @@ class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 	        foreach ($subCategories as $subCategoryId) {
 	            $category = Mage::getModel('catalog/category')->load($subCategoryId);                 
 	           if ($category->getIsActive()) {
-	                $output .= "<li class='x-tree-node'><input type='checkbox' name='category' value='{$category->getId()}'>{$category->getName()}";                               
+	                $output .= "<li class='x-tree-node'><input type='checkbox' name='category[]' value='{$category->getId()}'>{$category->getName()}";                               
 	           }
 	            if($category->hasChildren()){                
 	                $output .= "<ul>";
 	                $subCategoriesList = $category->getChildrenCategories();
 	                foreach ($subCategoriesList as $subcategory){
-	                    $output .= "<li class='menu-item-2'><input type='checkbox' name='subcategory' value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";                               
+	                    $output .= "<li class='menu-item-2'><input type='checkbox' name='category[]' value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";                               
 	                }
                             $output .= "</ul></li>";
                     }else{
