@@ -68,10 +68,12 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             $sellerModel->setCreatedAt(time());
             $sellerModel->save();
             $this->_redirect('*/*/index');
-
             
+            // Still Remaining 
             
+            // Save images names in database 
             // Move upload images to Seller Folder
+            
             
             
 	}        
