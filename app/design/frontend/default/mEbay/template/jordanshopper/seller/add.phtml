@@ -9,6 +9,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
+                    <input type="hidden" name="seller_id" value="<?php echo Mage::registry('seller_id'); ?>">
                     <input type="text" name="product_title" id="title" value="" class="input-text images" />
                 </div>
             </li>
@@ -146,7 +147,7 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" value="cod" class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" value="cashOnDelivery" class="radio " onclick="payment(this.value)"/>Cash On Delivery
                 </li>
                 <li>
                     <input type="radio" name="payment_method" value="paypal" class="radio " onclick="payment(this.value)"/>Paypal
