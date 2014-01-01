@@ -1,3 +1,4 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Seller Dashboard') ?></h1>
     <button type="button" title="<?php echo $this->__('Sell an item') ?>" class="button" onclick="window.location='<?php echo Mage::getUrl('seller/index/add'); ?>';"><span><span><?php echo $this->__('Sell an item') ?></span></span></button>
@@ -22,3 +23,43 @@
 		<h1>5 Items</h1>
 	</div>
 </div>
+<div class="div-content">
+		<table width="100%" class="table-content">
+			<thead>
+				<tr>
+					<th>Item Title</th>
+					<th>Item Conditions</th>
+					<th>Price</th>
+					<th>Qty</th>
+					<th>Created At</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach ($this->getItems() as $item): ?>
+				<tr>
+					<td><?php echo $item->getProductTitle(); ?></td>
+					<td><?php echo $item->getItemConditions(); ?></td>
+					<td><?php echo $item->getPrice(); ?></td>
+					<td><?php echo $item->getQty(); ?></td>
+					<td><?php echo $item->getCreatedAt(); ?></td>
+					<td>
+					<?php
+					if ($item->getStatus() == 0)
+					{
+					?>
+					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>">Edit</a>
+					<?php
+					}
+					else
+					{
+					
+					}
+					?>
+					</td>
+
+				</tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>

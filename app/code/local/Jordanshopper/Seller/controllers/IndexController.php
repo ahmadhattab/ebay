@@ -19,7 +19,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 	public function sellerPostAction(){
             $params       = $this->getRequest()->getParams();
             $sellerModel  = Mage::getModel('seller/seller'); 
-            $session    = Mage::getSingleton('connect/session');
+            $session    = Mage::getSingleton('core/session');
             // get post Seller values 
             $sellerId           = $this->getRequest()->getParam('seller_id');
             $productTitle       = $this->getRequest()->getParam('product_title');
@@ -102,6 +102,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             }            
             $sellerModel->setCreatedAt(time());
             $sellerModel->save();
+            $session->addSuccess($this->__('The item has been saved'));
             $this->_redirect('*/*/index');            
 	}        
 }
