@@ -45,7 +45,7 @@
 					<td><?php echo $item->getCreatedAt(); ?></td>
 					<td>
 					<?php
-					if ($item->getStatus() == 0)
+					if ($item->getStatus() == 0 || $item->getStatus() == 1)
 					{
 					?>
 					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>">Edit</a>
@@ -53,7 +53,9 @@
 					}
 					else
 					{
-					
+					?>
+					<a href="<?php echo Mage::getUrl('seller/item/view',array('id' => $item->getId()))?>">View</a>
+					<?php
 					}
 					?>
 					</td>
