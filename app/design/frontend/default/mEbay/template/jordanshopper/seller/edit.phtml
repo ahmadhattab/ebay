@@ -1,4 +1,7 @@
-<form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
+<?php 
+$item = $this->getItem();
+?>
+<form action="<?php echo $this->getUrl('seller/item/editPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Sell an item') ?></h1>
 </div>
@@ -9,8 +12,8 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                    <input type="hidden" name="seller_id" value="<?php echo Mage::registry('seller_id'); ?>">
-                    <input type="text" name="product_title" id="title" value="" class="input-text required-entry images" />
+                    <input type="hidden" name="item_id" value="<?php echo $item->getId(); ?>">
+                    <input type="text" name="product_title" id="title" value="<?php echo $item->getProductTitle(); ?>" class="input-text images" />
                 </div>
             </li>
         </ul>
@@ -26,7 +29,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
-                    <input type="text" name="subtitle" id="subtitle" value="" class="input-text required-entry images" />
+                    <input type="text" name="subtitle" id="subtitle" value="<?php echo $item->getProductSubtitle(); ?>" class="input-text images" />
                 </div>
             </li>
         </ul>
@@ -36,16 +39,16 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" value="new" class="radio " onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" id="item_conditions1" <?php if($item->getItemConditions() == 'new'){?>checked="checked"<?php }?> value="new" class="radio " onclick="check(this.value)"/>New
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="used" class="radio " onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" id="item_conditions2" <?php if($item->getItemConditions() == 'used'){?>checked="checked"<?php }?> value="used" class="radio " onclick="check(this.value)"/>Used
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="other" class="radio " onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" id="item_conditions3" <?php if($item->getItemConditions() == 'other'){?>checked="checked"<?php }?> value="other" class="radio " onclick="check(this.value)"/>Other
                 </li>
                 <li>
-                    <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
+                    <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="<?php echo $item->getItemConditionsOther(); ?>" style="display: none;" class="input-text " />
                 </li>
             </ul>
             <script>
@@ -61,6 +64,13 @@
                             }
                         }
             </script>
+            <script type="text/javascript">
+            jQuery(document).ready(function(){
+            	if( jQuery("#item_conditions3").is(":checked")){
+            		jQuery('#item_conditions_other').show();
+            	}
+            });
+            </script>
         </div>
     </div>
     <div class="fieldset ">
@@ -70,17 +80,17 @@
                 <div class="input-box">
                     <select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value);
                                 setCityName(this.options[this.selectedIndex].text);" name="item_location">
-                        <option value="Al-sareeh">Al-sareeh</option>
-                        <option value="Amman" selected="selected">Amman</option>
-                        <option value="Aqaba">Aqaba</option>
-                        <option value="Irbid">Irbid</option>
-                        <option value="Jerash">Jerash</option>
-                        <option value="Karak">Karak</option>
-                        <option value="Maa'N">Maa'N</option>
-                        <option value="Mafraq">Mafraq</option>
-                        <option value="Ramtha">Ramtha</option>
-                        <option value="Sult">Sult</option>
-                        <option value="Zarqa">Zarqa</option>
+                        <option value="Al-sareeh" <?php if($item->getItemLocation() == 'Al-sareeh'){?>selected="selected"<?php } ?>>Al-sareeh</option>
+                        <option value="Amman" <?php if($item->getItemLocation() == 'Amman'){?>selected="selected"<?php } ?>>Amman</option>
+                        <option value="Aqaba" <?php if($item->getItemLocation() == 'Aqaba'){?>selected="selected"<?php } ?>>Aqaba</option>
+                        <option value="Irbid" <?php if($item->getItemLocation() == 'Irbid'){?>selected="selected"<?php } ?>>Irbid</option>
+                        <option value="Jerash" <?php if($item->getItemLocation() == 'Jerash'){?>selected="selected"<?php } ?>>Jerash</option>
+                        <option value="Karak" <?php if($item->getItemLocation() == 'Karak'){?>selected="selected"<?php } ?>>Karak</option>
+                        <option value="Maa'N" <?php if($item->getItemLocation() == 'Maa\'N'){?>selected="selected"<?php } ?>>Maa'N</option>
+                        <option value="Mafraq" <?php if($item->getItemLocation() == 'Mafraq'){?>selected="selected"<?php } ?>>Mafraq</option>
+                        <option value="Ramtha" <?php if($item->getItemLocation() == 'Ramtha'){?>selected="selected"<?php } ?>>Ramtha</option>
+                        <option value="Sult" <?php if($item->getItemLocation() == 'Sult'){?>selected="selected"<?php } ?>>Sult</option>
+                        <option value="Zarqa" <?php if($item->getItemLocation() == 'Zarqa'){?>selected="selected"<?php } ?>>Zarqa</option>
                     </select>
                 </div>
             </li>
@@ -95,14 +105,14 @@
                         <li>
                             <div class="add-to-cart">
                                 <label for="price">Price:</label>
-                                <input type="text" name="price" id="price" value="" class="input-text images" />
+                                <input type="text" name="price" id="price" value="<?php echo $item->getPrice(); ?>" class="input-text images" />
                                 <strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
                             </div>
                         </li>
                         <li>
                             <div class="add-to-cart">
                                 <label for="qty">Qty:</label>
-                                <input type="text" name="qty" id="qty" value="" class="input-text images" />
+                                <input type="text" name="qty" id="qty" value="<?php echo $item->getQty(); ?>" class="input-text images" />
                             </div>
                         </li>
                     </ul>
@@ -115,16 +125,16 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="delivery_details" value="none" class="radio " onclick="delivery(this.value)"/>None
+                    <input type="radio" name="delivery_details" value="none" <?php if($item->getDeliveryDetails() == 'none'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>None
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="free" class="radio " onclick="delivery(this.value)"/>Free
+                    <input type="radio" name="delivery_details" value="free" <?php if($item->getDeliveryDetails() == 'free'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>Free
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="charge" class="radio " onclick="delivery(this.value)"/>Delivery Charge
+                    <input type="radio" name="delivery_details" id="charge" value="charge" <?php if($item->getDeliveryDetails() == 'charge'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>Delivery Charge
                 </li>
                 <li>
-                    <input type="text" name="delivery_cost" id="delivery_cost" class="images required-entry input-text" style="display: none;"/>
+                    <input type="text" name="delivery_cost" id="delivery_cost" value="<?php echo $item->getDeliveryCost(); ?>" class="images required-entry input-text" style="display: none;"/>
                 </li>
             </ul>
         </div>
@@ -141,19 +151,26 @@
                                 }
                             }
         </script>
+                  <script type="text/javascript">
+            jQuery(document).ready(function(){
+            	if( jQuery("#charge").is(":checked")){
+            		jQuery('#delivery_cost').show();
+            	}
+            });
+            </script>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Payment Method') ?> <em style="color:red;">*</em></h2>
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" value="cashOnDelivery" class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" id="payment1" value="cashOnDelivery" <?php if($item->getPaymentMethod() =='cashOnDelivery'){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Cash On Delivery
                 </li>
                 <li>
-                    <input type="radio" name="payment_method" value="paypal" class="radio " onclick="payment(this.value)"/>Paypal
+                    <input type="radio" name="payment_method" id="payment2" value="paypal" <?php if($item->getPaymentMethod() =='paypal'){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Paypal
                 </li>
                 <li>
-                    <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="" style="display: none;" class="input-text " />
+                    <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="<?php echo $item->getPaypalEmail(); ?>" style="display: none;" class="input-text " />
                 </li>
             </ul>
         </div>
@@ -170,6 +187,13 @@
                                 }
                             }
         </script>
+                    <script type="text/javascript">
+            jQuery(document).ready(function(){
+            	if( jQuery("#payment2").is(":checked")){
+            		jQuery("#paypal_email").show();
+            	}
+            });
+            </script>
     </div>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
@@ -186,7 +210,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                    <textarea name="description" class="jqte-test "></textarea>                	
+                    <textarea name="description" id="description" class="jqte-test"><?php echo $item->getDescription(); ?></textarea>                	
                 </div>
             </li>
         </ul>
@@ -194,7 +218,7 @@
     <div class="buttons-set">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
         <p class="back-link"><a href="<?php echo Mage::getUrl('seller/index'); ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
-        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Update') ?></span></span></button>
     </div>
 </form>
 <script>

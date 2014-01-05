@@ -17,7 +17,6 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 	}
 	
 	public function sellerPostAction(){
-            $params       = $this->getRequest()->getParams();
             $sellerModel  = Mage::getModel('seller/seller'); 
             $session    = Mage::getSingleton('core/session');
             // get post Seller values 
@@ -26,10 +25,12 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             $category           = $this->getRequest()->getParam('category');
             $subtitle           = $this->getRequest()->getParam('subtitle');
             $itemConditions     = $this->getRequest()->getParam('item_conditions');
+            $itemConditionsOther = $this->getRequest()->getParam('item_conditions_other');
             $itemLocation       = $this->getRequest()->getParam('item_location');
             $price              = $this->getRequest()->getParam('price');
             $qty                = $this->getRequest()->getParam('qty');
             $deliveryDetails    = $this->getRequest()->getParam('delivery_details');
+            $deliveryCost 		= $this->getRequest()->getParam('delivery_cost');
             $paymentMethod      = $this->getRequest()->getParam('payment_method');
             $paypalEmail        = $this->getRequest()->getParam('paypal_email');
             $description        = $this->getRequest()->getParam('description');
@@ -51,6 +52,9 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             }
             if (isset($itemConditions) && !empty($itemConditions)) {
                 $sellerModel->setItemConditions(trim($itemConditions));
+                if($itemConditions == 'other'){
+                	$sellerModel->setItemConditionsOther($itemConditionsOther);
+                }
             }            
             if (isset($itemLocation) && !empty($itemLocation)) {
                 $sellerModel->setItemLocation(trim($itemLocation));
@@ -63,6 +67,9 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
             }
             if (isset($deliveryDetails) && !empty($deliveryDetails)) {
                 $sellerModel->setDeliveryDetails(trim($deliveryDetails));
+                if($deliveryDetails == 'charge'){
+                	$sellerModel->setDeliveryCost($deliveryCost);
+                }
             }
             if (isset($paymentMethod) && !empty($paymentMethod)) {
                 $sellerModel->setPaymentMethod(trim($paymentMethod));
