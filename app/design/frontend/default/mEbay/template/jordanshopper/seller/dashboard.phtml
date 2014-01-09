@@ -1,34 +1,44 @@
-<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php 
+$items = $this->getItems();
+echo $this->getMessagesBlock()->getGroupedHtml(); 
+?>
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Seller Dashboard') ?></h1>
     <button type="button" title="<?php echo $this->__('Sell an item') ?>" class="button" onclick="window.location='<?php echo Mage::getUrl('seller/index/add'); ?>';"><span><span><?php echo $this->__('Sell an item') ?></span></span></button>
 </div>
+<?php
+if (!$items){
+?>
+<p><?php echo $this->__('You have no item on your store'); ?></p>
+<?php
+} else {
+?>
 <div class="seller-dashboard top">
 	<div class="total-seller first">
-		<h4><?php echo $this->__('Total Saved Items'); ?></h4>
-		<h1>250 Items</h1>
+		<h4><?php echo $this->__('Total Items'); ?></h4>
+		<h1><?php echo $items->count() . ' ' . $this->__('Item(s)'); ?></h1>
 	</div>
 	<div class="total-seller">
-		<h4><?php echo $this->__('Total Submited Items'); ?></h4>
-		<h1>30 Items</h1>
+		<h4><?php echo $this->__('Total Saved Items'); ?></h4>
+		<h1><?php echo $this->getTotalSaved() . ' ' . $this->__('Item(s)'); ?></h1>
 	</div>
 </div>
 <div class="seller-dashboard bottom">
 	<div class="total-seller first">
 		<h4><?php echo $this->__('Total Wating Approval'); ?></h4>
-		<h1>10 Items</h1>
+		<h1><?php echo $this->getTotalSubmitted() . ' ' . $this->__('Item(s)'); ?></h1>
 	</div>
 	<div class="total-seller">
 		<h4><?php echo $this->__('Total Sold Items'); ?></h4>
-		<h1>5 Items</h1>
+		<h1><?php echo $this->getTotalSold() . ' ' . $this->__('Item(s)'); ?></h1>
 	</div>
 </div>
 <div class="div-content">
 		<table width="100%" class="table-content">
 			<thead>
 				<tr>
-					<th>Item Title</th>
-					<th>Item Conditions</th>
+					<th><?php echo $this->__('Item Title');?></th>
+					<th><?php echo $this->__('Item Conditions');?></th>
 					<th>Price</th>
 					<th>Qty</th>
 					<th>Created At</th>
@@ -36,7 +46,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($this->getItems() as $item): ?>
+			<?php foreach ($items->getItems() as $item): ?>
 				<tr>
 					<td><?php echo $item->getProductTitle(); ?></td>
 					<td><?php echo $item->getItemConditions(); ?></td>
@@ -45,13 +55,20 @@
 					<td><?php echo $item->getCreatedAt(); ?></td>
 					<td>
 					<?php
-					if ($item->getStatus() == 0 || $item->getStatus() == 1)
+					if ($item->getStatus() == 0)
 					{
 					?>
-					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>">Edit</a>
+					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>">Edit</a> | 
+					<a href="<?php echo Mage::getUrl('seller/item/submit',array('id' => $item->getId()))?>">Submit</a>
 					<?php
 					}
-					else
+					elseif ($item->getStatus() == 1)
+					{
+					?>
+					<p><?php echo $this->__('Pending Approval')?></p>
+					<?php
+					}
+					elseif ($item->getStatus() == 2)
 					{
 					?>
 					<a href="<?php echo Mage::getUrl('seller/item/view',array('id' => $item->getId()))?>">View</a>
@@ -65,3 +82,6 @@
 			</tbody>
 		</table>
 	</div>
+<?php 
+}
+?>

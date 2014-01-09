@@ -53,5 +53,15 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 		$output .= "</ul>";
 		return $output;
 	}
+	
+	public function getListingItems()
+	{
+		$categoryId = 5;
+		$category = Mage::getModel('catalog/category');
+		$category->load($categoryId);
+		$collection = $category->getProductCollection();
+		$collection->addAttributeToSelect('*');
+		return $collection;
+	}
 }
 ?>

@@ -1,0 +1,66 @@
+<?php
+$item = $this->getItem();
+$listingItems = $this->getListingItems();
+?>
+<div class="page-title title-buttons">
+	<h1>
+	<?php echo $this->__('Submit Your Item') ?>
+	</h1>
+</div>
+<div class="fieldset">
+<?php echo $this->getBlockHtml('formkey') ?>
+	<h2 class="legend">
+	<?php echo $this->__('Listing Prices') ?>
+		<em style="color: red;">*</em>
+	</h2>
+	<ul class="form-list">
+		<li>
+			<div class="box">
+				<h3>
+					Sumit your item "<span style="color: red;"><?php echo $item->getProductTitle(); ?>
+					</span>" with our store to make it online and purchasable from our
+					customers
+				</h3>
+				<ul class="form-list">
+				<?php foreach($listingItems as $listingItem): ?>
+					<li>
+						<table class="procut_item" border="0" cellpadding="4">
+							<tr>
+								<td width="50%"><h4>
+								<?php echo $listingItem->getName(); ?>
+								<?php echo Mage::helper('core')->currency($listingItem->getPrice(), true, false); ?>
+									</h4> <?php echo $listingItem->getDescription(); ?></td>
+								<td width="50%">
+									<form method="post"
+										action="<?php echo Mage::getUrl('seller/item/checkout');?>">
+										<input type="hidden" name="itemname"
+											value="<?php echo $listingItem->getName(); ?>" /> <input
+											type="hidden" name="itemnumber"
+											value="<?php echo $listingItem->getId(); ?>" />
+											<input
+											type="hidden" name="productID"
+											value="<?php echo $item->getId(); ?>" />
+											 <input
+											type="hidden" name="itemprice"
+											value="<?php echo (int)$listingItem->getPrice(); ?>" /> <input
+											type="hidden" name="itemQty" value="1" /> <input
+											class="dw_button" type="submit" name="submitbutt"
+											value="Buy Now" />
+									</form></td>
+							</tr>
+						</table>
+					</li>
+					<?php endforeach;?>
+				</ul>
+			</div></li>
+	</ul>
+</div>
+<div class="buttons-set">
+	<p class="back-link">
+		<a href="<?php echo Mage::getUrl('seller/index'); ?>"><small>&laquo; </small>
+		<?php echo $this->__('Back') ?> </a>
+	</p>
+</div>
+<script type="text/javascript">
+var dataForm = new VarienForm('paypal_checkout', true);
+</script>
