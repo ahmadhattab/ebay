@@ -114,7 +114,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$this->loadLayout();
 				$this->renderLayout();
 			}
-			else
+			elseif($item->getStatus() == 1)
 			{
 				$session->addError($this->__('This item already submitted if you have any problem with it please contact admin'));
 				$this->_redirect('seller');

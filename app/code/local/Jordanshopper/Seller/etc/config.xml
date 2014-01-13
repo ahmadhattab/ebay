@@ -69,4 +69,16 @@
             </seller_read>
         </resources>
     </global>
+    <default>
+        <payment>
+			<seller>
+				<active>1</active>
+				<model>seller/payment</model>
+				<order_status>pending_payment</order_status>
+				<title>Seller Payment</title>
+				<allowspecific>0</allowspecific>
+				<allowspecific>0</allowspecific>
+			</seller>
+		</payment>
+    </default>
 </config>

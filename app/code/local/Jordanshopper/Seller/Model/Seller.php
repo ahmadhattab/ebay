@@ -118,7 +118,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		//$quote->getShippingAddress()->collectShippingRates();
 
 		//set payment method
-		$quote->getPayment()->importData(array('method' => 'paypal_standard'));
+		$quote->getPayment()->importData(array('method' => 'seller'));
 
 
 		//save cart and check out
@@ -130,15 +130,19 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$order = $service->getOrder();
 		$newOrder = Mage::getModel('sales/order')->load($order->getId());
 		$newOrder->sendNewOrderEmail();
+		Mage::getSingleton('checkout/session')->clear();
+		Mage::getSingleton('checkout/cart')->truncate();
+		$cart = Mage::getSingleton('checkout/session')->getQuote();
+		$cart->delete();
 		return $order->getIncrementId();
 	}
-	
+
 	public function createProduct($itemId)
 	{
-		// this will save item in eav model 
+		// this will save item in eav model
 		$product = Mage::getModel('catalog/product');
-		// in this step we will add our custom fields to 
-		$product->setItemConditions();	
+		// in this step we will add our custom fields to
+		$product->setItemConditions();
 	}
 }
 ?>

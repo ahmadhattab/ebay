@@ -19,6 +19,7 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 		$subCategories = explode(',', $actualCategory->getChildren());
 		$output = "<ul class='x-tree-node-ct'>";
 		foreach ($subCategories as $subCategoryId) {
+		if ($subCategoryId == 5){ continue;}
 			$category = Mage::getModel('catalog/category')->load($subCategoryId);
 			if ($category->getIsActive()) 
 			{

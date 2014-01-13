@@ -14,6 +14,7 @@ class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 	        $subCategories = explode(',', $actualCategory->getChildren());        
 	        $output = "<ul class='x-tree-node-ct'>";
 	        foreach ($subCategories as $subCategoryId) {
+	        	if ($subCategoryId == 5){ continue;}
 	            $category = Mage::getModel('catalog/category')->load($subCategoryId);                 
 	           if ($category->getIsActive()) {
 	                $output .= "<li class='x-tree-node'><input type='checkbox' name='category[]' value='{$category->getId()}'>{$category->getName()}";                               
