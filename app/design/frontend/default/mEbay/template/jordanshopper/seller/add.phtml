@@ -147,10 +147,10 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" value="cashOnDelivery" class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" value="1" class="radio " onclick="payment(this.value)"/>Cash On Delivery
                 </li>
                 <li>
-                    <input type="radio" name="payment_method" value="paypal" class="radio " onclick="payment(this.value)"/>Paypal
+                    <input type="radio" name="payment_method" value="2" class="radio " onclick="payment(this.value)"/>Paypal
                 </li>
                 <li>
                     <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -160,7 +160,7 @@
         <script>
                             function payment(value)
                             {
-                                if (value == "paypal")
+                                if (value == "2")
                                 {
                                     $('paypal_email').show();
                                 }

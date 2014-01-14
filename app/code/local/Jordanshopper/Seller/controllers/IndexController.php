@@ -24,10 +24,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$this->loadLayout();
 		$this->renderLayout();
 	}
-	public function paymentAction()
-	{
-		echo Mage::log('Hello');
-	}
+
 	public function sellerPostAction()
 	{
 		$sellerModel  = Mage::getModel('seller/seller');
@@ -108,6 +105,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				if(isset($image['name'])){
 					$images[]    = $image['name'];
 					$fileName    = date("Y-m-j-h-i").$image['name'];
+					$fileNames[] = $fileName;
 					$move        = $uploader->save($path . DS, $fileName);
 					if(!$move){
 						$session->addError("File was not uploaded, Please Check your file and try again.");
@@ -116,7 +114,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 					}
 				}
 			}
-			if($imageNames = implode(",", $images)){
+			if($imageNames = implode(",", $fileNames)){
 				$sellerModel->setImages($imageNames);
 			}
 		}

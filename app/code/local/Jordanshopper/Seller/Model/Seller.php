@@ -6,7 +6,8 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$this->_init('seller/seller');
 	}
 
-	public function PPHttpPost($methodName_, $nvpStr_, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode) {
+	public function PPHttpPost($methodName_, $nvpStr_, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode)
+	{
 		$session = Mage::getSingleton('core/session');
 		// Set up your API credentials, PayPal end point, and API version.
 		$API_UserName = urlencode($PayPalApiUsername);
@@ -139,10 +140,63 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 
 	public function createProduct($itemId)
 	{
+		$sellerItem = Mage::getModel('seller/seller')->load($itemId);
 		// this will save item in eav model
 		$product = Mage::getModel('catalog/product');
 		// in this step we will add our custom fields to
-		$product->setItemConditions();
+		$product->setSku(rand(2000, 100000));
+		$product->setAttributeSetId(4);
+		$product->setTypeId('simple');
+		$product->setSellerId($sellerItem->getSellerId());
+		$product->setName($sellerItem->getProductTitle());
+		$product->setShortDescription($sellerItem->getProductSubtitle());
+		$product->setDescription($sellerItem->getDescription());
+		$product->setVisibility(4);
+		$product->setStatus(2);
+		$product->setTaxClassId(0);
+		$catIds = explode(',' , $sellerItem->getCategoriesIds());
+		$product->setCategoryIds(array($catIds));
+		$product->setWebsiteIDs(array(1));
+		$product->setItemCondition($sellerItem->getItemConditions());
+		if ($sellerItem->getItemConditions() == 'other')
+		{
+			$product->setItemConditionOther($sellerItem->getItemConditionsOther());
+		}
+		$product->setLocation($sellerItem->getItemLocation());
+		$product->setPrice($sellerItem->getPrice());
+		$product->setStockData(array(
+   			'is_in_stock' => 1,
+    		'qty' => $sellerItem->getQty()
+		));
+		$product->setPaymentMethod($sellerItem->getPaymentMethod());
+		if ($sellerItem->getPaymentMethod() == 2)
+		{
+			$product->setPaypalEmail($sellerItem->getPaypalEmail());
+		}
+		$product->setDeliveryDetails($sellerItem->getDeliveryDetails());
+		if ($sellerItem->getDeliveryDetails() == 'charge')
+		{
+			$product->setDeliveryCost($sellerItem->getDeliveryCost());
+		}
+		$mediaAttribute = array (
+                'thumbnail',
+                'small_image',
+                'image'
+                );
+                $images = explode(',', $sellerItem->getImages());
+                foreach ($images as $image)
+                {
+                	$im = Mage::getBaseDir('media') . DS . $sellerItem->getSellerId() . '/' . $image;
+                	$product->addImageToMediaGallery($im, $mediaAttribute, false, false);
+                	//$product->addImageToMediaGallery($im,array('small_image'),false,false);
+                	//$product->addImageToMediaGallery($im,array('thumbnail'),false,false);
+                	//$path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $sellerItem->getSellerId() . '/' . $image;
+                	//$product->addImageToMediaGallery($path, $mediaAttribute, true, false);
+                }
+                $product->save();
+                $sellerItem->setStatus(1);
+                $sellerItem->setLiveId($product->getId());
+                $sellerItem->save();
 	}
 }
 ?>
