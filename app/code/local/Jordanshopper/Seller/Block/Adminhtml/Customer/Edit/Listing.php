@@ -284,13 +284,14 @@ extends Mage_Adminhtml_Block_Widget_Grid
 
     public function getGridUrl()
     {
-        return $this->getUrl('*/*/grid', array('_current'=>true));
+        //return $this->getUrl('*/*/grid', array('_current'=>true));
+        return Mage::helper('adminhtml')->getUrl('adminhtml/catalog_product/grid');
     }
 
     public function getRowUrl($row)
     {
-        return $this->getUrl('*/*/edit', array(
-            'store'=>$this->getRequest()->getParam('store'),
+        return Mage::helper('adminhtml')->getUrl('adminhtml/catalog_product/edit', array(
+        	'store'=>$this->getRequest()->getParam('store'),
             'id'=>$row->getId())
         );
     }
