@@ -135,7 +135,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		Mage::getSingleton('checkout/cart')->truncate();
 		$cart = Mage::getSingleton('checkout/session')->getQuote();
 		$cart->delete();
-		return $order->getIncrementId();
+		return $order->getId();
 	}
 
 	public function createProduct($itemId)
