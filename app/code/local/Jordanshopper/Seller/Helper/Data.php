@@ -1,6 +1,5 @@
 <?php 
-class Jordanshopper_Seller_Helper_Data extends Mage_Core_Helper_Data
+class Jordanshopper_Seller_Helper_Data extends Mage_Core_Helper_Abstract
 {
 		
 }
-?>

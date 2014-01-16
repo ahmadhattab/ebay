@@ -113,6 +113,7 @@ class Jordanshopper_Seller_Block_Adminhtml_Catalog_Product_Grid extends Mage_Adm
 
     protected function _prepareColumns()
     {
+
         $this->addColumn('entity_id',
             array(
                 'header'=> Mage::helper('catalog')->__('ID'),
