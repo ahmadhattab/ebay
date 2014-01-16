@@ -8,9 +8,8 @@ class Jordanshopper_Seller_Block_Adminhtml_Customer_Edit_Tabs
     {
         $this->addTabAfter('product', array(
                 'label'     => Mage::helper('customer')->__('Product List'),
-                //'content'   => $this->getLayout()->createBlock('jordanshopper_seller/adminhtml_customer_edit_listing')->initForm()->toHtml(),
-                'url'       => $this->getUrl('*/*/productList', array('_current' => true)),
-                'class'     => 'ajax',
+        		'title'		=> Mage::helper('customer')->__('Product List'),
+                'content'   => $this->getLayout()->createBlock('seller/adminhtml_customer_edit_listing')->toHtml(),
             ),'tags');
         parent::_beforeToHtml();
     }

@@ -4,6 +4,7 @@ class Jordanshopper_Seller_Adminhtml_ProductsController
 {
     public function listingProductsAction()
     {
+    	echo 'Hello';
         
     }
 }
