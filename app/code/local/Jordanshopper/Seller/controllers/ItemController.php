@@ -234,12 +234,11 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$item = Mage::getModel('catalog/product')->load($ItemNumber);
 				$customerId = Mage::getSingleton('customer/session')->getCustomerId();
 				$sku = $item->getSku();
-				$PayPalModel->createOrder($customerId, $sku);
+				$orderNumber = $PayPalModel->createOrder($customerId, $sku);
+				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
+				$session->addSuccess($successMsg);
 				// create live product 
 				$PayPalModel->createProduct($session->getProductID());
-				$PayPalModel->load($session->getProductID());
-				$PayPalModel->setStatus(1);
-				$PayPalModel->save();
 				$this->_redirect('seller/index');
 			}
 		}
