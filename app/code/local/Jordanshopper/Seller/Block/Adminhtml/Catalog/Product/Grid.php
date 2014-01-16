@@ -132,6 +132,7 @@ class Jordanshopper_Seller_Block_Adminhtml_Catalog_Product_Grid extends Mage_Adm
                 'width' => '150px',
                 'type'  => 'text',
                 'index' => 'seller_id',
+            	'filter'    => false, 
                 'renderer' => 'Jordanshopper_Seller_Block_Adminhtml_Template_Grid_Renderer_Seller'
                 ),'name');
 
