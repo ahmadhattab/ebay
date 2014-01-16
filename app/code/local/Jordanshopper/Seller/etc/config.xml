@@ -14,20 +14,19 @@
                     <frontName>seller</frontName>
                 </args>
             </seller>
-        </routers>
-        <layout>
-            <updates>
-                <seller>
-                    <file>seller.xml</file>
-                </seller>
-            </updates>
-        </layout>
-    </frontend>
+        </routers>       
+    </frontend>              
     <global>
         <blocks>
             <seller>
                 <class>Jordanshopper_Seller_Block</class>
             </seller>
+            <adminhtml>
+               <rewrite>
+                   <catalog_product_grid>Jordanshopper_Seller_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                   <customer_edit_tabs>Jordanshopper_Seller_Block_Adminhtml_Customer_Edit_Tabs</customer_edit_tabs>
+               </rewrite>
+           </adminhtml>
         </blocks>
         <helpers>
         	<seller>
