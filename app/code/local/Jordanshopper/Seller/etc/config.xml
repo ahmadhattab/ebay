@@ -15,7 +15,18 @@
                 </args>
             </seller>
         </routers>       
-    </frontend>              
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Jordanshopper_Seller before="Mage_Adminhtml">Jordanshopper_Seller</Jordanshopper_Seller>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>              
     <global>
         <blocks>
             <seller>
