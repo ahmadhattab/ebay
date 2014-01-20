@@ -138,8 +138,8 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		$PayPalApiPassword 		= '1389030811'; //Paypal API password
 		$PayPalApiSignature 	= 'AIbAIH0FvfS.PgrpnVaXfekniVeDATstQkrZXwyNL8IZJ7sVo5IUXokc'; //Paypal API Signature
 		$PayPalCurrencyCode 	= 'USD'; //Paypal Currency Code
-		$PayPalReturnURL 		= 'http://localhost/ebay/index.php/seller/item/checkout'; //Point to process.php page
-		$PayPalCancelURL 		= 'http://localhost/ebay/index.php/seller/index'; //Cancel URL if user clicks cancel
+		$PayPalReturnURL 		= 'http://127.0.0.1/ebay/seller/item/checkout'; //Point to process.php page
+		$PayPalCancelURL 		= 'http://127.0.0.1/ebay/seller/index'; //Cancel URL if user clicks cancel
 		$PayPalModel = Mage::getModel('seller/seller');
 		if ($this->getRequest()->isPost())
 		{

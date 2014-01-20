@@ -15,6 +15,13 @@
 				</args>
 			</seller>
 		</routers>
+		<layout>
+            <updates>
+                 <seller>
+                     <file>seller.xml</file>
+                 </seller>
+             </updates>
+        </layout>
 	</frontend>
 	<global>
 		<blocks>

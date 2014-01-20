@@ -19,7 +19,7 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 		$subCategories = explode(',', $actualCategory->getChildren());
 		$output = "<ul class='x-tree-node-ct'>";
 		foreach ($subCategories as $subCategoryId) {
-		if ($subCategoryId == 8){ continue;}
+		if ($subCategoryId == 5){ continue;}
 			$category = Mage::getModel('catalog/category')->load($subCategoryId);
 			if ($category->getIsActive()) 
 			{
@@ -57,7 +57,7 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 	
 	public function getListingItems()
 	{
-		$categoryId = 8;
+		$categoryId = 5;
 		$category = Mage::getModel('catalog/category');
 		$category->load($categoryId);
 		$collection = $category->getProductCollection();

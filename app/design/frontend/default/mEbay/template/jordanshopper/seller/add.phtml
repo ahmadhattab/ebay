@@ -213,6 +213,12 @@
     var dataForm = new VarienForm('form-validate', true);
     var dyname = 1;
     function createNewUpload() {
+        if (dyname >= 10)
+        {
+            alert("<?php echo $this->__('The Limit upload of images is 2')?>");
+        }
+        else
+        {
         dyname = dyname + 1;
         var input = document.createElement('input');
         input.type = "file";
@@ -220,5 +226,21 @@
         input.id = "upload" + (dyname + 1);
         input.className = "images";
         document.getElementById('inp').appendChild(input);
+        var input = document.createElement('input');
+        input.type = "button";
+        input.name = "upload" + (dyname + 1);
+        input.value = "-";
+        input.id = "upload" + (dyname + 1);
+        input.className = "upload" + (dyname + 1);
+        input.setAttribute("onclick","javascript:removeInput(this.className);");
+        document.getElementById('inp').appendChild(input);
+        }
     }
+
+    function removeInput(val)
+    {
+    	document.getElementById(val).remove();
+    	document.getElementById(val).remove();
+    }
+    
 </script>
