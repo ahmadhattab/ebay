@@ -113,7 +113,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 					}
 					$images = array();
 					foreach ($_FILES as $image){
-						if(isset($image['name'])){
+						if(isset($image['name']) && !empty($image['name'])){
 							$images[]    = $image['name'];
 							$fileName    = date("Y-m-j-h-i").$image['name'];
 							$fileNames[] = $fileName;
@@ -123,7 +123,9 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 								$this->_redirect('*/*/add');
 								return;
 							}
-						}
+                                                }else{
+                                                    continue;
+                                                }
 					}
 					if($imageNames = implode(",", $fileNames)){
 						$sellerModel->setImages($imageNames);
