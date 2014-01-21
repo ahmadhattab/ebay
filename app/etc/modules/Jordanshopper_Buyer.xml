@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Jordanshopper_Buyer>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Jordanshopper_Buyer>
+	</modules>
+</config>

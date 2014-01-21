@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jordanshopper_Buyer>
+            <version>1.0.6</version>
+        </Jordanshopper_Buyer>
+    </modules>
+    <frontend>        
+        <events>
+            <sales_quote_item_save_before>
+                <observers>
+                    <Jordanshopper_Buyer_Model_Observer>
+                        <type>singleton</type>
+                        <class>Jordanshopper_Buyer_Model_Observer</class>
+                        <method>logCartAdd</method>
+                    </Jordanshopper_Buyer_Model_Observer>
+                </observers>
+            </sales_quote_item_save_before>
+        </events>
+    </frontend>   
+</config>
