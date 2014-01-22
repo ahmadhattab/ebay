@@ -1,4 +1,6 @@
 .htaccess
+.DS_Store
+.DS_Store?
 app/etc/local.xml
 app/code/core/Mage/Install/etc/config.xml
 var/*
