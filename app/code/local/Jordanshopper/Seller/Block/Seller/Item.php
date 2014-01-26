@@ -29,7 +29,7 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 				{
 					$output .= "checked=checked";	
 				}
-				$output .= " name='category[]' value='{$category->getId()}'>{$category->getName()}";
+				$output .= " name='category[]' class=\"validate-one-required\" value='{$category->getId()}'>{$category->getName()}";
 			}
 			if($category->hasChildren())
 			{
@@ -43,7 +43,7 @@ class Jordanshopper_Seller_Block_Seller_Item extends Mage_Core_Block_Template
 					{
 					$output .= "checked=checked";
 					}
-					$output .= " name='category[]' value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";
+					$output .= " name='category[]' class=\"validate-one-required-by-name\" value='{$subcategory->getId()}'>{$subcategory->getName()}</li>";
 				}
 				$output .= "</ul></li>";
 			}else

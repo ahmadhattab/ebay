@@ -36,13 +36,13 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" value="new" class="radio " onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" value="new" class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="used" class="radio " onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" value="used" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="other" class="radio " onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" value="other" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
                 </li>
                 <li>
                     <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -95,14 +95,14 @@
                         <li>
                             <div class="add-to-cart">
                                 <label for="price">Price:</label>
-                                <input type="text" name="price" id="price" value="" class="input-text images" />
+                                <input type="text" name="price" id="price" value="" class="input-text required-entry images" />
                                 <strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
                             </div>
                         </li>
                         <li>
                             <div class="add-to-cart">
                                 <label for="qty">Qty:</label>
-                                <input type="text" name="qty" id="qty" value="" class="input-text images" />
+                                <input type="text" name="qty" id="qty" value="" class="input-text required-entry images" />
                             </div>
                         </li>
                     </ul>
@@ -115,13 +115,13 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="delivery_details" value="none" class="radio " onclick="delivery(this.value)"/>None
+                    <input type="radio" name="delivery_details" value="none" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>None
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="free" class="radio " onclick="delivery(this.value)"/>Free
+                    <input type="radio" name="delivery_details" value="free" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>Free
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="charge" class="radio " onclick="delivery(this.value)"/>Delivery Charge
+                    <input type="radio" name="delivery_details" value="charge" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>Delivery Charge
                 </li>
                 <li>
                     <input type="text" name="delivery_cost" id="delivery_cost" class="images required-entry input-text" style="display: none;"/>
@@ -147,10 +147,10 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" value="1" class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" value="1" class="radio validate-one-required-by-name" onclick="payment(this.value)"/>Cash On Delivery
                 </li>
                 <li>
-                    <input type="radio" name="payment_method" value="2" class="radio " onclick="payment(this.value)"/>Paypal
+                    <input type="radio" name="payment_method" value="2" class="radio validate-one-required-by-name" onclick="payment(this.value)"/>Paypal
                 </li>
                 <li>
                     <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -186,7 +186,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                    <textarea name="description" class="jqte-test "></textarea>                	
+                    <textarea name="description" class="jqte-test required-entry"></textarea>                	
                 </div>
             </li>
         </ul>

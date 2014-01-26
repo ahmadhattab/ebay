@@ -164,10 +164,10 @@ $item = $this->getItem();
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" id="payment1" value="cashOnDelivery" <?php if($item->getPaymentMethod() =='cashOnDelivery'){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" id="payment1" value="1" <?php if($item->getPaymentMethod() == 1){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Cash On Delivery
                 </li>
                 <li>
-                    <input type="radio" name="payment_method" id="payment2" value="paypal" <?php if($item->getPaymentMethod() =='paypal'){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Paypal
+                    <input type="radio" name="payment_method" id="payment2" value="2" <?php if($item->getPaymentMethod() == 2){?>checked="checked"<?php }?> class="radio " onclick="payment(this.value)"/>Paypal
                 </li>
                 <li>
                     <input type="text" name="paypal_email" id="paypal_email" class="paypal_email input-text images required-entry" value="<?php echo $item->getPaypalEmail(); ?>" style="display: none;" class="input-text " />
@@ -177,7 +177,7 @@ $item = $this->getItem();
         <script>
                             function payment(value)
                             {
-                                if (value == "paypal")
+                                if (value == 2)
                                 {
                                     $('paypal_email').show();
                                 }

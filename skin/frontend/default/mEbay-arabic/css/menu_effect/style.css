@@ -1,0 +1,72 @@
+/* --------------------------- Create by ducna@asia-conect.com.vn,YM:duc_act ----------------------------- */
+ul.menu {list-style:none; margin:0 auto;width:960px;background:url(../../images/bg_menu.jpg) no-repeat; height:34px; padding-top:2px; text-transform:uppercase;position:relative;z-index:10;}
+ul.menu a {display:block; color:#fff; text-decoration:none;line-height:normal;}
+ul.menu li {position:relative; float:right; margin-right:0px;}
+ul.menu ul {position:absolute; top:33px; right:0; background:#e8e8e8; display:none;list-style:none; border-top:1px solid #ccc}
+ul.menu ul li {position:relative; border:1px solid #ccc; border-top:none; width:174px; margin:0}
+ul.menu ul li a {display:block; padding:3px 7px 5px; background-color:#e8e8e8}
+ul.menu ul li.level1 a {display:block; padding:3px 7px 5px; background-color:#e8e8e8;border:none;}
+ul.menu ul ul {left:174px; top:-1px;}
+ul.menu li.level0 a{border-top:none;border-right:none; padding:7px 34px 10px; font-weight:bold; background:url(../../images/bg-li.jpg) repeat-x; }
+ul.menu li.level0 a:hover, ul.menu .parent a {background:url(../../images/a-act.jpg) no-repeat right center;}
+/*ul.menu .sub {background:#e8e8e8 url(../../images/menu_effect/arrow.gif) 136px 8px no-repeat}
+ul.menu ul li.parent a{background:#e8e8e8 url(../../images/menu_effect/arrow.gif) 136px 8px no-repeat}
+ul.menu .last {}
+/*ul.menu li.parent {
+	background: url(../../images/menu_effect/arrow.gif) no-repeat right center;
+}
+ul.menu li.parent li.parent {
+	background: url(../../images/menu_effect/arrow.gif) no-repeat right center;
+}
+ul.menu a {
+	background: url(../../images/menu_effect/images/arrow4.gif) no-repeat right 16px #000000;	
+}*/
+ul.menu li.active a {
+	background: url(../../images/a-act.jpg) no-repeat right center;
+	color: #5d5d5d;
+}
+/************ 1ST LEVEL ************/
+ul.menu ul li,
+ul.menu ul li.active {
+	margin: 0;
+	padding:0;
+}
+ul.menu ul li.last {
+	padding-bottom: 0;
+}
+ul.menu ul a,
+ul.menu ul a:hover, ul.menu ul a.over {
+	float: none;
+	background: none;
+}
+ul.menu ul a span,
+ul.menu ul a:hover span, ul.menu ul a.over span {
+	float: none;
+	display: inline;
+}
+ul.menu ul li a, ul.menu ul li a span {
+	font-weight: normal !important;
+	line-height: normal !important;
+	background: none !important;
+}
+ul.menu ul li {
+	background: none;
+	text-align:right;
+}
+ul.menu ul li a,  ul.menu li.active li a {
+	border: none;
+	margin: 0;
+	color: #000;
+	font-size: 100%;
+	text-transform: none;
+	
+}
+
+ul.menu ul li a:hover, ul.menu ul li a:active, ul.menu ul li a:focus, ul.menu ul li a.over {
+	background: #5d5d5d !important;
+	color: #e8e8e8;
+	width:160px;
+}
+
+
+
