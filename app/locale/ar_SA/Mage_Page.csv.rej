@@ -1,0 +1,11 @@
+--- app/locale/ar_SA/Mage_Page.csv	(revision 28)
++++ app/locale/ar_SA/Mage_Page.csv	(working copy)
+@@ -35,7 +35,7 @@
+ "Report All Bugs","أبلغ عن كل الثغرات"
+ "Select Store","اختر متجرا"
+ "Select date","Select date"
+-"Show","أعرض"
++"Show","اعرض"
+ "Skip to Footer","Skip to Footer"
+ "Skip to Left Column","Skip to Left Column"
+ "Skip to Main Content","تجاوز الى المحتويات الرئيسية"

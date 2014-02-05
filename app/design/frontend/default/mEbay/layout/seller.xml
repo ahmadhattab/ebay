@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
 	<seller_index_index>
-		<update handle="customer_account" />
+		<update handle="customer_activity" />
 		<reference name="root">
 			<action method="setHeaderTitle" translate="title" module="customer">
 				<title>My Account</title>
@@ -63,7 +63,7 @@
 		</reference>
 	</seller_item_edit>
 	<seller_item_submit>
-		<update handle="customer_account" />
+		<update handle="customer_activity" />
 		<reference name="root">
 			<action method="setHeaderTitle" translate="title" module="customer">
 				<title>My Account</title>
@@ -74,7 +74,7 @@
 				template="jordanshopper/seller/submit.phtml" />
 		</reference>
 	</seller_item_submit>
-	<customer_account>
+	<customer_activity>
 		<reference name="customer_account_navigation">
 			<action method="addLink">
 				<name>seller_item</name>
@@ -82,5 +82,5 @@
 				<label>Sell an item</label>
 			</action>
 		</reference>
-	</customer_account>
+	</customer_activity>
 </layout>

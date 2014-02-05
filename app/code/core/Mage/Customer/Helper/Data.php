@@ -234,7 +234,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getDashboardUrl()
     {
-        return $this->_getUrl('customer/account');
+        return $this->_getUrl('customer/activity');
     }
 
     /**
@@ -244,7 +244,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getAccountUrl()
     {
-        return $this->_getUrl('customer/account');
+        return $this->_getUrl('customer/activity');
     }
 
     /**

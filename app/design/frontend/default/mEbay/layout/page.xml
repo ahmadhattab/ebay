@@ -97,6 +97,10 @@ Default layout, loads most of the pages
                 <label>Main Content Area</label>
             </block>
 
+			<block type="core/text_list" name="coltop" as="coltop" translate="label">
+                <label>Main Content Area</label>
+            </block>
+            
             <block type="core/text_list" name="right" as="right" translate="label">
                 <label>Right Column</label>
             </block>

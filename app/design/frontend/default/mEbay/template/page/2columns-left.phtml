@@ -48,7 +48,9 @@
 		<section id="content_mw">
         <div class="main-container col2-left-layout">
             <div class="main">
-                
+                <div class="col-top">
+                	<?php echo $this->getChildHtml('coltop') ?>
+                </div>
                 <div class="col-main">
                     <?php echo $this->getChildHtml('global_messages') ?>
 					<?php echo $this->getChildHtml('breadcrumbs') ?>

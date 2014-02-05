@@ -3,7 +3,7 @@
    <sections>
         <payment>
             <groups>
-                <seller translate="label" module="seller">
+                <seller translate="label" module="jordanshopper_seller">
                     <label>Seller Payment Method</label>
                     <sort_order>670</sort_order>
                     <show_in_default>1</show_in_default>

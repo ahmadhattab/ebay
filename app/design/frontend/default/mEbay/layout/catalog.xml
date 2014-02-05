@@ -48,6 +48,7 @@ Default layout, loads most of the pages
         <reference name="top.menu">
             <block type="catalog/navigation" name="catalog.topnav" template="catalog/navigation/top.phtml"/>
         </reference>
+        <!--
         <reference name="left">
             <block type="core/template" name="left.permanent.callout" template="callouts/left_col.phtml">
                 <action method="setImgSrc"><src>images/media/col_left_callout.jpg</src></action>
@@ -55,6 +56,7 @@ Default layout, loads most of the pages
                 <action method="setLinkUrl"><url>checkout/cart</url></action>
             </block>
         </reference>
+        -->
         <reference name="right">
             <block type="catalog/product_compare_sidebar" after="cart_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
             <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">

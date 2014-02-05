@@ -1,0 +1,39 @@
+<?php
+$products = $this->getSellingHistory();
+?>
+<div class="my-wishlist">
+	<div class="page-title title-buttons">
+		<h1>
+		<?php echo Mage::app()->getHelper('core')->__('Selling History'); ?>
+		</h1>
+	</div>
+	<div class="selling-hisroty">
+		<table class="data-table" id="wishlist-table">
+			<thead>
+				<tr>
+					<th>Image</th>
+					<th>Name</th>
+					<th>Subtitle</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php if ($products->count()): ?>
+			<?php
+			foreach ($products as $product):
+			?>
+				<tr>
+					<td><img src="<?php echo $product->getImageUrl(); ?>" wisth="113" height="113" alt="" /></td>
+					<td><?php echo $product->getName(); ?></td>
+					<td><?php echo $product->getShortDescription(); ?></td>
+					<td><?php echo Mage::helper('core')->currency($product->getFinalPrice()); ?></td>
+				</tr>
+			<?php endforeach ?>
+			<?php else: ?>
+				<td colspan="<?php echo count($columns);?>" class="wishlist-empty"><?php echo $this->__('Empty Selling');?>
+				</td>
+			<?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1876,3 +1876,5 @@ background:#F3F3F3;
 .div-content {margin-top: 25px;}
 .div-content th {font-size: 14px; font-weight: bold;background-color: #f3f3f3}
 .div-content td, th {border: 1px solid #dedede; padding: 5px;}
+.top-menu {margin-bottom: 10px; border-bottom: 1px solid #ddd;}
+.top-link {padding: 4px 14px;}

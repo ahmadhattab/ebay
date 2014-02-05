@@ -1,6 +1,12 @@
 <?php 
 class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 {
+	public function _getSession()
+	{
+		$session = Mage::getSingleton('customer/session');
+		return $session;	
+	}
+	
 	public function getSeller()
 	{
 		return Mage::getSingleton('admin/session')->getUser();
@@ -32,6 +38,17 @@ class Jordanshopper_Seller_Block_Seller extends Mage_Core_Block_Template
 	        }
                     $output .= "</ul>";
                     return $output;
+    	}
+    	
+    	public function getSellingHistory()
+    	{
+    		$customerSession = $this->_getSession();
+    		$collection = Mage::getModel('catalog/product')->getCollection()
+    						->addAttributeToSelect('*')
+    						->addAttributeToFilter('seller_id', array('eq'=>$customerSession->getId()))
+    						->addAttributeToFilter('status', array('eq'=> 1));
+    		return $collection;
+    		
     	}
 
 }
