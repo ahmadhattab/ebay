@@ -58,6 +58,11 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart extends Mage_Wishli
                 url = url.gsub('%item%', itemId);
                 var form = $('wishlist-view-form');
                 if (form) {
+                    var product = form['product']; 
+                    if(product){
+                        var separator = (url.indexOf('?') >= 0) ? '&' : '?';
+                        url += separator + product.name + '=' + encodeURIComponent(product.value);
+                    }
                     var input = form['qty[' + itemId + ']'];
                     if (input) {
                         var separator = (url.indexOf('?') >= 0) ? '&' : '?';
