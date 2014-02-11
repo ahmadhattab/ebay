@@ -257,7 +257,7 @@ Customer account pages, rendered for all tabs in dashboard
             <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
             	<action method="addLink" translate="label" module="customer"><name>activity_summary</name><path>customer/activity/</path><label>Activity Summary</label></action>
                 <action method="addLink" translate="label" module="customer"><name>activity_buying</name><path>customer/activity/buying/</path><label>Buying History</label></action>
-                <action method="addLink" translate="label" module="customer"><name>activity_history</name><path>customer/activity/history/</path><label>Selling History</label></action>
+                <action method="addLink" translate="label" module="customer"><name>activity_history</name><path>customer/activity/selling/</path><label>Selling History</label></action>
             </block>
             <remove name="tags_popular"/>
 
@@ -308,6 +308,38 @@ Customer account home dashboard layout
             <block type="seller/seller" name="selling.history" template="jordanshopper/seller/selling-history.phtml" />
         </reference>
     </customer_activity_index>
+    
+    <customer_activity_buying>
+    	<label>Customer My Order History</label>
+        <update handle="customer_activity"/>
+        <!-- Mage_Customer -->
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+    	<reference name="content">
+    	 	 <block type="sales/order_history" name="sales.order.history">
+                <block type="core/text_list" name="sales.order.history.info" as="info" translate="label">
+                    <label>Order History Info</label>
+                </block>
+            </block>
+        </reference>
+    </customer_activity_buying>
+    
+     <customer_activity_selling>
+    	<label>Customer My Buying History</label>
+        <update handle="customer_activity"/>
+        <!-- Mage_Customer -->
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+    	<reference name="content">
+    	 	 <block type="sales/order_selling" name="sales.order.history">
+                <block type="core/text_list" name="sales.order.history.info" as="info" translate="label">
+                    <label>Order History Info</label>
+                </block>
+            </block>
+        </reference>
+    </customer_activity_selling>
 
 <!--
 Customer account address book

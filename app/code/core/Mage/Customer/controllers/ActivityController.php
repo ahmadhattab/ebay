@@ -115,6 +115,32 @@ class Mage_Customer_ActivityController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
     
+    public function buyingAction()
+    {
+    	$this->loadLayout();
+        $this->_initLayoutMessages('catalog/session');
+
+        $this->getLayout()->getBlock('head')->setTitle($this->__('Buying History'));
+
+        if ($block = $this->getLayout()->getBlock('customer.account.link.back')) {
+            $block->setRefererUrl($this->_getRefererUrl());
+        }
+        $this->renderLayout();
+    }
+    
+  public function sellingAction()
+    {
+    	$this->loadLayout();
+        $this->_initLayoutMessages('catalog/session');
+
+        $this->getLayout()->getBlock('head')->setTitle($this->__('Selling History'));
+
+        if ($block = $this->getLayout()->getBlock('customer.account.link.back')) {
+            $block->setRefererUrl($this->_getRefererUrl());
+        }
+        $this->renderLayout();
+    }
+    
 
     /**
      * Customer login form page
