@@ -46,7 +46,6 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
             ->addFieldToFilter('state', array('in' => Mage::getSingleton('sales/order_config')->getVisibleOnFrontStates()))
             ->setOrder('created_at', 'desc')
         ;
-
         $this->setOrders($orders);
 
         Mage::app()->getFrontController()->getAction()->getLayout()->getBlock('root')->setHeaderTitle(Mage::helper('sales')->__('My Orders'));

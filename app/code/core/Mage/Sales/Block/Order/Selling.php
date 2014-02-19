@@ -85,7 +85,7 @@ class Mage_Sales_Block_Order_Selling extends Mage_Core_Block_Template
 
     public function getViewUrl($order)
     {
-        return $this->getUrl('*/*/view', array('order_id' => $order->getId()));
+        return $this->getUrl('sales/order/view', array('order_id' => $order->getId()));
     }
 
     public function getTrackUrl($order)

@@ -256,7 +256,7 @@ Customer account pages, rendered for all tabs in dashboard
         <reference name="left">
             <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
             	<action method="addLink" translate="label" module="customer"><name>activity_summary</name><path>customer/activity/</path><label>Activity Summary</label></action>
-                <action method="addLink" translate="label" module="customer"><name>activity_buying</name><path>customer/activity/buying/</path><label>Buying History</label></action>
+                <action method="addLink" translate="label" module="customer"><name>activity_buying</name><path>sales/order/history/</path><label>Buying History</label></action>
                 <action method="addLink" translate="label" module="customer"><name>activity_history</name><path>customer/activity/selling/</path><label>Selling History</label></action>
             </block>
             <remove name="tags_popular"/>
