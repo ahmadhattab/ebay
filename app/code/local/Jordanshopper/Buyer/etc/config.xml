@@ -17,5 +17,12 @@
                 </observers>
             </sales_quote_item_save_before>
         </events>
-    </frontend>   
+    </frontend>
+    <global>
+		<blocks>
+			<buyer>
+				<class>Jordanshopper_Buyer_Block</class>
+			</buyer>
+		</blocks>
+	</global>  
 </config>

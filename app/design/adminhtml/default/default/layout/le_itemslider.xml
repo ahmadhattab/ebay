@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Manage Item Slide grid action -->
+    <adminhtml_itemslider_slides_index>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/slides</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_slides" name="slides" />
+		</reference>
+	</adminhtml_itemslider_slides_index>
+	<adminhtml_itemslider_slides_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="itemslider/adminhtml_slides_grid" name="slides_grid"/>
+		</block>
+	</adminhtml_itemslider_slides_grid>
+    <!-- Slides add/edit action -->
+    <adminhtml_itemslider_slides_edit>
+		<update handle="editor"/>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/itemslider</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_slides_edit" name="itemslider_slides_edit"></block>
+		</reference>
+		<reference name="left">
+			<block type="itemslider/adminhtml_slides_edit_tabs" name="itemslider_slides_tabs"></block>
+		</reference>
+	</adminhtml_itemslider_slides_edit>
+
+
+	<!-- Manage Item Group grid action -->
+	<adminhtml_itemslider_itemslider_index>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/itemslider</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_itemslider" name="itemslider" />
+		</reference>
+	</adminhtml_itemslider_itemslider_index>
+	<adminhtml_itemslider_itemslider_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="itemslider/adminhtml_itemslider_grid" name="itemslider_grid"/>
+		</block>
+	</adminhtml_itemslider_itemslider_grid>
+	<!-- Itemslider add/edit action -->
+	<adminhtml_itemslider_itemslider_edit>
+		<update handle="editor"/>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/itemslider</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_itemslider_edit" name="itemslider_edit"></block>
+		</reference>
+		<reference name="left">
+			<block type="itemslider/adminhtml_itemslider_edit_tabs" name="itemslider_tabs"></block>
+		</reference> 
+	</adminhtml_itemslider_itemslider_edit>
+	<!-- Configuration grid action -->
+	<adminhtml_itemslider_config_index>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/config</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_config" name="config" />
+		</reference>
+	</adminhtml_itemslider_config_index>
+	<adminhtml_itemslider_config_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="itemslider/adminhtml_config_grid" name="config_grid"/>
+		</block>
+	</adminhtml_itemslider_config_grid>
+	<!-- Config add/edit action -->
+	<adminhtml_itemslider_config_edit>
+		<update handle="editor"/>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>itemslider/config</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="itemslider/adminhtml_config_edit" name="config_edit"></block>
+		</reference>
+		<reference name="left">
+			<block type="itemslider/adminhtml_config_edit_tabs" name="config_tabs"></block>
+		</reference> 
+	</adminhtml_itemslider_config_edit>
+</layout>

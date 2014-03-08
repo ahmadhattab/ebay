@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<layout>
+    <itemslider_itemslider_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+         <reference name="content">
+            <block type="itemslider/item" name="litextension_itemslider_widget" template="le_itemslider/widget.phtml">
+                
+            </block>
+        </reference>
+    </itemslider_itemslider_index>
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>le_itemslider/css/style.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><script>le_itemslider/js/modernizr.custom.63321.js</script></action>
+        </reference>
+    </default>
+</layout>

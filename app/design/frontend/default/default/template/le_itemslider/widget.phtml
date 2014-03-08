@@ -1,0 +1,380 @@
+<?php
+if ($config['items_per_page'] && $config['items_per_page'] > 0) {
+    ?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('le_itemslider/js/jquery.min.js') ?>"></script>
+    <script>
+        jis( document ).ready(function( $ ) {
+
+            ;( function( $, window, undefined ) {
+                'use strict';
+                $.CatSlider = function( options, element ) {
+                    this.$el = $( element );
+                    this._init( options );
+                };
+
+                $.CatSlider.prototype = {
+
+                    _init : function( options ) {
+
+                        // the categories (ul)
+                        this.$categories = this.$el.children( 'ul' );
+                        // the navigation
+                        this.$navcategories = this.$el.find( 'nav > a' );
+                        var animEndEventNames = {
+                            'WebkitAnimation' : 'webkitAnimationEnd',
+                            'OAnimation' : 'oAnimationEnd',
+                            'msAnimation' : 'MSAnimationEnd',
+                            'animation' : 'animationend'
+                        };
+                        // animation end event name
+                        console.log(Modernizr.prefixed( 'animation' ));
+                        this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
+                        // animations and transforms support
+                        this.support = Modernizr.csstransforms && Modernizr.cssanimations;
+                        // if currently animating
+                        this.isAnimating = false;
+                        // current category
+                        this.current = 0;
+                        this.navCurrent = 0;
+                        var $currcat = this.$categories.eq( 0 );
+                        if( !this.support ) {
+                            this.$categories.hide();
+                            $currcat.show();
+                        }
+                        else {
+                            $currcat.addClass( 'mi-current' );
+                        }
+                        // current nav category
+                        this.$navcategories.eq( 0 ).addClass( 'mi-selected' );
+                        // initialize the events
+                        this._initEvents();
+
+                    },
+
+                    groupNavigate: function (direction) {
+                        var self = this;
+                        var cur_group = self.$categories.eq(self.current).attr("group");
+                        if (!cur_group) {
+                            return;
+                        }
+                        var nextIdx = self.current;
+                        if (direction == "next") {
+                            nextIdx = nextIdx + 1;
+                        }else if(direction == "back") {
+                            nextIdx = nextIdx - 1;
+                        }
+                        if(nextIdx < 0 || nextIdx > self.$categories.length) {
+                            return;
+                        }
+                        if(self.$categories.eq(nextIdx).attr("group") == cur_group){
+                            self.showCategory( nextIdx );
+                        }
+                    },
+
+                    _initEvents : function() {
+
+                        var self = this;
+
+                        $("#back_but-<?php echo $this->_group_id; ?>").click(function() {
+                            self.groupNavigate("back");
+                            return false;
+                        });
+                        $("#next_but-<?php echo $this->_group_id; ?>").click(function() {
+                            self.groupNavigate("next");
+                            return false;
+                        });
+
+                        this.$navcategories.on( 'click.catslider', function() {
+                            var group = $("ul[group="+$( this ).attr("group")+"]");
+                            if ( group.length < 2) {
+                                $("#back_but-<?php echo $this->_group_id; ?>").hide();
+                                $("#next_but-<?php echo $this->_group_id; ?>").hide();
+                            }else{
+                                $("#back_but-<?php echo $this->_group_id; ?>").show();
+                                $("#next_but-<?php echo $this->_group_id; ?>").show();
+                            }
+                            var catidx = group.first().index();
+                            self.showCategory( catidx, $( this ).index() );
+                            return false;
+                        } );
+
+                        // reset on window resize..
+                        $( window ).on( 'resize', function() {
+                            self.$categories.removeClass().eq( 0 ).addClass( 'mi-current' );
+                            self.$navcategories.eq( self.current ).removeClass( 'mi-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
+                            self.current = 0;
+                        } );
+
+                    },
+
+                    showCategory : function( catidx, navidx ) {
+
+                        if( catidx === this.current || this.isAnimating ) {
+                            return false;
+                        }
+
+                        this.isAnimating = true;
+                        // update selected navigation
+                        if(navidx != null ) {
+                            this.$navcategories.eq( this.navCurrent ).removeClass( 'mi-selected' ).end().eq( navidx ).addClass( 'mi-selected' );
+                            this.navCurrent = navidx;
+                        }
+
+                        var dir = catidx > this.current ? 'right' : 'left',
+                            toClass = dir === 'right' ? 'mi-moveToLeft' : 'mi-moveToRight',
+                            fromClass = dir === 'right' ? 'mi-moveFromRight' : 'mi-moveFromLeft',
+                        // current category
+                            $currcat = this.$categories.eq( this.current ),
+                        // new category
+                            $newcat = this.$categories.eq( catidx ),
+                            $newcatchild = $newcat.children(),
+                            lastEnter = dir === 'right' ? $newcatchild.length - 1 : 0,
+                            self = this;
+
+                        if( this.support ) {
+
+                            $currcat.removeClass().addClass( toClass );
+                            setTimeout( function() {
+
+                                $newcat.removeClass().addClass( fromClass );
+                                $newcatchild.eq( lastEnter ).on( self.animEndEventName, function() {
+
+                                    $( this ).off( self.animEndEventName );
+                                    $newcat.addClass( 'mi-current' );
+                                    self.current = catidx;
+                                    var $this = $( this );
+                                    // solve chrome bug
+                                    self.forceRedraw( $this.get(0) );
+                                    self.isAnimating = false;
+
+                                } );
+
+                            }, $newcatchild.length * 90 );
+
+                        }
+                        else {
+
+                            $currcat.hide();
+                            $newcat.show();
+                            this.current = catidx;
+                            this.isAnimating = false;
+
+                        }
+
+                    },
+                    // based on http://stackoverflow.com/a/8840703/989439
+                    forceRedraw : function(element) {
+                        if (!element) { return; }
+                        var n = document.createTextNode(' '),
+                            position = element.style.position;
+                        element.appendChild(n);
+                        element.style.position = 'relative';
+                        setTimeout(function(){
+                            element.style.position = position;
+                            n.parentNode.removeChild(n);
+                        }, 25);
+                    }
+
+                }
+
+                $.fn.catslider = function( options ) {
+                    var instance = $.data( this, 'catslider' );
+                    if ( typeof options === 'string' ) {
+                        var args = Array.prototype.slice.call( arguments, 1 );
+                        this.each(function() {
+                            instance[ options ].apply( instance, args );
+                        });
+                    }
+                    else {
+                        this.each(function() {
+                            instance ? instance._init() : instance = $.data( this, 'catslider', new $.CatSlider( options, this ) );
+                        });
+                    }
+                    return instance;
+                };
+
+            } )( jis, window );
+
+            $( '#mi-slider-<?php echo $this->_group_id; ?>' ).catslider();
+            var countul = $("#mi-slider-<?php echo $this->_group_id; ?> ul[group=<?php echo $groupId; ?>]").length;
+            if(countul <= 1){
+                $("#back_but-<?php echo $this->_group_id; ?>, #next_but-<?php echo $this->_group_id; ?>").css("display", "none");
+            }
+
+            <?php if($config['showproduct'] == 0){ ?>
+            $('.mi-slider ul li a div h4').each(function(){
+                if(this.offsetHeight <= 45){
+                    $(this).parent().append( "<div style='height: 25px; color: transparent'>item</div>" );
+                }
+            });
+            $('.mi-slider nav').css("top","140px");
+            <?php  } ?>
+
+            var wslide = $('.mi-slider').width();
+            <?php if($config['items_per_page'] == 6){ ?>
+            if(wslide <= 490){
+                $('.mi-slider ul li').css('margin', 0);
+            }else if(wslide >= 850){
+                $('.mi-slider ul li').css('margin', '0 -8px');
+            }else{
+                $('.mi-slider ul li').css('margin', '0 -3px');
+            }
+            <?php } ?>
+            if(wslide <= 490){
+                $('.le_back_but img, .le_next_but img').css("width","12px");
+                $('.le_back_but, .le_next_but').css("top",50);
+            }
+        });
+    </script>
+    <?php
+    $w = floor(100 / $config['items_per_page']) - 1;
+    if ($config['style'] == 1) {
+        ?>
+        <style type="text/css">
+            .mi-slider nav a:hover,
+            .mi-slider nav a.mi-selected {
+                background-color: #<?php echo $cf_style2['style2_group_background_color']; ?>;
+            }
+            .mi-slider nav a{
+                padding: <?php echo $cf_style2['style2_group_width']; ?>px;
+            }
+            .mi-slider nav {
+                border-top: <?php echo $cf_style2['style2_line_width']; ?>px solid #<?php echo $cf_style2['style2_line_color']; ?>;
+            }
+            .mi-slider nav a.mi-selected:after,
+            .mi-slider nav a.mi-selected:before {
+                border: none;
+            }
+        </style>
+        <?php
+    } elseif ($config['style'] == 0) {
+        ?>
+        <style type="text/css">
+            .mi-slider nav {
+                border-top: <?php echo $cf_style1['style1_line_width']; ?>px solid #cacaca;
+            }
+            .mi-slider nav a.mi-selected:after,
+            .mi-slider nav a.mi-selected:before {
+                top: <?php echo (-1 - ($cf_style1['style1_line_width'] - 1)); ?>px;
+            }
+            .mi-slider nav a.mi-selected:before {
+                border-width: <?php echo (10 + ($cf_style1['style1_line_width'] - 1)); ?>px;
+                margin-left: <?php echo (-10 - ($cf_style1['style1_line_width'] - 1)); ?>px;
+            }
+        </style>
+        <?php
+    }
+    ?>
+    <style type="text/css">
+        .mi-slider ul li{
+            width: <?php echo $w . '%'; ?>;
+        }
+    </style>
+    <?php if($config['itemimageheight'] > 80 ) {$spacenav = ($config['itemimageheight'] - 80) +155;
+        $spacediv = ($config['itemimageheight'] - 80) +225;
+        ?>
+        <style type="text/css">
+            .mi-slider{
+                height: <?php echo $spacediv . 'px'; ?>;
+            }
+            .mi-slider nav{
+                top: <?php echo $spacenav . 'px'; ?>;
+            }
+        </style>
+    <?php }?>
+
+    <div class="nole_silder">
+        <a href="javascript:void(0)" id="back_but-<?php echo $this->_group_id; ?>" class="le_back_but"><img src="<?php echo $this->getSkinUrl('le_itemslider/images/icon-prev.png'); ?>"/></a>
+        <a href="javascript:void(0)" id="next_but-<?php echo $this->_group_id; ?>" class="le_next_but" ><img src="<?php echo $this->getSkinUrl('le_itemslider/images/icon-next.png'); ?>"/></a>
+        <div id="mi-slider-<?php echo $this->_group_id; ?>" class="mi-slider">
+            <?php foreach ($groups as $key => $group) { ?>
+
+                <?php
+                if ($group->getData('item_type') == 0) { // Product
+                    $collec = $group->getProducts();
+                    $arr = $collec->exportToArray();
+                    $ar = array_chunk($arr, $config['items_per_page']);
+                    foreach ($ar as $pros) {
+                        ?><ul group="<?php echo $group->getId(); ?>"><?php
+                foreach ($pros as $pro) {
+                    $pro['url_path'] = Mage::getBaseUrl() . $pro['url_path'];//var_dump($pro);exit();
+                    if ($pro['image'] == 'no_selection') {
+                        $pro['image'] = Mage::getModel('catalog/product')->getSmallImageUrl();
+                    } elseif($pro['image'] == null){
+                        $pro['image'] = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'catalog/product' . $pro['small_image'];
+                    } else {
+                        $pro['image'] = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'catalog/product' . $pro['image'];
+                    }
+                            ?>
+                                <li><a <?php
+                    if ($group->getData('enable_link') == 0) {
+                        echo "";
+                    } else {
+                        echo ' href="' . $pro['url_path'] . '"';
+                    }
+                            ?> 
+                                        target="<?php echo $config["_target"]; ?>">
+                                        <img src="<?php echo $pro['image']; ?>"
+                                             style="max-width: <?php echo $config['itemimagewidth']; ?>px; max-height:<?php echo $config['itemimageheight']; ?>px "/>
+                                        <div class="le-slide-img"><h4>
+                                            <?php echo $pro['name']; ?>
+                                        </h4></div>
+                                        <?php
+                                        if ($config['showproduct'] == 1) {
+                                            echo '<span class="regular-price"><span class="price">' . $formattedPrice = Mage::helper('core')->currency($pro['price'], true, false) . '</span></span>';
+                                        }
+                                        ?>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?></ul><?php
+            }
+        } elseif ($group->getData('item_type') == 1) { // Category
+            $collec = $group->getCategories();
+            $arr = $collec->exportToArray();
+            $ar = array_chunk($arr, $config['items_per_page']);
+            foreach ($ar as $cats) {
+                            ?><ul group="<?php echo $group->getId(); ?>"><?php
+                foreach ($cats as $cat) {
+//                    $cat['image'] = Mage::helper('catalog') . "media/catalog/category/". $cat['image'];
+                    if ($cat['image'] == NULL) {
+                        $cat['image'] = Mage::getModel('catalog/product')->getSmallImageUrl();
+                    } else {
+                        $cat['image'] = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "media/catalog/category/" . $cat['image'];
+                    }
+                                ?>
+
+                                <li><a href="<?php echo Mage::getBaseUrl() . $cat['url_path']; ?>" target="<?php echo $config["_target"]; ?>">
+                                        <img src="<?php echo $cat['image']; ?>" 
+                                             style="max-width: <?php echo $config['itemimagewidth']; ?>px; max-height:<?php echo $config['itemimageheight']; ?>px "/>
+                                        <div class="le-slide-img"><h4>
+                                            <?php echo $cat['name']; ?>
+                                        </h4></div>
+                                    </a>
+                                </li>
+
+                                <?php
+                            }
+                            ?></ul><?php
+            }
+        }
+    }
+                ?>
+<br style="clear: both;"/>
+            <nav>
+                <?php
+                foreach ($groups as $group):
+                    ?>
+                    <a group="<?php echo $group->getId(); ?>" href="#" >
+                        <?php echo $group->getGroupName(); ?>
+                    </a>
+
+                    <?php
+                endforeach;
+                ?>
+            </nav>
+
+        </div>
+    </div>
+<?php } ?>

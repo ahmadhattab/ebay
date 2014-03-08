@@ -29,16 +29,8 @@
     <div class="form-search">
         <label for="search"><?php echo $this->__('Search:') ?></label>
         <input id="search" type="text" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" class="input-text" />
-        <select id="select-category" class="select-category">
-			<option selected="selected" value="">All Category</option>
-			<option value="">Furniture </option>
-			<option value="">Electronics</option>
-			<option value="">Apparel</option>
-			<option value="">Music</option>
-			<option value="">Ebooks</option>
-		</select>
+       
 		<button type="submit" title="<?php echo $this->__('Search') ?>" class="button"><span><span><?php echo $this->__('Search') ?></span></span></button>
-        <a href="<?php echo $this->getUrl('catalogsearch/advanced/') ?>" class="links_advanced"><?php echo $this->__('Advanced') ?></a>
 		<div id="search_autocomplete" class="search-autocomplete"></div>
         <script type="text/javascript">
         //<![CDATA[

@@ -64,6 +64,9 @@ Default layout, loads most of the pages
 	                        <action method="addItem"><type>skin_js</type><name>js/jquery-1.11.0.min.js</name></action>	
 				<action method="addItem"><type>skin_js</type><name>js/jquery.flexslider-min.js</name></action>	
 				<action method="addItem"><type>skin_js</type><name>js/slider_script.js</name></action>
+				
+				<action method="addItem"><type>skin_js</type><name>js/jcarousellite_1.0.1.js</name></action>
+				
 				<action method="addCss"><stylesheet>css/menu_effect/style.css</stylesheet></action>
 				
 				<action method="addItem"><type>skin_js</type><name>ajaxhometabs/js/ajaxhometabs.js</name></action>
