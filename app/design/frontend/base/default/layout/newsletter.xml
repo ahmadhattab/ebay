@@ -34,11 +34,11 @@ Default layout, loads most of the pages
 
     <default>
 
-        <!-- Mage_Newsletter -->
+        <!-- Mage_Newsletter
         <reference name="left">
             <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
         </reference>
-
+-->
     </default>
 
 <!--

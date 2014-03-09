@@ -1,6 +1,5 @@
 <?php
 $item = $this->getItem();
-$listingItems = $this->getListingItems();
 ?>
 <div class="page-title title-buttons">
 	<h1>
@@ -22,7 +21,9 @@ $listingItems = $this->getListingItems();
 					customers
 				</h3>
 				<ul class="form-list">
-				<?php foreach($listingItems as $listingItem): ?>
+				<?php
+				$listingItems = $this->getListingItems();
+				foreach($listingItems as $listingItem): ?>
 					<li>
 						<table class="procut_item" border="0" cellpadding="4">
 							<tr>
@@ -36,12 +37,10 @@ $listingItems = $this->getListingItems();
 										<input type="hidden" name="itemname"
 											value="<?php echo $listingItem->getName(); ?>" /> <input
 											type="hidden" name="itemnumber"
-											value="<?php echo $listingItem->getId(); ?>" />
-											<input
+											value="<?php echo $listingItem->getId(); ?>" /> <input
 											type="hidden" name="productID"
-											value="<?php echo $item->getId(); ?>" />
-											 <input
-											type="hidden" name="itemprice"
+											value="<?php echo $item->getId(); ?>" /> <input type="hidden"
+											name="itemprice"
 											value="<?php echo (int)$listingItem->getPrice(); ?>" /> <input
 											type="hidden" name="itemQty" value="1" /> <input
 											class="dw_button" type="submit" name="submitbutt"

@@ -1,0 +1,50 @@
+<div class="page-title title-buttons">
+	<h1>
+	<?php echo $this->__('Choose Your Submit') ?>
+	</h1>
+</div>
+<div class="fieldset">
+<?php echo $this->getBlockHtml('formkey') ?>
+	<h2 class="legend">
+	<?php echo $this->__('Free Submit') ?>
+		<em style="color: red;">*</em>
+	</h2>
+	<ul class="form-list">
+		<li>
+			<div class="input-box">
+				<form id="discount-Form" action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>" method="post">
+				<label>Enter you discount code:</label> 
+				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
+				<input type="text"
+					name="discountCode" id="discountCode"
+					class="input-text required-entry images" />
+				<div style="float:left; padding:8px 0 0;">
+					<button type="button" title="Apply Coupon" class="button"
+						onclick="discountForm.submit(false)" value="Apply Coupon">
+						<span><span>Apply Coupon</span> </span>
+					</button>
+				</div>
+				</form>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="fieldset">
+	<h2 class="legend">
+	<?php echo $this->__('Paid Submit') ?>
+		<em style="color: red;">*</em>
+	</h2>
+	<ul class="form-list">
+		<li>
+			<div class="input-box">
+				<h2><a href="<?php echo $this->getUrl('seller/item/paidsubmit',array('id'=>$this->getRequest()->getParam('id'))) ?>"><?php echo $this->__('Click Here')?></a></h2>
+			</div>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+var discountForm = new VarienForm('discount-Form', true);
+discountForm.submit = function (isRemove){
+	return VarienForm.prototype.submit.bind(discountForm)();
+}
+</script>

@@ -58,7 +58,7 @@
 			</action>
 		</reference>
 		<reference name="content">
-			<block type="seller/seller_item" name="edititem" as="edititem"
+			<block type="seller/seller_item" name="additem" as="additem"
 				template="jordanshopper/seller/edit.phtml" />
 		</reference>
 	</seller_item_edit>
@@ -71,9 +71,21 @@
 		</reference>
 		<reference name="content">
 			<block type="seller/seller_item" name="submititem" as="submititem"
-				template="jordanshopper/seller/submit.phtml" />
+				template="jordanshopper/seller/index_submit.phtml" />
 		</reference>
 	</seller_item_submit>
+		<seller_item_paidsubmit>
+		<update handle="customer_activity" />
+		<reference name="root">
+			<action method="setHeaderTitle" translate="title" module="customer">
+				<title>My Account</title>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="seller/seller_item" name="submititem" as="submititem"
+				template="jordanshopper/seller/submit.phtml" />
+		</reference>
+	</seller_item_paidsubmit>
 	<customer_activity>
 		<reference name="customer_account_navigation">
 			<action method="addLink">

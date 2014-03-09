@@ -141,6 +141,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 	public function createProduct($itemId)
 	{
 		$sellerItem = Mage::getModel('seller/seller')->load($itemId);
+		//print_r($sellerItem->getData());die;
 		// this will save item in eav model
 		$product = Mage::getModel('catalog/product');
 		// in this step we will add our custom fields to

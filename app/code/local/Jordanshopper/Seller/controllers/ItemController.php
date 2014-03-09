@@ -127,11 +127,76 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			$this->_redirect('seller');
 		}
 	}
+	public function paidsubmitAction()
+	{
+		$session    = Mage::getSingleton('core/session');
+		if ($this->getRequest()->getParam('id'))
+		{
+			$item = Mage::getModel('seller/seller')->load($this->getRequest()->getParam('id'));
+			if($item->getStatus() == 0 && $item->getData())
+			{
+				$this->loadLayout();
+				$this->renderLayout();
+			}
+			elseif($item->getStatus() == 1)
+			{
+				$session->addError($this->__('This item already submitted if you have any problem with it please contact admin'));
+				$this->_redirect('seller');
+			}
+			else
+			{
+				$session->addError($this->__('There\'s no item related'));
+				$this->_redirect('seller');
+			}
+
+		}
+		else
+		{
+			$session->addError($this->__('Sorry you don\'t have a permission to access it!.'));
+			$this->_redirect('seller');
+		}
+	}
+	
+	public function freesubmitAction()
+	{
+		$session    = Mage::getSingleton('core/session');
+		$code = $this->getRequest()->getParam('discountCode');
+		if ($code == 'shopper2014')
+		{
+			$itemId = $this->getRequest()->getParam('seller_id');
+			$item = Mage::getModel('seller/seller')->load($itemId);
+			if($item->getStatus() == 0 && $item->getData())
+			{
+				$itemModel = Mage::getModel('seller/seller');
+				$itemModel->createProduct($itemId);
+				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
+				$session->addSuccess($successMsg);
+				$this->_redirect('seller');
+				
+			}
+			elseif($item->getStatus() == 1)
+			{
+				$session->addError($this->__('This item already submitted if you have any problem with it please contact admin'));
+				$this->_redirect('seller');
+			}
+			else
+			{
+				$session->addError($this->__('There\'s no item related'));
+				$this->_redirect('seller');
+			}
+		}
+		else
+		{
+			$error = 'This discount code not valid';
+			$session->addError($error);
+			$this->_redirect('seller');
+		}
+	}
 
 	public function checkoutAction()
 	{
 		$session = Mage::getSingleton('core/session');
-	    //Mage::getSingleton('customer/session')->getCustomerId();
+		//Mage::getSingleton('customer/session')->getCustomerId();
 		//die();
 		$PayPalMode 			= 'sandbox'; // sandbox or live
 		$PayPalApiUsername 		= 'ahmad_hatab_api1.hotmail.com'; //PayPal API Username
@@ -237,7 +302,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$orderNumber = $PayPalModel->createOrder($customerId, $sku);
 				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
 				$session->addSuccess($successMsg);
-				// create live product 
+				// create live product
 				$PayPalModel->createProduct($session->getProductID());
 				$this->_redirect('seller/index');
 			}

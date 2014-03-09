@@ -59,18 +59,10 @@ Default layout, loads most of the pages
 
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
                 <action method="addItem"><type>skin_js</type><name>js/ie6.js</name><params/><if>lt IE 7</if></action>
+								<action method="addCss"><stylesheet>css/menu_effect/style.css</stylesheet></action>
 				
 				<action method="addItem"><type>skin_js</type><name>js/menu_effect/script.js</name></action>
-	                        <action method="addItem"><type>skin_js</type><name>js/jquery-1.11.0.min.js</name></action>	
-				<action method="addItem"><type>skin_js</type><name>js/jquery.flexslider-min.js</name></action>	
-				<action method="addItem"><type>skin_js</type><name>js/slider_script.js</name></action>
-				
-				<action method="addItem"><type>skin_js</type><name>js/jcarousellite_1.0.1.js</name></action>
-				
-				<action method="addCss"><stylesheet>css/menu_effect/style.css</stylesheet></action>
-				
-				<action method="addItem"><type>skin_js</type><name>ajaxhometabs/js/ajaxhometabs.js</name></action>
-				<action method="addCss"><stylesheet>ajaxhometabs/css/ajaxhometabs.css</stylesheet></action>
+
             </block>
 
             <block type="core/text_list" name="after_body_start" as="after_body_start" translate="label">
