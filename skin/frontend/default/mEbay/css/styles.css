@@ -852,10 +852,10 @@ color:#000;background:none !important;padding-left:0px !important; }
 .products-list li.item { border-bottom:1px dashed #d9ddd3; padding:12px 10px; }
 .products-list li.item.last { border-bottom:0; }
 .products-list .product-image { float:left; width:170px; height:145px; margin:0 0 10px; }
-.products-list .product-shop { margin-left:180px; }
+.products-list .product-shop { float:left;}
 .products-list .product-name { margin:0 0 5px; font-weight:bold; font-size:13px; color:#203548; }
 .products-list .product-name a { color:#203548; }
-.products-list .price-box { float:left; margin:3px 13px 5px 0; }
+.products-list .price-box { float:right; width:130px; text-align:right;}
 .products-list .availability { float:left; margin:3px 0 0; }
 .products-list .desc { clear:both; padding:6px 0 0; margin:0 0 15px; line-height:1.35; }
 .products-list .desc .link-learn { font-size:11px; }
