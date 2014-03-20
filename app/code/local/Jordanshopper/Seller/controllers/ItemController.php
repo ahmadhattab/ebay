@@ -32,9 +32,9 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		$id = $this->getRequest()->getParam('item_id');
 		if (isset($id) && $this->getRequest()->isPost())
 		{
-			$sellerModel = Mage::getModel('seller/seller')->load($id);
+			$sellerModel = Mage::getModel('seller/seller')->load($id);                                
 			// get post Seller values
-			$sellerId           = $this->getRequest()->getParam('seller_id');
+			$sellerId           = $this->getRequest()->getParam('seller_id');                        
 			$productTitle       = $this->getRequest()->getParam('product_title');
 			$category           = $this->getRequest()->getParam('category');
 			$subtitle           = $this->getRequest()->getParam('subtitle');
@@ -92,6 +92,39 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			if (isset($description) && !empty($description)) {
 				$sellerModel->setDescription($description);
 			}
+                        $originImages = $sellerModel->getImages();
+                        if (is_array($_FILES)) {
+                        $sortImages = $this->reArrayFiles($_FILES);                                                            
+                        $images = array();
+                        foreach ($sortImages as $image) {
+                            $uploader = new Varien_File_Uploader($image);
+                            $uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+                            $uploader->setAllowRenameFiles(true);
+                            $uploader->setAllowCreateFolders(true);
+                            $uploader->setFilesDispersion(false);
+                            $path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId();
+                            if (!is_dir($path)) {
+                                mkdir($path, 0777, true);
+                            }
+                            if (isset($image['name']) && !empty($image['name'])) {
+                                $images[] = $image['name'];
+                                $fileName = date("Y-m-j-h-i") . $image['name'];
+                                $fileNames[] = $fileName;
+                                $move = $uploader->save($path . DS, $fileName);
+                                if (!$move) {
+                                    $session->addError("File was not uploaded, Please Check your file and try again.");
+                                    //$this->_redirect('*/*/add');
+                                    return;
+                                }
+                            } else {
+                                continue;
+                            }
+                        }
+                        if ($imageNames = implode(",", $fileNames)) {
+                            $allImages = $imageNames.",".$originImages;
+                            $sellerModel->setImages($allImages);
+                        }
+                    }
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
 			$this->_redirect('seller/index');
@@ -310,5 +343,17 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 
 
 	}
+     
+    public function reArrayFiles(&$file_post) {
+        $file_ary = array();
+        $file_count = count($file_post['images']['name']);
+        $file_keys = array_keys($file_post['images']);
+        for ($i = 0; $i < $file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $file_ary[$i][$key] = $file_post['images'][$key][$i];
+            }
+        }
+        return $file_ary;
+    }
 }
 ?>

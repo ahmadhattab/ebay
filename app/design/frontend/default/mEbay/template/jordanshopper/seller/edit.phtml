@@ -196,11 +196,25 @@ $item = $this->getItem();
             </script>
     </div>
     <div class="fieldset">
-        <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
+        <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>        
+        <div style="margin: 10px">
+            <?php 
+            if($item->getImages()){
+                $images = explode(',', $item->getImages());
+                foreach ($images as $image){
+                    $src = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$item->getSellerId().DS.$image;                    
+                    echo "<span style='display:inline-block;margin:10px'>";
+                    echo "<img src='{$src}' height='100' width='66'>";            
+                    echo "</span>";
+                }
+            }
+            ?>
+            
+        </div>
         <ul class="form-list">
             <li>
                 <div class="image-box" id="inp">
-                    <input type="file" name="images" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                    <input type="file" name="images[]" id="file" class="images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
                 </div>
             </li>
         </ul>
@@ -240,7 +254,7 @@ $item = $this->getItem();
         dyname = dyname + 1;
         var input = document.createElement('input');
         input.type = "file";
-        input.name = "upload" + (dyname + 1);
+        input.name = "images[]";
         input.id = "upload" + (dyname + 1);
         input.className = "images";
         document.getElementById('inp').appendChild(input);
