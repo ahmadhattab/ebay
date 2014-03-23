@@ -1,27 +1,4 @@
-<style>
-<!--
-     .rating {
-          overflow: hidden;
-          display: inline-block;
-      }
-      .rating-input {
-         display: none;
-      }
-      .rating-star {        
-          display: block;
-          float: right !important;        
-          width: 4px;
-          height: 16px;
-          background: url('<?php echo $this->getSkinUrl("images/star.png") ?>') 0 -16px;
-      }
-      .rating-star:hover,
-      .rating-star:hover ~ .rating-star,
-      .rating-input:checked ~ .rating-star {
-          background-position: 0 0;
-      }
--->
-</style>
-<form action="<?php echo $this->getUrl('seller/rating/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
+<form action="<?php echo $this->getUrl('seller/rating/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data" class="f-rating">
 <input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('seller_id') ?>" />
 <input type="hidden" name="order_number" id="order_number" value="<?php echo $this->getRequest()->getParam('order_id') ?>" />
 <div class="page-title title-buttons">

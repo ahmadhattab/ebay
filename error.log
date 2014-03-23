@@ -22,3 +22,47 @@
 [Sun Mar 23 11:39:43 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/base/default/images/logo.jpg, referer: http://js.com/index.php/sales/order/history/
 [Sun Mar 23 11:40:29 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
 [Sun Mar 23 11:45:40 2014] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getName() on a non-object in /var/www/ebay/app/design/frontend/base/default/template/sales/order/selling.phtml on line 68, referer: http://js.com/index.php/customer/activity/
+[Sun Mar 23 17:21:15 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 23 18:13:32 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 23 18:13:41 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 23 18:13:57 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 23 18:13:59 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 23 18:14:08 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 23 18:14:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/base/default/images/logo.jpg, referer: http://js.com/index.php/customer/activity/selling/
+[Sun Mar 23 18:14:18 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/base/default/images/logo.jpg, referer: http://js.com/index.php/customer/activity/
+[Sun Mar 23 18:14:28 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/base/default/images/logo.jpg, referer: http://js.com/index.php/sales/order/history/
+[Sun Mar 23 18:14:55 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 23 18:14:59 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 23 18:15:01 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/activity/
+[Sun Mar 23 18:15:04 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/activity/selling/
+[Sun Mar 23 18:16:11 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/activity/selling/
+[Sun Mar 23 18:17:36 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/
+[Sun Mar 23 18:17:45 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/?p=2
+[Sun Mar 23 18:17:47 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/?p=3
+[Sun Mar 23 18:17:49 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/?p=4
+[Sun Mar 23 18:17:51 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/?p=5
+[Sun Mar 23 18:17:53 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/sales/order/history/?p=1
+[Sun Mar 23 18:17:54 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/activity/selling/
+[Sun Mar 23 18:17:57 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/
+[Sun Mar 23 18:18:00 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/index/add/
+[Sun Mar 23 18:18:03 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/
+[Sun Mar 23 18:18:06 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/checkout/cart/
+[Sun Mar 23 18:18:16 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/activity/
+[Sun Mar 23 18:31:51 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 18:33:21 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/css/<, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 18:34:59 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/css/images, referer: http://js.com/index.php/seller/rating/buyer/order_id/100000070/buyer_id/1/
+[Sun Mar 23 18:35:02 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/css/images
+[Sun Mar 23 18:35:15 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/css/images, referer: http://js.com/index.php/seller/rating/buyer/order_id/100000070/buyer_id/1/
+[Sun Mar 23 18:35:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/css/images
+[Sun Mar 23 18:56:05 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 18:56:08 2014] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Jordanshopper_Seller_Model_Mysql4_Feedbackseller_Collection::addFeildToFilter() in /var/www/ebay/app/design/frontend/default/mEbay/template/catalog/product/list.phtml on line 98, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 18:56:27 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html?mode=grid
+[Sun Mar 23 19:13:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html?mode=grid
+[Sun Mar 23 19:17:03 2014] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_ENDFOREACH in /var/www/ebay/app/design/frontend/default/mEbay/template/catalog/product/list.phtml on line 124, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 19:19:28 2014] [error] [client 127.0.0.1] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 223088641 bytes) in /var/www/ebay/app/design/frontend/default/mEbay/template/catalog/product/list.phtml on line 109, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 19:19:33 2014] [error] [client 127.0.0.1] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 223088641 bytes) in /var/www/ebay/app/design/frontend/default/mEbay/template/catalog/product/list.phtml on line 109, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 19:19:37 2014] [error] [client 127.0.0.1] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 223088641 bytes) in /var/www/ebay/app/design/frontend/default/mEbay/template/catalog/product/list.phtml on line 108
+[Sun Mar 23 19:19:49 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 19:20:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/ppp.html
+[Sun Mar 23 19:20:54 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 23 19:23:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html

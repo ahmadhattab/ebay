@@ -75,6 +75,47 @@ class Jordanshopper_Seller_RatingController extends Mage_Core_Controller_Front_A
 	
 	public function buyerPostAction()
 	{
+		$session = Mage::getSingleton('core/session');
+		if ($this->getRequest()->isPost())
+		{
+			$data = $this->getRequest()->getParams();
+			$feedbackModel = Mage::getModel('seller/feedback')->load($data['order_number'], 'order_number');
+			if ($feedbackModel->getData() && $feedbackModel->getStatus() == 2)
+			{
+				$buyerFeedbackModel = Mage::getModel('seller/feedbackbuyer');
+				$buyerFeedbackModel->setBuyerId($data['buyer_id']);
+				$buyerFeedbackModel->setOrderNumber($data['order_number']);
+				$buyerFeedbackModel->setFeedback($data['feedback']);
+				$buyerFeedbackModel->setItemPay($data['pay']);
+				$buyerFeedbackModel->setCommunication($data['comm']);
+				$buyerFeedbackModel->setText($data['brief']);
+				$buyerFeedbackModel->save();
+				$feedbackModel->setStatus(3);
+				$feedbackModel->save();
+				$session->addSuccess($this->__('Thank you for your rating'));
+				$this->_redirect('customer/activity/selling');
 		
+			}
+			else
+			{
+				$session->addError($this->__("You can't add rating for this seller"));
+				$this->_redirect('sales/order/history');
+			}
+		}
+	}
+	
+	public function listAction()
+	{
+		$customerSession = Mage::getSingleton('customer/session');
+		$sellerId = $this->getRequest()->getParam('id');
+		if ($sellerId)
+		{
+			$this->loadLayout();
+			$this->renderLayout();
+		}
+		else
+		{
+			$this->_redirect('/');
+		}
 	}
 }

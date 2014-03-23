@@ -106,6 +106,16 @@
 			<block type="core/template" name="buyerRating" template="jordanshopper/buyer/rating.phtml" />
 		</reference>
 	</seller_rating_buyer>
+	<seller_rating_list>
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="buyerRating" template="jordanshopper/seller/list.phtml" />
+		</reference>
+	</seller_rating_list>
 	<customer_activity>
 		<reference name="customer_account_navigation">
 			<action method="addLink">
