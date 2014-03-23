@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Jordanshopper_Seller>
-			<version>1.0.6</version>
+			<version>1.0.8</version>
 		</Jordanshopper_Seller>
 	</modules>
 	<frontend>
@@ -22,6 +22,17 @@
                  </seller>
              </updates>
         </layout>
+       	<events>
+			<sales_order_place_before>
+				<observers>	
+					<Jordanshopper_Seller_Model_Observer>
+						<type>singleton</type>
+                        <class>Jordanshopper_Seller_Model_Observer</class>
+                        <method>setFeedbackEntity</method>
+					</Jordanshopper_Seller_Model_Observer>
+				</observers>
+			</sales_order_place_before>
+		</events>
 	</frontend>
 	<global>
 		<blocks>
@@ -46,6 +57,12 @@
 					<seller>
 						<table>jordanshopper_seller</table>
 					</seller>
+					<feedback>
+						<table>jordanshopper_feedback_entity</table>
+					</feedback>
+					<feedbackseller>
+						<table>jordanshopper_feedback_seller</table>
+					</feedbackseller>
 				</entities>
 			</seller_mysql4>
 		</models>

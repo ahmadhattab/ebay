@@ -7,7 +7,7 @@ class jordanshopper_Buyer_Model_Observer {
 	{
 		$proId = Mage::app()->getRequest()->getParam('product');
 		$quote = Mage::getSingleton('checkout/session')->getQuote();
-		$cartItems = $quote->getAllVisibleItems();
+		//$cartItems = $quote->getAllVisibleItems();
 		$session = Mage::getSingleton('core/session');
 		$items = $quote->getAllVisibleItems();
 		$product = Mage::getModel('catalog/product')->load($proId);
