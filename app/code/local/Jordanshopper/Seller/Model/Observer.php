@@ -13,7 +13,7 @@ class Jordanshopper_Seller_Model_Observer
 			$_product = Mage::getModel('catalog/product')->load($item->getProductId());
 			$seller_id = $_product->getSellerId();
 		} 
-    	$status = 0;
+    	$status = 1;
     	$sellerModel = Mage::getModel('seller/feedback');
     	$sellerModel->setOrderNumber($order_id);
     	$sellerModel->setBuyerId($buyer_id);

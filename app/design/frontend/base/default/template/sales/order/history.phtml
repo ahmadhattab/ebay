@@ -62,7 +62,7 @@
             <?php 
             $feedbackModel = Mage::getModel('seller/feedback')->load($_order->getRealOrderId(), 'order_number');
             $sellerModel = Mage::getModel('customer/customer')->load($feedbackModel->getSellerId());
-            if ($feedbackModel->getStatus() == 0 && $feedbackModel->getData())
+            if ($feedbackModel->getStatus() == 1 && $feedbackModel->getData())
             {
             ?>
             <a href="<?php echo $this->getUrl('seller/rating', array('order_id' => $_order->getRealOrderId(), 'seller_id' => $feedbackModel->getSellerId())); ?>">Rate: <?php echo $sellerModel->getName() ?></a>

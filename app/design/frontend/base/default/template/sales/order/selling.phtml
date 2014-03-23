@@ -45,6 +45,7 @@
             <th><?php echo $this->__('Ship To') ?></th>
             <th><span class="nobr"><?php echo $this->__('Order Total') ?></span></th>
             <th><span class="nobr"><?php echo $this->__('Order Status') ?></span></th>
+            <th><span class="nobr"><?php echo $this->__('Buyer Rating')?></span></th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -57,6 +58,24 @@
             <td><?php echo $_order->getShippingAddress() ? $this->htmlEscape($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
             <td><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></td>
             <td><em><?php echo $_order->getStatusLabel() ?></em></td>
+           	<td>
+            <?php 
+            $feedbackModel = Mage::getModel('seller/feedback')->load($_order->getRealOrderId(), 'order_number');
+            $buyerModel = Mage::getModel('customer/customer')->load($feedbackModel->getBuyerId());
+            if ($feedbackModel->getStatus() == 2 && $feedbackModel->getData())
+            {
+            ?>
+            <a href="<?php echo $this->getUrl('seller/rating/buyer', array('order_id' => $_order->getRealOrderId(), 'buyer_id' => $feedbackModel->getSellerId())); ?>">Rate: <?php echo $buyerModel->getName() ?></a>
+            <?php
+            }
+            else
+            {
+            ?>
+            Done
+            <?php
+            }
+            ?>
+            </td>
             <td class="a-center">
                 <span class="nobr"><a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a>
  

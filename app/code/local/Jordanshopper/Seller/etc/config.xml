@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Jordanshopper_Seller>
-			<version>1.0.8</version>
+			<version>1.0.9</version>
 		</Jordanshopper_Seller>
 	</modules>
 	<frontend>
@@ -63,6 +63,9 @@
 					<feedbackseller>
 						<table>jordanshopper_feedback_seller</table>
 					</feedbackseller>
+					<feedbackbuyer>
+						<table>jordanshopper_feedback_buyer</table>
+					</feedbackbuyer>
 				</entities>
 			</seller_mysql4>
 		</models>
