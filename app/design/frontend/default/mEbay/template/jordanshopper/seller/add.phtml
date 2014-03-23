@@ -176,13 +176,13 @@
         <ul class="form-list">
             <li>
                 <div class="image-box" id="inp">
-                    <input type="file" name="images" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                    <input type="file" name="images[]" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
                 </div>
             </li>
         </ul>
     </div>
     <div class="fieldset">
-        <h2 class="legend"><?php echo $this->__('Description') ?></h2>
+        <h2 class="legend"><?php echo $this->__('Description') ?><em style="color:red;"> *</em></h2>
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
@@ -213,28 +213,28 @@
     var dataForm = new VarienForm('form-validate', true);
     var dyname = 1;
     function createNewUpload() {
-        if (dyname >= 10)
-        {
-            alert("<?php echo $this->__('The Limit upload of images is 2')?>");
-        }
-        else
-        {
+       // if (dyname >= 10)
+        //{
+          //  alert("<?php //echo $this->__('The Limit upload of images is 2')?>");
+        //}
+        //else
+        //{
         dyname = dyname + 1;
         var input = document.createElement('input');
         input.type = "file";
-        input.name = "upload" + (dyname + 1);
+        input.name = "images[]";
         input.id = "upload" + (dyname + 1);
         input.className = "images";
         document.getElementById('inp').appendChild(input);
         var input = document.createElement('input');
         input.type = "button";
-        input.name = "upload" + (dyname + 1);
+        input.name = "images[]";
         input.value = "-";
         input.id = "upload" + (dyname + 1);
         input.className = "upload" + (dyname + 1);
         input.setAttribute("onclick","javascript:removeInput(this.className);");
         document.getElementById('inp').appendChild(input);
-        }
+       // }
     }
 
     function removeInput(val)
