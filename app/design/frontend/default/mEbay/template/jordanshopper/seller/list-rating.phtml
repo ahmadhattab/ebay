@@ -12,9 +12,9 @@ $buyerRatingTest->getSelect()->limit(20);
 			<span><?php echo $this->__('Rating as seller')?></span>
 		</strong>
 	</div>
-	<div class="block-content" style="background: white;">
+	<div class="block-content" style="background: white; margin-top: 10px;">
 		<?php foreach ($sellerRatingText as $sellerRating):?>
-			<p><span class="<?php echo ($sellerRating->getFeedback() == 1 ? 'positive' : 'negative') ?>">*</span><?php echo $sellerRating->getText() ?></p>
+			<p><span><img src="<?php echo $this->getSkinUrl('images/' . ($sellerRating->getFeedback() == 1 ? 'pos.png' : 'neg.png')); ?>" style="width:13px; margin: 2px;" /></span><?php echo $sellerRating->getText() ?></p>
 		<?php endforeach;?>
 	</div>
 	<div class="block-title">
@@ -22,9 +22,9 @@ $buyerRatingTest->getSelect()->limit(20);
 			<span><?php echo $this->__('Rating as buyer')?></span>
 		</strong>
 	</div>
-	<div class="block-content" style="background: white;">
+	<div class="block-content" style="background: white; margin-top: 10px;">
 		<?php foreach ($buyerRatingTest as $buyerRating):?>
-			<p><span class="<?php echo ($buyerRating->getFeedback() == 1 ? 'positive' : 'negative') ?>">*</span><?php echo $buyerRating->getText() ?></p>
+			<p><span><img src="<?php echo $this->getSkinUrl('images/' . ($buyerRating->getFeedback() == 1 ? 'pos.png' : 'neg.png')); ?>" style="width:13px; margin: 2px;" /></span><?php echo $buyerRating->getText() ?></p>
 		<?php endforeach;?>
 	</div>
 </div>
