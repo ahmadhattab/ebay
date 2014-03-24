@@ -66,3 +66,9 @@
 [Sun Mar 23 19:20:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/ppp.html
 [Sun Mar 23 19:20:54 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
 [Sun Mar 23 19:23:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Mon Mar 24 09:25:43 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Mon Mar 24 09:25:48 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/login/
+[Mon Mar 24 09:44:10 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/rating/list/id/1/
+[Mon Mar 24 09:50:42 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Mon Mar 24 10:03:39 2014] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getFeedback() on a non-object in /var/www/ebay/app/design/frontend/default/mEbay/template/jordanshopper/seller/list-rating.phtml on line 15, referer: http://js.com/index.php/mobile.html
+[Mon Mar 24 10:11:42 2014] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Jordanshopper_Seller_Model_Mysql4_Feedbackseller_Collection::limit() in /var/www/ebay/app/design/frontend/default/mEbay/template/jordanshopper/seller/list-rating.phtml on line 4, referer: http://js.com/index.php/mobile.html

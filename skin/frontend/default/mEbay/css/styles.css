@@ -632,7 +632,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Sidebar =============================================================================== */
 .block { margin:0 0 0px; }
-.block .block-title { background:#f3f3f3; border-bottom:1px solid #d7d7d7; padding:12px 9px 2px; }
+.block .block-title { background:#f3f3f3; border-bottom:1px solid #d7d7d7; border-top: 1px solid #d7d7d7; padding:12px 9px 2px; }
 .block .block-title strong { display:block; font:bold 14px/16px Trebuchet MS, Arial, Helvetica, sans-serif; min-height:16px; padding:1px 0 1px; text-transform:capitalize; 
 color:#000;background:none !important;padding-left:0px !important; }
 .block .block-title strong span {}

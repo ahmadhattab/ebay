@@ -137,10 +137,3 @@
     </div>
 </div>
 <?php endif; ?>
-<?php 
-$sellerRatingText = Mage::getModel('seller/feedbackseller')->getCollection()
-						->addFieldToFilter('seller_id',array('eq' => $this->getRequest()->getParam('id')));
-$buyerRatingTest = Mage::getModel('seller/feedbackbuyer')->getCollection()
-						->addFieldToFilter('buyer_id',array('eq' => $this->getRequest()->getParam('id')));
-						print_r($buyerRatingTest->getData());
-?>
