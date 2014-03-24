@@ -101,7 +101,7 @@
 					
 					?>
 					<div style="width: 200px;">
-					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px">(50%)</span></h2>
+					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(50%)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">

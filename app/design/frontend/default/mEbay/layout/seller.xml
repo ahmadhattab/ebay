@@ -113,7 +113,7 @@
 			</action>
 		</reference>
 		<reference name="content">
-			<block type="core/template" name="buyerRating" template="jordanshopper/seller/list.phtml" />
+			<block type="seller/product_list" name="buyerRating" template="jordanshopper/seller/list.phtml" />
 		</reference>
 	</seller_rating_list>
 	<customer_activity>
