@@ -56,9 +56,12 @@
                 	if ($_product->getSellerId())
                 	{
 					$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
+					$orderCount = Mage::getModel('sales/order')->getCollection()
+					->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
+					->getSize();
 					?>
 					<div style="width: 200px;">
-					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px">(50%)</span></h2>
+					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">
@@ -98,10 +101,13 @@
 					$readresult=$write->query("SELECT ((SUM(`item_desc`) + SUM(`price`) + SUM(`ship`) + SUM(`communication`)) / count(*)) / 5 as sellerfeedback from jordanshopper_feedback_seller where seller_id = " . $_product->getSellerId());
 					$sellerFeedback = $readresult->fetch();
 					$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
+					$orderCount = Mage::getModel('sales/order')->getCollection()
+										->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
+										->getSize();
 					
 					?>
 					<div style="width: 200px;">
-					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(50%)</a></span></h2>
+					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">
