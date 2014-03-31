@@ -107,8 +107,16 @@ class Jordanshopper_Seller_RatingController extends Mage_Core_Controller_Front_A
 	public function listAction()
 	{
 		$customerSession = Mage::getSingleton('customer/session');
+
 		$sellerId = $this->getRequest()->getParam('id');
-		$sellerData = Mage::getModel('customer/customer')->load($sellerId);
+		if ($sellerId)
+		{
+			$sellerData = Mage::getModel('customer/customer')->load($sellerId);
+		}
+		else
+		{
+			$sellerData = Mage::getModel('customer/customer')->load($customerSession->getCustomerId());
+		}
 		if ($sellerData->getData())
 		{
 			$this->loadLayout();

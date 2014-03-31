@@ -145,6 +145,8 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		// this will save item in eav model
 		$product = Mage::getModel('catalog/product');
 		// in this step we will add our custom fields to
+		$product->setWebsiteIDs(array(1));
+		$product->setStoreId(0);
 		$product->setSku(rand(2000, 100000));
 		$product->setAttributeSetId(4);
 		$product->setTypeId('simple');
@@ -153,11 +155,10 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$product->setShortDescription($sellerItem->getProductSubtitle());
 		$product->setDescription($sellerItem->getDescription());
 		$product->setVisibility(4);
-		$product->setStatus(2);
+		$product->setStatus(1);
 		$product->setTaxClassId(0);
 		$catIds = explode(',' , $sellerItem->getCategoriesIds());
 		$product->setCategoryIds(array($catIds));
-		$product->setWebsiteIDs(array(1));
 		$product->setItemCondition($sellerItem->getItemConditions());
 		if ($sellerItem->getItemConditions() == 'other')
 		{

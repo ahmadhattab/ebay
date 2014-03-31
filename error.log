@@ -77,3 +77,205 @@
 [Mon Mar 24 10:49:52 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
 [Mon Mar 24 10:52:38 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
 [Mon Mar 24 10:52:53 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Mon Mar 24 10:58:39 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/rating/list/id/1/
+[Sun Mar 30 10:21:26 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 10:21:31 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 30 10:58:48 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 30 10:58:49 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 11:00:27 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 11:02:50 2014] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function productAttribute() on a non-object in /var/www/ebay/app/design/frontend/default/mEbay/template/jordanshopper/buyer/featured.phtml on line 53
+[Sun Mar 30 11:31:08 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 11:36:26 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 11:44:01 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 11:47:25 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html?mode=list
+[Sun Mar 30 11:49:55 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 30 12:19:56 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 12:21:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 12:21:28 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/
+[Sun Mar 30 12:39:38 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/login/
+[Sun Mar 30 12:39:40 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/create/
+[Sun Mar 30 13:04:04 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 13:21:50 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 13:23:42 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/login/
+[Sun Mar 30 13:36:31 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Sun Mar 30 13:36:44 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 30 13:36:47 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 30 13:36:49 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 30 13:37:17 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Sun Mar 30 14:49:46 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/login/
+[Sun Mar 30 14:49:48 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/create/
+[Sun Mar 30 14:57:02 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/edit/
+[Sun Mar 30 15:00:55 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Sun Mar 30 15:02:57 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/
+[Mon Mar 31 08:17:11 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Mon Mar 31 08:35:04 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/
+[Mon Mar 31 08:47:54 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/create/
+[Mon Mar 31 08:48:42 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/
+[Mon Mar 31 10:38:10 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/checkout/cart/
+[Mon Mar 31 10:43:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/
+[Mon Mar 31 10:43:16 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:43:21 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:43:52 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:44:46 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:47:30 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:47:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:48:05 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:56:28 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:56:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:56:35 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:56:40 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:56:53 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:57:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:57:58 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:00 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:14 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:24 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:42 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:43 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:58:57 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:01 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:07 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:11 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:12 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:23 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:27 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:29 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:42 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:44 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:50 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:53 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:56 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 10:59:57 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:00:00 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:00:04 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:00:07 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:03:56 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:04:39 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/index/add/
+[Mon Mar 31 11:04:48 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/seller/index/add/
+[Mon Mar 31 11:04:49 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:04:51 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:05:56 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/admin/catalog_pr+oduct/edit/id/22/key/4417ae7b317103fd6384ff4fc4bbc7c9/
+[Mon Mar 31 11:06:05 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:06:30 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:06:36 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:07 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/customer/account/login/
+[Mon Mar 31 11:07:10 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:12 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:22 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:23 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:25 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:33 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile.html
+[Mon Mar 31 11:07:35 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:36 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:37 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:38 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:07:56 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:11 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:14 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:16 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:20 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:25 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:28 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:33 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:39 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:46 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:47 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:50 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:08:51 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:55 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:08:58 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:05 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:07 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:08 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:09 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:16 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:18 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:19 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:20 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:21 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:22 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:25 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/skin/frontend/default/mEbay/css/menu_effect/style.css
+[Mon Mar 31 11:09:29 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:37 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:53 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:09:59 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:11:56 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:12:21 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:14:19 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:14:23 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:14:30 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:14:36 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:14:41 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:25:10 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:31:30 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 11:33:20 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:01:25 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:02:10 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:04:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:04:35 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:06:57 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:07:00 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:07:02 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:07:06 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:16 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:20 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:28 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:29 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:33 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:39 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:40 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:44 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:49 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:50 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:53 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:08:59 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:00 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:03 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:09 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:10 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:14 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:21 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:23 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:26 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:28 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:31 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:35 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:48 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:49 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:54 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:57 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:09:59 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:12 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:30 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:33 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:41 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:42 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:10:54 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:13:59 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:14:07 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:00 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:13 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:25 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/base/default/css/flexslider.css, referer: http://js.com/index.php/mobile/samsung-s4.html?___store=ar&___from_store=default
+[Mon Mar 31 14:15:25 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay-arabic/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4.html?___store=ar&___from_store=default
+[Mon Mar 31 14:15:36 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:37 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:48 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:15:50 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:19:34 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:20:07 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/js/jquery.min.map, referer: http://js.com/index.php/seller/index/add/
+[Mon Mar 31 14:21:06 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/js/jquery.min.map, referer: http://js.com/index.php/seller/index/add/
+[Mon Mar 31 14:21:32 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:21:38 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:21:46 2014] [error] [client 127.0.0.1] client denied by server configuration: /var/www/ebay/app/etc/local.xml
+[Mon Mar 31 14:35:22 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:36:17 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:37:27 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:38:23 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:39:23 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:39:28 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:39:38 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:39:43 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html
+[Mon Mar 31 14:39:57 2014] [error] [client 127.0.0.1] File does not exist: /var/www/ebay/skin/frontend/default/mEbay/images/bg-li.jpg, referer: http://js.com/index.php/mobile/samsung-s4-2.html

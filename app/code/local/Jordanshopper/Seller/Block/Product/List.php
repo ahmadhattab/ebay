@@ -32,9 +32,18 @@ class Jordanshopper_Seller_Block_Product_List extends Mage_Catalog_Block_Product
                 }
             }
             
+            if ($this->getRequest()->getParam('id'))
+            {
+            	$sellerId = $this->getRequest()->getParam('id');
+            }
+            else
+            {
+            	$sellerId = Mage::getSingleton('customer/session')->getCustomerId();
+            }
+            
             $collection = Mage::getModel('catalog/product')->getCollection()
             				->addAttributeToSelect('*')
-            				->addAttributeToFilter('seller_id',array('eq' => $this->getRequest()->getParam('id')));
+            				->addAttributeToFilter('seller_id',array('eq' => $sellerId));
             //$this->_productCollection = $layer->getProductCollection();
 			$this->_productCollection = $collection;
             $this->prepareSortableFieldsByCategory($layer->getCurrentCategory());

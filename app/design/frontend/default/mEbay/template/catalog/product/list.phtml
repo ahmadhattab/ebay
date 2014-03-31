@@ -52,27 +52,38 @@
             <div class="product-shop">
                 <div class="f-fix">
                     <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
-                    <?php 
+<?php 
                 	if ($_product->getSellerId())
                 	{
 					$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
+					$write = Mage::getSingleton('core/resource')->getConnection('core_write');
+					$readresult=$write->query("SELECT ((SUM(`item_desc`) + SUM(`price`) + SUM(`ship`) + SUM(`communication`)) / count(*)) / 5 as sellerfeedback from jordanshopper_feedback_seller where seller_id = " . $_product->getSellerId());
+					$sellerFeedback = $readresult->fetch();
+					$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
 					$orderCount = Mage::getModel('sales/order')->getCollection()
-					->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
-					->getSize();
+										->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
+										->getSize();
+					
 					?>
 					<div style="width: 200px;">
 					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">
+					 <?php for($feedback=0; $feedback < $sellerFeedback; $feedback++) { ?>
 						 <input type="radio" class="rating-input validate-one-required-by-name" id="rating-input-1-5-<?php echo $_product->getId() ?>" name="<?php echo $_product->getId() ?>" value="5" checked="checked" disabled>
         				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
-        				 <input type="radio" class="rating-input validate-one-required-by-name" id="rating-input-1-5-<?php echo $_product->getId() ?>" name="<?php echo $_product->getId() ?>" value="5" checked="checked" disabled>
-        				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
+        				<?php } ?>
         				</span>
 					</div>
 					<?php } ?>
-
+                   <strong>Item Name: </strong><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a>
+                    <div class="desc std">
+                        <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                    </div>
+                    <div class="desc std">
+                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    </div>
                 </div>
             </div>
             <?php echo $this->getPriceHtml($_product, true) ?>

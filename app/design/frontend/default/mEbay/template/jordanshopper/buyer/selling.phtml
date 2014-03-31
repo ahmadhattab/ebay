@@ -6,7 +6,7 @@ jQuery(function() {
 	jQuery(".sellingContent").jCarouselLite({
         btnNext: ".selling-next",
         btnPrev: ".selling-prev",
-        visible: 5,
+        visible: 4,
     });
 });
 </script>
@@ -23,15 +23,51 @@ jQuery(function() {
 foreach ($products as $product):
 $_product = Mage::getModel('catalog/product')->load($product->getId());
 ?>
-<li>
-<img width="155" src="<?php echo $_product->getImageUrl(); ?>" />
-<h3 style="padding-top: 20px;"><?php echo $_product->getName(); ?></h3>
+<li style="width:200px">
+<img width="125" src="<?php echo $_product->getImageUrl(); ?>" />
+<div class="product-info">
+                	<?php 
+                	if ($_product->getSellerId())
+                	{
+					$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
+					$write = Mage::getSingleton('core/resource')->getConnection('core_write');
+					$readresult=$write->query("SELECT ((SUM(`item_desc`) + SUM(`price`) + SUM(`ship`) + SUM(`communication`)) / count(*)) / 5 as sellerfeedback from jordanshopper_feedback_seller where seller_id = " . $_product->getSellerId());
+					$sellerFeedback = $readresult->fetch();
+					$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
+					$orderCount = Mage::getModel('sales/order')->getCollection()
+										->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
+										->getSize();
+					
+					?>
+					<div style="width: 200px;">
+					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
+					</div>
+					<div style="width: 200px;">
+					 <span class="rating">
+					 <?php for($feedback=0; $feedback < $sellerFeedback; $feedback++) { ?>
+						 <input type="radio" class="rating-input validate-one-required-by-name" id="rating-input-1-5-<?php echo $_product->getId() ?>" name="<?php echo $_product->getId() ?>" value="5" checked="checked" disabled>
+        				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
+        				<?php } ?>
+        				</span>
+					</div>
+					<?php } ?>
+					                   <strong>Item Name: </strong><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a>
+                    <div class="desc std">
+                        <strong>Item Subtitle: </strong><?php echo $_product->getShortDescription(); ?>
+                    </div>
+                    <div class="desc std">
+                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    </div>
+
 <div class="price-box">
 <span class="regular-price" id="product-price-9">
 <span class="price"><?php echo Mage::helper('core')->currency($_product->getPrice()); ?></span>
 </span>                        
 </div>
-<p><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details')?></a></p>
+    	<div class="time-left">
+			<span>2days left</span>
+		</div>
+</div>
 </li>
 <?php
 endforeach;

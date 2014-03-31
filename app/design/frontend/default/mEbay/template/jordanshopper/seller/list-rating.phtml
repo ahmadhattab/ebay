@@ -1,9 +1,17 @@
 <?php 
+if ($this->getRequest()->getParam('id'))
+{
+	$sellerId = $this->getRequest()->getParam('id');
+}
+else
+{
+	$sellerId = Mage::getSingleton('customer/session')->getCustomerId();
+} 
 $sellerRatingText = Mage::getModel('seller/feedbackseller')->getCollection()
-						->addFieldToFilter('seller_id',array('eq' => $this->getRequest()->getParam('id')));
+						->addFieldToFilter('seller_id',array('eq' => $sellerId));
 $sellerRatingText->getSelect()->limit(20);
 $buyerRatingTest = Mage::getModel('seller/feedbackbuyer')->getCollection()
-						->addFieldToFilter('buyer_id',array('eq' => $this->getRequest()->getParam('id')));
+						->addFieldToFilter('buyer_id',array('eq' => $sellerId));
 $buyerRatingTest->getSelect()->limit(20);
 ?>
 <div class="block block-layered-nav">

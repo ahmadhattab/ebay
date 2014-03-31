@@ -123,7 +123,7 @@
 		<reference name="customer_account_navigation">
 			<action method="addLink">
 				<name>seller_item</name>
-				<path>seller</path>
+				<path>seller/index/add/</path>
 				<label>Sell an item</label>
 			</action>
 		</reference>

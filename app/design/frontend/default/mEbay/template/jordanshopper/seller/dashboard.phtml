@@ -64,8 +64,9 @@ if (!$items){
 					}
 					elseif ($item->getStatus() == 1)
 					{
+						$_pro = Mage::getModel('catalog/product')->load($item->getLiveId());
 					?>
-					<p><?php echo $this->__('Pending Approval')?></p>
+					<p><?php echo $this->__('The item is live')?> - <a href="<?php echo $_pro->getProductUrl() ?>"><?php echo $this->__('Preview')?></a></p>
 					<?php
 					}
 					elseif ($item->getStatus() == 2)
@@ -85,3 +86,4 @@ if (!$items){
 <?php 
 }
 ?>
+<div style="margin-top: 20px"></div>

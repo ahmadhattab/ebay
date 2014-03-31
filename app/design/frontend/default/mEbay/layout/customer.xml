@@ -232,6 +232,7 @@ Customer account pages, rendered for all tabs in dashboard
             <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
                 <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
                 <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+                <action method="addLink" translate="label" module="customer"><name>feedback</name><path>seller/rating/list/</path><label>My Feedback</label></action>
             </block>
             <remove name="tags_popular"/>
 
@@ -256,8 +257,8 @@ Customer account pages, rendered for all tabs in dashboard
         <reference name="left">
             <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
             	<action method="addLink" translate="label" module="customer"><name>activity_summary</name><path>customer/activity/</path><label>Activity Summary</label></action>
-                <action method="addLink" translate="label" module="customer"><name>activity_buying</name><path>sales/order/history/</path><label>Buying History</label></action>
-                <action method="addLink" translate="label" module="customer"><name>activity_history</name><path>customer/activity/selling/</path><label>Selling History</label></action>
+                <action method="addLink" translate="label" module="customer"><name>activity_buying</name><path>sales/order/history/</path><label>Buying</label></action>
+                <action method="addLink" translate="label" module="customer"><name>activity_history</name><path>customer/activity/selling/</path><label>Selling</label></action>
             </block>
             <remove name="tags_popular"/>
 
@@ -333,6 +334,8 @@ Customer account home dashboard layout
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
         </reference>
     	<reference name="content">
+    	            <block type="seller/seller_dashboard" name="seller_dashboard" as="sellerbashoard" template="jordanshopper/seller/dashboard.phtml" />
+    	
     	 	 <block type="sales/order_selling" name="sales.order.history">
                 <block type="core/text_list" name="sales.order.history.info" as="info" translate="label">
                     <label>Order History Info</label>

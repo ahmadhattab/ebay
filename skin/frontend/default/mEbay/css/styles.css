@@ -1954,6 +1954,18 @@ margin: 0 2px;
       	margin-right: 5px;
       	background: url('../images/star.png') 0 0 !important;
       }
+      .featuredContent .rating-star {
+      	width: 16px !important;
+      	margin-right: 5px;
+      	background: url('../images/star.png') 0 0 !important;
+      }
+      
+      .sellingContent .rating-star {
+      	width: 16px !important;
+      	margin-right: 5px;
+      	background: url('../images/star.png') 0 0 !important;
+      }
+      
       .f-rating .rating-star:hover,
       .f-rating .rating-star:hover ~ .rating-star,
       .f-rating .rating-input:checked ~ .rating-star {
