@@ -33,6 +33,44 @@
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
+<div id="seller-contact" class="seller-contact seller-contact-close">
+<h3 style="float:right; padding: 5px;"><a href="#" onclick="javascript:document.getElementById('seller-contact').setAttribute('class','seller-contact-close')">X</a></h3>
+	<div class="report-details">
+		<form action="<?php echo $this->getUrl('seller/item/reportPost') ?>" method="post" id="report-item">
+		<fieldset>
+			<label><strong><?php echo $this->__('Your Name:')?></strong> <span><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName() ?></span></label>
+		</fieldset>
+		<fieldset>
+			<input type="radio" name="report-type" value="Fraud" class="radio validate-one-required-by-name"/><span><strong>Fraud.</strong> (You think that this listing or seller is a fraud, mass advertising and/or has no right to sell this item) </span>
+		</fieldset>
+		<fieldset>
+			<input type="radio" name="report-type" value="Abusive Content" class="radio validate-one-required-by-name"/><span><strong>Abusive Content.</strong> (You think that this listing contains abusive, offensive and/or sexual material)</span>
+		</fieldset>
+		<fieldset>
+			<input type="radio" name="report-type" value="Illegal item" class="radio validate-one-required-by-name"/><span><strong>Illegal item.</strong> (You think that this listing contains illegal or prohibited items as mentioned in our prohibited items section of the legal terms agreement)</span>
+		</fieldset>
+		<fieldset>
+			<input type="radio" name="report-type" value="Other" class="radio validate-one-required-by-name"/><span><strong>Other.</strong> (If none of the above fits your requirements. Please tell us why you think this listing should not be on jordanshopper.com)</span>
+		</fieldset>
+		<fieldset>
+		<p></p>
+			<p>
+			
+				<label><?php echo $this->__('Your Note:')?></label>
+			</p>
+			<p>
+				<textarea rows="9" cols="80" name="note" class="input-text required-entry"></textarea>
+			</p>
+		</fieldset>
+		<p>
+			<input type="submit" value="send" />
+		</p>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+    var dataForm = new VarienForm('report-item', true);
+</script>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
@@ -49,12 +87,12 @@
             <div class="product-name">
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
             </div>
-
+<!--
             <?php if ($this->canEmailToFriend()): ?>
                 <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
             <?php endif; ?>
-
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+-->
+            <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
             <?php echo $this->getChildHtml('alert_urls') ?>
             <?php echo $this->getChildHtml('product_type_data') ?>
             <?php echo $this->getTierPriceHtml() ?>
@@ -79,7 +117,16 @@
                     <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
                 </div>
             <?php endif;?>
-
+			<?php if ($_product->getSellerId()): ?>
+				<div class="short-description">
+					<h2><?php echo $this->__('Location'); ?></h2>
+					<div class="std"><?php echo $_product->getLocation() ?></div>
+				</div>
+				<div class="short-description">
+					<h2><?php echo $this->__('Shipping Info'); ?></h2>
+					<div class="std"><?php echo $_product->getDeliveryDetails() ?></div>
+				</div>		
+			<?php endif;?>
             <?php echo $this->getChildHtml('other');?>
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>

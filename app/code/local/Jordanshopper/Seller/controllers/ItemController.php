@@ -355,5 +355,34 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
         }
         return $file_ary;
     }
+    
+    public function reportPostAction()
+    {
+    	if ($this->getRequest()->isPost())
+    	{
+    		$data = $this->getRequest()->getParams();
+    		$session = Mage::getSingleton('core/session');
+			$session->addSuccess($this->__('Thank you for your reporting'));
+    		$this->_redirectUrl($_SERVER['HTTP_REFERER']);
+    		
+    		$mail = Mage::getModel('core/email');
+    		$mail->setToName('JordnShopper');
+    		$mail->setToEmail('info@jordanshopper.com');
+    		$mail->setBody('
+    				<p><strong>Type:</strong> ' . $data['report-type'] . '</p>
+    				<p><strong>Note:</strong> ' . $data['note'] . '</p>
+    				<p><strong>Product URL:</strong> ' . $_SERVER['HTTP_REFERER'] . '</p>
+    				');
+    		$mail->setSubject('Listing Report');
+    		$mail->setFromEmail(Mage::getSingleton('customer/session')->getCustomer()->getEmail());
+    		$mail->setFromName(Mage::getSingleton('customer/session')->getCustomer()->getName());
+    		$mail->setType('html');// YOu can use Html or text as Mail format
+    		$mail->send();
+    	}
+    	else
+    	{
+    		$this->_redirect('/');
+    	}
+    }
 }
 ?>

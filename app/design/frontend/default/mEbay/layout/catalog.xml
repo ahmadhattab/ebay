@@ -259,6 +259,7 @@ Product view
             <remove name="product_tag_list" />
         </reference>
         <reference name="right">
+        	<block type="core/template" name="seller.sidebar.right" template="catalog/product/seller_sidebar.phtml" />
 			<remove name="right.permanent.callout" />
 			<remove name="right.poll" />
 			<remove name="catalog.compare.sidebar" />

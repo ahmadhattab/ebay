@@ -35,7 +35,17 @@
 <?php
     $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
 ?>
-<?php if($_compareUrl) : ?>
-    <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-<?php endif; ?>
+<?php
+	if($_product->getSellerId()) : 
+		if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+?>
+    <li><span class="separator">|</span> <a href="#" onclick="javascript:document.getElementById('seller-contact').setAttribute('class','')" class="link-compare"><?php echo $this->__('Report this listing') ?></a></li>
+<?php
+		} else {
+?>
+	<li><span class="separator">|</span> <a href="<?php echo $this->getUrl('customer/account/login') ?>" class="link-compare"><?php echo $this->__('Report this listing') ?></a></li>
+<?php
+		}
+	endif;
+?>
 </ul>

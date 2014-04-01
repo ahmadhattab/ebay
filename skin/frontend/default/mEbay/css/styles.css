@@ -1965,9 +1965,26 @@ margin: 0 2px;
       	margin-right: 5px;
       	background: url('../images/star.png') 0 0 !important;
       }
+      .seller-sidebar .rating-star {
+      	width: 16px !important;
+      	margin-right: 5px;
+      	background: url('../images/star.png') 0 0 !important;	
+      }
       
+      .seller-sidebar .block-content {
+      	padding: 7px 10px 0 25px;
+      }
       .f-rating .rating-star:hover,
       .f-rating .rating-star:hover ~ .rating-star,
       .f-rating .rating-input:checked ~ .rating-star {
           background-position: 0 0;
       }
+	.seller-contact-close {
+	display: none;
+	}
+	.report-details {
+	padding: 10px;
+	}
+	#seller-contact {
+	width: 453px; height: 420px; background: white;position: absolute; top: 221px;border: 1px solid #ddd;left: 458px;z-index: 9999;
+	}
