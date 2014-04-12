@@ -1988,3 +1988,9 @@ margin: 0 2px;
 	#seller-contact {
 	width: 453px; height: 420px; background: white;position: absolute; top: 221px;border: 1px solid #ddd;left: 458px;z-index: 9999;
 	}
+	.parent > a > span {
+font-weight: bold;
+}
+.level1 {
+padding-left: 15px;
+}
