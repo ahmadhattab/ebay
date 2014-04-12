@@ -43,7 +43,12 @@
 <?php if($_menu): ?>
 <div class="nav-container">
     <ul class="menu" id="menu">
-        <?php echo $_menu; ?>
+    	<li class="level0 nav-1 level-top first parent">
+	    	<a href="<?php echo $this->getUrl('list') ?>" class="level-top  ">
+				<span><?php echo $this->__('All Categories') ?></span>
+			</a>
+    	</li>
+        <?php //echo $_menu; ?>
     </ul>
 	<div class="clear_b">&nbsp;</div>
 </div>

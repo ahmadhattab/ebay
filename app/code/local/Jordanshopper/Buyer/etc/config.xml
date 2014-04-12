@@ -5,7 +5,23 @@
             <version>1.0.6</version>
         </Jordanshopper_Buyer>
     </modules>
-    <frontend>        
+    <frontend>
+    	<routers>
+			<buyer>
+				<use>standard</use>
+				<args>
+					<module>Jordanshopper_Buyer</module>
+					<frontName>list</frontName>
+				</args>
+			</buyer>
+		</routers>
+		<layout>
+            <updates>
+                 <buyer>
+                     <file>buyer.xml</file>
+                 </buyer>
+             </updates>
+        </layout>        
         <events>
             <sales_quote_item_save_before>
                 <observers>
