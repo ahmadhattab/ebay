@@ -1990,6 +1990,7 @@ margin: 0 2px;
 	}
 	.parent > a > span {
 font-weight: bold;
+font-size: 14px;
 }
 .level1 {
 padding-left: 15px;
