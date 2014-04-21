@@ -1995,3 +1995,24 @@ font-size: 14px;
 .level1 {
 padding-left: 15px;
 }
+.parentCat {
+	width: 300px;
+	float: left;
+}
+.childCat {
+	width: 300px;
+	float: left;
+}
+#parentCategory {
+	width: 300px;
+}
+#childCategory {
+	width: 300px;
+}
+.childchildCat {
+	width: 300px;
+	display: inline-block;
+}
+#childchildCategory {
+	width: 300px;
+}

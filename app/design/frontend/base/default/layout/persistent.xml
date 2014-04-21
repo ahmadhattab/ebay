@@ -56,7 +56,6 @@
     </checkout_onepage_index>
     <customer_logged_out>
         <reference name="right">
-            <block type="sales/reorder_sidebar" name="sale.reorder.sidebar" as="reorder" template="sales/reorder/sidebar.phtml"/>
         </reference>
     </customer_logged_out>
 </layout>
