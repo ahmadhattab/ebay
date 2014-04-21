@@ -32,7 +32,13 @@
  */
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
-<?php $_product = $this->getProduct(); ?>
+<?php $_product = $this->getProduct(); 
+$cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds()));
+?>
+
+<div class="product-category">
+	<p><strong><?php echo $this->__('See similar items in:') . ' <a href="' . $cat->getUrl() . '">' . $cat->getName()?></a></strong></p>
+</div>
 <div id="seller-contact" class="seller-contact seller-contact-close">
 <h3 style="float:right; padding: 5px;"><a href="#" onclick="javascript:document.getElementById('seller-contact').setAttribute('class','seller-contact-close')">X</a></h3>
 	<div class="report-details">
