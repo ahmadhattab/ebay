@@ -37,6 +37,8 @@
 		<div class="sort-by">
             <label><?php echo $this->__('Sort By') ?>:</label>
             <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+				<?php if($_key == 'position'){continue;}?>
+				<?php if($_key == 'name'){continue;}?>
 				<?php if($this->isOrderCurrent($_key)): ?>
 					<span><?php echo $_order ?></span>
 				<?php else: ?>

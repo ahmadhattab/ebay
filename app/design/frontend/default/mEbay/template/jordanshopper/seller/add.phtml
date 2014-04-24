@@ -29,6 +29,10 @@
             	<select id="childchildCategory" size="10" name='category[]'>
             	</select>
             </div>
+            <div class="childchildchildCat">
+            	<select id="childchildchildCategory" size="10" name='category[]'>
+            	</select>
+            </div>
         </div>
     </div>
     
@@ -56,6 +60,20 @@
 				success: function(resp){
 					jQuery("#childchildCategory").html(resp);
 					jQuery("#childchildCategory").addClass("validate-select required-entry");
+					},
+				error: function(){alert('faild')}
+			});
+		});
+
+		jQuery("select#childchildCategory").on("change", function(){
+			var cat_id = jQuery(this).val();
+			jQuery.ajax({
+				url : "<?php echo $this->getUrl('seller/index/getChildChildChildSubCatPost') ?>",
+				type: 'post',
+				data: {catid : cat_id},
+				success: function(resp){
+					jQuery("#childchildchildCategory").html(resp);
+					jQuery("#childchildchildCategory").addClass("validate-select required-entry");
 					},
 				error: function(){alert('faild')}
 			});

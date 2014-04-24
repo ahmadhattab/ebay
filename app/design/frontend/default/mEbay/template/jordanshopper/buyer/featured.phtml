@@ -39,7 +39,7 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
 										->getSize();
 					
 					?>
-					<div style="width: 200px;">
+					<!--<div style="width: 200px;">
 					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
@@ -49,9 +49,11 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
         				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
         				<?php } ?>
         				</span>
-					</div>
+					</div>-->
 					<?php } ?>
-					                   <strong>Item Name: </strong><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a>
+										<div style="width: 200px;">
+						<h1><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a></h1>
+					</div>
                     <div class="desc std">
                         <strong>Item Subtitle: </strong><?php echo $_product->getShortDescription(); ?>
                     </div>

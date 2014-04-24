@@ -216,6 +216,24 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 			echo $output;
 		}
 	}
+	
+	public function getChildChildChildSubCatPostAction()
+	{
+		if ($this->getRequest()->isPost())
+		{
+			$catId = $this->getRequest()->getParam('catid');
+			$category = Mage::getModel('catalog/category')->load($catId);
+			if($category->hasChildren())
+			{
+				$subCategoriesList = $category->getChildrenCategories();
+				foreach ($subCategoriesList as $subcategory)
+				{
+					$output .= "<option value='" . $subcategory->getId() . "'>". $subcategory->getName() . "</option>";
+				}
+			}
+			echo $output;
+		}
+	}
 
 }
 

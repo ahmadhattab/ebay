@@ -1996,23 +1996,30 @@ font-size: 14px;
 padding-left: 15px;
 }
 .parentCat {
-	width: 300px;
+	width: 220px;
 	float: left;
 }
 .childCat {
-	width: 300px;
+	width: 220px;
 	float: left;
 }
 #parentCategory {
-	width: 300px;
+	width: 220px;
 }
 #childCategory {
-	width: 300px;
+	width: 220px;
 }
 .childchildCat {
-	width: 300px;
+	width: 220px;
+	display: inline-block;
+}
+.childchildchildCat {
+	width: 220px;
 	display: inline-block;
 }
 #childchildCategory {
-	width: 300px;
+	width: 220px;
+}
+#childchildchildCategory {
+	width: 220px;
 }

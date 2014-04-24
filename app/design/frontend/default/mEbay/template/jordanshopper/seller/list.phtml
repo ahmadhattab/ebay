@@ -57,7 +57,7 @@
                 	{
 					$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
 					?>
-					<div style="width: 200px;">
+					<!--<div style="width: 200px;">
 					<h2><?php echo $seller->getName();?></h2>
 					</div>
 					<div style="width: 200px;">
@@ -67,9 +67,17 @@
         				 <input type="radio" class="rating-input validate-one-required-by-name" id="rating-input-1-5-<?php echo $_product->getId() ?>" name="<?php echo $_product->getId() ?>" value="5" checked="checked" disabled>
         				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
         				</span>
-					</div>
+					</div>-->
 					<?php } ?>
-
+					<div style="width: 200px;">
+						<h1><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a></h1>
+					</div>
+                    <div class="desc std">
+                        <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                    </div>
+                    <div class="desc std">
+                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    </div>
                 </div>
             </div>
             <?php echo $this->getPriceHtml($_product, true) ?>
@@ -100,7 +108,7 @@
 					$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
 					
 					?>
-					<div style="width: 200px;">
+					<!--<div style="width: 200px;">
 					<h2><?php echo $seller->getName();?></h2>
 					</div>
 					<div style="width: 200px;">
@@ -110,9 +118,11 @@
         				<label for="rating-input-1-5-<?php echo $_product->getId() ?>" class="rating-star"></label>
         				<?php } ?>
         				</span>
-					</div>
+					</div>-->
 					<?php } ?>
-                   <strong>Item Name: </strong><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a>
+															<div style="width: 200px;">
+						<h1><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a></h1>
+					</div>
                     <div class="desc std">
                         <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                     </div>
