@@ -23,10 +23,13 @@
  * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-?><div class="search_box">
+?>
+
+<div class="search_box">
 	<div class="content">
 <form id="search_mini_form" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get">
     <div class="form-search">
+    	<span class="start-shopping"><?php echo $this->__('Start Shopping:')?></span>
         <label for="search"><?php echo $this->__('Search:') ?></label>
         <input id="search" type="text" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" class="input-text" />
        
@@ -38,6 +41,13 @@
             searchForm.initAutocomplete('<?php echo $this->helper('catalogsearch')->getSuggestUrl() ?>', 'search_autocomplete');
         //]]>
         </script>
+        <div class="search-view">
+                	<span class="or-view"><?php echo $this->__('Or')?></span>
+	<span class="view-view"><?php echo $this->__('View')?></span>
+        	    	<a href="<?php echo $this->getUrl('list') ?>" class="level-top  ">
+				<span><?php echo $this->__('All Categories') ?></span>
+			</a>
+			</div>
     </div>
 </form>
 	</div>

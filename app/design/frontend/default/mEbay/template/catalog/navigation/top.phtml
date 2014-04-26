@@ -41,15 +41,19 @@
 ?>
 <?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
 <?php if($_menu): ?>
-<div class="nav-container">
-    <ul class="menu" id="menu">
+<div class="top_box">
+    <!--<ul class="menu" id="menu">
     	<li class="level0 nav-1 level-top first parent">
 	    	<a href="<?php echo $this->getUrl('list') ?>" class="level-top  ">
 				<span><?php echo $this->__('All Categories') ?></span>
 			</a>
     	</li>
         <?php //echo $_menu; ?>
-    </ul>
+    </ul>-->
+    <div class="content">
+		<span class="start-shopping"><?php echo $this->__('Start Selling:')?></span>
+		<span class="sell-item"><a href="<?php echo $this->getUrl('seller/index/add')?>"><?php echo $this->__('Sell an Item')?></a></span>
+    </div>
 	<div class="clear_b">&nbsp;</div>
 </div>
 <?php endif ?>

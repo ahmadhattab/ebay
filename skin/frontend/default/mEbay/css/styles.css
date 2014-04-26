@@ -543,7 +543,7 @@ tr.summary-details-excluded { font-style:italic; }
 .header .welcome-msg a { color:#ebbc58; }
 .form-search {}
 .form-search label { float:left; width:24px; height:21px; text-align:left; text-indent:-999em; overflow:hidden;display:none; }
-.form-search input.input-text { float:left; border-color:#b2b2b2; width:540px; margin-right:4px;padding: 5px 10px;color:#999;font-size:11px; }
+.form-search input.input-text { float:left; border-color:#b2b2b2; width:300px; margin-right:4px;padding: 5px 10px;color:#999;font-size:11px; }
 .form-search button.button { float:left; }
 
 .form-search button.button span{background:url(../images/bkg_btn_cart.gif) 0 0 repeat-x;}
@@ -567,8 +567,9 @@ tr.summary-details-excluded { font-style:italic; }
 .header-container .top-container a { font-size:11px; color:#666; }
 
 .search_box{background:#144376;width:960px;margin:0 auto;}
+.top_box{background:#144376;width:960px;margin:0 auto;border-bottom: 1px solid white;}
 .search_box .content{padding:7px 30px;}
-
+.top_box .content{padding:7px 30px;height: 28px;}
 .select-category{float:left;color:#999;font-size:11px;border-color:#b2b2b2;padding: 4px 4px;width:175px;margin-right:5px;}
 .links_advanced{display: block;float: left;padding-left: 10px;padding-top: 3px;font-size: 11px;}
 .banner_index{margin-bottom:15px;}
@@ -2022,4 +2023,45 @@ padding-left: 15px;
 }
 #childchildchildCategory {
 	width: 220px;
+}
+.start-shopping {
+float: left;
+color: white;
+padding-right: 10px;
+font-weight: bold;
+line-height: 26px;
+font-size: 14px;
+}
+span.or-view {
+color: white;
+font-size: 18px;
+}
+div.search-view {
+width: 370px;
+display: inline-block;
+text-align: left;
+}
+span.view-view {
+color: white;
+font-size: 14px;
+padding-left: 5px;
+}
+div.search-view a {
+color: white !important;
+font-size: 18px;
+font-weight: bold;
+text-decoration: underline;
+padding-left: 10px;
+}
+span.sell-item {
+float: left;
+line-height: 29px;
+font-size: 18px;
+font-weight: bold;
+color: white;
+text-decoration: underline;
+padding-left: 21px;
+}
+span.sell-item a {
+color: white !important;
 }

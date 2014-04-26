@@ -39,12 +39,14 @@
  * string If specified wraps children list in div with this class
  */
 ?>
-<?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top') ?>
+<?php $_menu = $this->renderCategoriesMenuHtml() ?>
 <?php if($_menu): ?>
 <div class="nav-container">
-    <ul style="padding-left: 20px;">
-        <?php echo $_menu; ?>
-    </ul>
+    <table>
+    	<tbody>
+ 			<?php echo $_menu; ?>   	
+    	</tbody>
+     </table>
 	<div class="clear_b">&nbsp;</div>
 </div>
 <?php endif ?>
