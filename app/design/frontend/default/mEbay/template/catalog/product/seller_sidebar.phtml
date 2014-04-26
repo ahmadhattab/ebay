@@ -40,6 +40,6 @@
 		</span>
 	</div>
 	<?php } ?>
-	<p><a href="<?php echo $this->getUrl('seller/rating/list/id/1'); ?>"><?php echo $this->__('View Seller Store')?></a></p>
+	<p><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())); ?>"><?php echo $this->__('View Seller Store')?></a></p>
 	</div>
 </div>

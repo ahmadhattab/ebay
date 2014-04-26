@@ -3,7 +3,7 @@ $items = $this->getItems();
 echo $this->getMessagesBlock()->getGroupedHtml(); 
 ?>
 <div class="page-title title-buttons">
-    <h1><?php echo $this->__('Seller Dashboard') ?></h1>
+    <h1><?php echo $this->__('Selling History') ?></h1>
     <button type="button" title="<?php echo $this->__('Sell an item') ?>" class="button" onclick="window.location='<?php echo Mage::getUrl('seller/index/add'); ?>';"><span><span><?php echo $this->__('Sell an item') ?></span></span></button>
 </div>
 <?php
@@ -13,7 +13,7 @@ if (!$items){
 <?php
 } else {
 ?>
-<div class="seller-dashboard top">
+<!--<div class="seller-dashboard top">
 	<div class="total-seller first">
 		<h4><?php echo $this->__('Total Items'); ?></h4>
 		<h1><?php echo $items->count() . ' ' . $this->__('Item(s)'); ?></h1>
@@ -32,7 +32,7 @@ if (!$items){
 		<h4><?php echo $this->__('Total Sold Items'); ?></h4>
 		<h1><?php echo $this->getTotalSold() . ' ' . $this->__('Item(s)'); ?></h1>
 	</div>
-</div>
+</div>-->
 <div class="div-content">
 		<table width="100%" class="table-content">
 			<thead>
