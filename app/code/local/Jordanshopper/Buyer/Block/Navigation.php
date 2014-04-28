@@ -44,9 +44,14 @@ class Jordanshopper_Buyer_Block_Navigation extends Mage_Core_Block_Template
 		$categoryGroups = array_chunk($subCategories, (int)ceil(count($subCategories)/3));
 
 		$output .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" xmlns="http://www.w3.org/1999/xhtml"><tbody><tr>';
+		$i = 0;
 			foreach ($categoryGroups as $categoryGroup)
 			{
-					$output .= '<td>';
+					$output .= '<td';
+					if ($i ==0 )
+						$output .=' style="width: 320px">';
+					else 
+						$output .= '>';
 					foreach ($categoryGroup as $subCategoryId)
 					{
 						$category = Mage::getModel('catalog/category')->load($subCategoryId);
@@ -69,6 +74,7 @@ class Jordanshopper_Buyer_Block_Navigation extends Mage_Core_Block_Template
 						
 					}
 					$output .= '</td>';
+					$i++;
 			}
 		$output .= '</tr></tbody></table>';
 		/*
