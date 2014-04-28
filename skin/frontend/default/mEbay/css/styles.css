@@ -2065,3 +2065,9 @@ padding-left: 21px;
 span.sell-item a {
 color: white !important;
 }
+td.parent {
+	padding-top: 5px;
+}
+td.child {
+padding-left: 10px;
+}

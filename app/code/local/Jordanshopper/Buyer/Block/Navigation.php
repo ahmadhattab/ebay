@@ -40,14 +40,66 @@ class Jordanshopper_Buyer_Block_Navigation extends Mage_Core_Block_Template
 		$actualCategoryId = $object->getCurrentCategory()->getId();
 		$actualCategory = Mage::getModel('catalog/category')->load($actualCategoryId);
 		$subCategories = explode(',', $actualCategory->getChildren());
+		
+		$categoryGroups = array_chunk($subCategories, (int)ceil(count($subCategories)/3));
+
+		$output .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" xmlns="http://www.w3.org/1999/xhtml"><tbody><tr>';
+			foreach ($categoryGroups as $categoryGroup)
+			{
+					$output .= '<td>';
+					foreach ($categoryGroup as $subCategoryId)
+					{
+						$category = Mage::getModel('catalog/category')->load($subCategoryId);
+						if ($category->getIsActive())
+						{
+							$output .= '<table><tbody>';
+							$output .= '<tr><td class="parent"><b><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></b></td></tr>';
+							if($category->hasChildren())
+							{
+								$childs = explode(',', $category->getChildren());
+								foreach ($childs as $child)
+								{
+									$subCategory = Mage::getModel('catalog/category')->load($child);
+									$output .= '<tr><td class="child"><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
+								}
+							}
+							$output .= '</table>';
+							
+						}
+						
+					}
+					$output .= '</td>';
+			}
+		$output .= '</tr></tbody></table>';
+		/*
 		foreach ($subCategories as $subCategoryId)
 		{
 			$category = Mage::getModel('catalog/category')->load($subCategoryId);
 			if ($category->getIsActive())
 			{
+
+				$output .= '<td>';
+				
+				$output .= '<table><tbody>';
 				$output .= '<tr><td><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></td></tr>';
+				if($category->hasChildren())
+				{
+					$childs = explode(',', $category->getChildren());
+					foreach ($childs as $child)
+					{
+						$subCategory = Mage::getModel('catalog/category')->load($child);
+						$output .= '<tr><td><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
+					}
+				}
+				$output .= '</table>';
+
+				$output .= '</td>';
+
 			}
+			$i++;
 		}
+		$output .= '</tr></tbody></table>';
+		*/
 		return $output;
 	}
 }
