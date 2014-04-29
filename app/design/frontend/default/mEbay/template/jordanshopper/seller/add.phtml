@@ -44,8 +44,16 @@
 					type: 'post',
 					data: {catid : cat_id},
 					success: function(resp){
+						if(resp)
+						{
 						jQuery("#childCategory").html(resp);
 						jQuery("#childCategory").addClass("validate-select required-entry");
+						}
+						else
+						{
+							jQuery("#childCategory").html(resp);
+							jQuery("#childCategory").removeClass("validate-select required-entry");
+						}
 						},
 					error: function(){alert('faild')}
 				});
@@ -58,8 +66,16 @@
 				type: 'post',
 				data: {catid : cat_id},
 				success: function(resp){
+					if(resp)
+					{
 					jQuery("#childchildCategory").html(resp);
 					jQuery("#childchildCategory").addClass("validate-select required-entry");
+					}
+					else
+					{
+						jQuery("#childchildCategory").html(resp);
+						jQuery("#childchildCategory").removeClass("validate-select required-entry");
+					}
 					},
 				error: function(){alert('faild')}
 			});
@@ -72,8 +88,16 @@
 				type: 'post',
 				data: {catid : cat_id},
 				success: function(resp){
-					jQuery("#childchildchildCategory").html(resp);
-					jQuery("#childchildchildCategory").addClass("validate-select required-entry");
+					if(resp)
+					{
+						jQuery("#childchildchildCategory").html(resp);
+						jQuery("#childchildchildCategory").addClass("validate-select required-entry");
+					}
+					else
+					{
+						jQuery("#childchildchildCategory").html(resp);
+						jQuery("#childchildchildCategory").removeClass("validate-select required-entry");
+					}
 					},
 				error: function(){alert('faild')}
 			});
