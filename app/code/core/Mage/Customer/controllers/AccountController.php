@@ -347,8 +347,10 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                         return;
                     } else {
                         $session->setCustomerAsLoggedIn($customer);
-                        $url = $this->_welcomeCustomer($customer);
-                        $this->_redirectSuccess($url);
+                        //$url = $this->_welcomeCustomer($customer);
+                        
+                       // $this->_redirectSuccess($url);
+                       $this->_redirect('customer/address/new');
                         return;
                     }
                 } else {

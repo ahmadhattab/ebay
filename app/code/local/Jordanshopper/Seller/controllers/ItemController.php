@@ -231,10 +231,10 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		$session = Mage::getSingleton('core/session');
 		//Mage::getSingleton('customer/session')->getCustomerId();
 		//die();
-		$PayPalMode 			= 'sandbox'; // sandbox or live
-		$PayPalApiUsername 		= 'ahmad_hatab_api1.hotmail.com'; //PayPal API Username
-		$PayPalApiPassword 		= '1389030811'; //Paypal API password
-		$PayPalApiSignature 	= 'AIbAIH0FvfS.PgrpnVaXfekniVeDATstQkrZXwyNL8IZJ7sVo5IUXokc'; //Paypal API Signature
+		$PayPalMode 			= ''; // sandbox or live
+		$PayPalApiUsername 		= 'info_api1.jordanshopper.com'; //PayPal API Username
+		$PayPalApiPassword 		= 'HN62SUAEJZJ2TLGY'; //Paypal API password
+		$PayPalApiSignature 	= 'Axzk9000mIaVNrIpQRZmdax5QRIJA6O1Mla0DupjdJCntcfP20FF-EzX'; //Paypal API Signature
 		$PayPalCurrencyCode 	= 'USD'; //Paypal Currency Code
 		$PayPalReturnURL 		= Mage::getUrl('seller/item/checkout'); //Point to process.php page
 		$PayPalCancelURL 		= Mage::getUrl('seller/index');//Cancel URL if user clicks cancel

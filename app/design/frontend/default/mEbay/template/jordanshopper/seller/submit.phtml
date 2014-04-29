@@ -29,7 +29,7 @@ $item = $this->getItem();
 							<tr>
 								<td width="50%"><h4>
 								<?php echo $listingItem->getName(); ?>
-								<?php echo Mage::helper('core')->currency($listingItem->getPrice(), true, false); ?>
+								<?php echo 'USD' . $listingItem->getPrice(); ?>
 									</h4> <?php echo $listingItem->getDescription(); ?></td>
 								<td width="50%">
 									<form method="post"
