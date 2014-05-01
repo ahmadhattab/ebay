@@ -16,9 +16,8 @@ $item = $this->getItem();
 		<li>
 			<div class="box">
 				<h3>
-					Sumit your item "<span style="color: red;"><?php echo $item->getProductTitle(); ?>
-					</span>" with our store to make it online and purchasable from our
-					customers
+				Please select the period you would like your item "<span style="color: red;"><?php echo $item->getProductTitle(); ?>
+					</span>" to be listed.
 				</h3>
 				<ul class="form-list">
 				<?php
@@ -29,8 +28,8 @@ $item = $this->getItem();
 							<tr>
 								<td width="50%"><h4>
 								<?php echo $listingItem->getName(); ?>
-								<?php echo 'USD' . $listingItem->getPrice(); ?>
-									</h4> <?php echo $listingItem->getDescription(); ?></td>
+								<?php echo 'USD' . (int)$listingItem->getPrice(); ?>
+									</h4></td>
 								<td width="50%">
 									<form method="post"
 										action="<?php echo Mage::getUrl('seller/item/checkout');?>">
