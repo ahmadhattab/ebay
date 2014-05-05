@@ -159,7 +159,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$product->setTaxClassId(0);
 		$catIds = explode(',' , $sellerItem->getCategoriesIds());
 		$product->setCategoryIds(array($catIds));
-		$product->setItemCondition($sellerItem->getItemConditions());
+		$product->setItemConditionStatic($sellerItem->getItemConditions());
 		if ($sellerItem->getItemConditions() == 'other')
 		{
 			$product->setItemConditionOther($sellerItem->getItemConditionsOther());

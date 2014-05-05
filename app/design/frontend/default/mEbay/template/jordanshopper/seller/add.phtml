@@ -9,6 +9,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box">
+                	<p><?php echo $this->__('Give us a title for your listing.') ?></p>
                     <input type="hidden" name="seller_id" value="<?php echo Mage::registry('seller_id'); ?>">
                     <input type="text" name="product_title" id="title" value="" class="input-text required-entry images" />
                 </div>
@@ -118,13 +119,13 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" value="new" class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" value="3" class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="used" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" value="5" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="other" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" value="4" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
                 </li>
                 <li>
                     <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -133,7 +134,7 @@
             <script>
                         function check(value)
                         {
-                            if (value == 'other')
+                            if (value == '4')
                             {
                                 $('item_conditions_other').show();
                             }
@@ -258,8 +259,10 @@
         <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
         <ul class="form-list">
             <li>
+                        <button type="button" value="add more" onclick="createNewUpload()" style="margin-left: 200px;">Add New Image</button>
+
                 <div class="image-box" id="inp">
-                    <input type="file" name="images[]" id="file" class="required-file images"> <button type="button" value="add more" onclick="createNewUpload()">+</button>
+                    <input type="file" name="images[]" id="file" class="required-file images">
                 </div>
             </li>
         </ul>
