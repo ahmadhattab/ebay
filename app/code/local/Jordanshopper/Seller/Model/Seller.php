@@ -160,6 +160,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$catIds = explode(',' , $sellerItem->getCategoriesIds());
 		$product->setCategoryIds(array($catIds));
 		$product->setItemConditionStatic($sellerItem->getItemConditions());
+		$product->setContactMe($sellerItem->getContactMe());
 		if ($sellerItem->getItemConditions() == 'other')
 		{
 			$product->setItemConditionOther($sellerItem->getItemConditionsOther());
@@ -188,12 +189,15 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
                 $images = explode(',', $sellerItem->getImages());
                 foreach ($images as $image)
                 {
+                	if ($image)
+                	{
                 	$im = Mage::getBaseDir('media') . DS . $sellerItem->getSellerId() . '/' . $image;
                 	$product->addImageToMediaGallery($im, $mediaAttribute, false, false);
                 	//$product->addImageToMediaGallery($im,array('small_image'),false,false);
                 	//$product->addImageToMediaGallery($im,array('thumbnail'),false,false);
                 	//$path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $sellerItem->getSellerId() . '/' . $image;
                 	//$product->addImageToMediaGallery($path, $mediaAttribute, true, false);
+                	}
                 }
                 $product->save();
                 $sellerItem->setStatus(1);

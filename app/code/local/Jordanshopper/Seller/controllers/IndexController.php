@@ -18,7 +18,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$this->_initLayoutMessages('catalog/session');
 
 		$this->getLayout()->getBlock('content')->append(
-				$this->getLayout()->createBlock('customer/account_dashboard')
+		$this->getLayout()->createBlock('customer/account_dashboard')
 		);
 		$this->getLayout()->getBlock('head')->setTitle($this->__('My Summary'));
 		$this->renderLayout();
@@ -58,7 +58,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				$paymentMethod = $this->getRequest()->getParam('payment_method');
 				$paypalEmail = $this->getRequest()->getParam('paypal_email');
 				$description = $this->getRequest()->getParam('description');
-
+				$contact_me = $this->getRequest()->getParam('contact_me');
 
 				// make some validation before store these values in jordanshopper_seller
 				if (isset($sellerId) && !empty($sellerId)) {
@@ -137,6 +137,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				}
 				$sellerModel->setCreatedAt(time());
 				$sellerModel->setStatus(0);
+				$sellerModel->setContactMe($contact_me);
 				$sellerModel->save();
 				$session->addSuccess($this->__('The item has been saved'));
 				$this->_redirect('*/*/index');
@@ -180,7 +181,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 			echo $output;
 		}
 	}
-	
+
 	public function getChildSubCatPostAction()
 	{
 		if ($this->getRequest()->isPost())
@@ -198,7 +199,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 			echo $output;
 		}
 	}
-	
+
 	public function getChildChildSubCatPostAction()
 	{
 		if ($this->getRequest()->isPost())
@@ -216,7 +217,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 			echo $output;
 		}
 	}
-	
+
 	public function getChildChildChildSubCatPostAction()
 	{
 		if ($this->getRequest()->isPost())
@@ -233,6 +234,44 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 			}
 			echo $output;
 		}
+	}
+
+	public function contactPostAction()
+	{
+		$item_id = $this->getRequest()->getParam('item_id');
+		$customer = Mage::getSingleton('customer/session');
+		$session = Mage::getSingleton('core/session');
+		$item = Mage::getModel('catalog/product')->load($item_id);
+		$seller = Mage::getModel('customer/customer')->load($item->getSellerId());
+	 	$fromEmail = $customer->getCustomer()->getEmail();
+	 	$fromName = $customer->getCustomer()->getName();
+	 	
+	 	$toEmail = $seller->getEmail();
+	 	$toName = $seller->getName();
+	 	$body = '<p>Customer Name: ' . $customer->getCustomer()->getName() . '</p>' . 
+	 	'<p>Customer Email: ' . $customer->getCustomer()->getEmail() . '</p>' .
+	 	'<p>Item URL: ' . $item->getProductUrl() . '</p>'
+	 	. '<p>Customer Note: ' . $this->getRequest()->getParam('note') . '</p>'
+	 	;
+	 	
+	 	// body text
+		$subject = "jordanshopper.com - " . $item->getName();
+		// subject text
+
+	 try{
+	 	$mail = new Zend_Mail();
+	 	$mail->setFrom($fromEmail, $fromName);
+	 	$mail->addTo($toEmail, $toName);
+	 	$mail->setSubject($subject);
+	 	$mail->setBodyHtml($body); // here u also use setBodyText options.
+	 	$mail->send();
+	 	$session->addSuccess($this->__('Your email has been sent to the seller'));
+	 	$this->_redirectUrl($item->getProductUrl());
+
+	 }catch(Exception $e){
+	 	echo $e->getMassage();
+
+	 }
 	}
 
 }

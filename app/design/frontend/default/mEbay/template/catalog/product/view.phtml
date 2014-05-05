@@ -74,8 +74,37 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 		</form>
 	</div>
 </div>
+<?php if ($_product->getContactMe()) {
+	if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+?>
+<div id="seller-contact-me" class="seller-contact seller-contact-close">
+<h3 style="float:right; padding: 5px;"><a href="#" onclick="javascript:document.getElementById('seller-contact-me').setAttribute('class','seller-contact-close')">X</a></h3>
+	<div class="report-details">
+		<form action="<?php echo $this->getUrl('seller/index/contactPost') ?>" method="post" id="contact-item">
+		<input type="hidden" name="item_id" id="item_id" value="<?php echo $_product->getId() ?>" />
+		<fieldset>
+		<p></p>
+			<p>
+			
+				<label><?php echo $this->__('Your Note:')?></label>
+			</p>
+			<p>
+				<textarea rows="9" cols="80" name="note" class="input-text required-entry"></textarea>
+			</p>
+		</fieldset>
+		<p>
+			<input type="submit" value="send" />
+		</p>
+		</form>
+	</div>
+</div>
+<?php 
+	}
+	 } 
+?>
 <script type="text/javascript">
     var dataForm = new VarienForm('report-item', true);
+    var dataForm2 = new VarienForm('contact-item', true);
 </script>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);

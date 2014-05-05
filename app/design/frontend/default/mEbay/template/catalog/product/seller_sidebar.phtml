@@ -40,6 +40,19 @@
 		</span>
 	</div>
 	<?php } ?>
+	<?php if ($_product->getContactMe()) {
+		if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+	?>
+	<p><a href="#" onclick="javascript:document.getElementById('seller-contact-me').setAttribute('class','')" class="link-compare"><?php echo $this->__('Contact seller for this item')?></a></p>
+	<?php 
+		} else {
+			?>
+				<p><a href="<?php echo $this->getUrl('customer/account/login') ?>" class="link-compare"><?php echo $this->__('Contact seller for this item')?></a></p>
+			
+			<?php
+		}
+	?>
+	<?php } ?>
 	<p><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())); ?>"><?php echo $this->__('View Seller Store')?></a></p>
 	</div>
 </div>

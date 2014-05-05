@@ -1987,7 +1987,10 @@ margin: 0 2px;
 	padding: 10px;
 	}
 	#seller-contact {
-	width: 453px; height: 420px; background: white;position: absolute; top: 221px;border: 1px solid #ddd;left: 458px;z-index: 9999;
+	width: 453px; height: 420px; background: white;position: absolute; top: 288px;border: 1px solid #ddd;left: 455px;z-index: 9999;
+	}
+	#seller-contact-me {
+	width: 453px; height: 420px; background: white;position: absolute; top: 288px;border: 1px solid #ddd;left: 455px;z-index: 9999;
 	}
 	.parent > a > span {
 font-weight: bold;

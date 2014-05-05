@@ -48,6 +48,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			$paymentMethod      = $this->getRequest()->getParam('payment_method');
 			$paypalEmail        = $this->getRequest()->getParam('paypal_email');
 			$description        = $this->getRequest()->getParam('description');
+			$contact_me			= $this->getRequest()->getParam('contact-me');
 			// make some validation before store these values in jordanshopper_seller
 			if (isset($sellerId) && !empty($sellerId)) {
 				$sellerModel->setsellerId(trim($sellerId));
@@ -128,6 +129,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
                         }
                     }
                    }
+                   $sellerModel->setContactMe($contact_me);
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
 			$this->_redirect('seller/index');
