@@ -21,9 +21,91 @@ $item = $this->getItem();
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Select Categories') ?></h2>
         <div class="input-box category">
+        	<div class="parentCat">
             <?php echo $this->getCategoryTree(); ?>
+            </div>
+            <div class="childCat">
+            	<select id="childCategory" size="10" name='category[]'>
+            	</select>
+            </div>
+            <div class="childchildCat">
+            	<select id="childchildCategory" size="10" name='category[]'>
+            	</select>
+            </div>
+            <div class="childchildchildCat">
+            	<select id="childchildchildCategory" size="10" name='category[]'>
+            	</select>
+            </div>
         </div>
     </div>
+    
+    <script>
+		jQuery("select#parentCategory").on("change", function(){
+				var cat_id = jQuery(this).val();
+				jQuery.ajax({
+					url : "<?php echo $this->getUrl('seller/index/getSubCatPost') ?>",
+					type: 'post',
+					data: {catid : cat_id},
+					success: function(resp){
+						if(resp)
+						{
+						jQuery("#childCategory").html(resp);
+						jQuery("#childCategory").addClass("validate-select required-entry");
+						}
+						else
+						{
+							jQuery("#childCategory").html(resp);
+							jQuery("#childCategory").removeClass("validate-select required-entry");
+						}
+						},
+					error: function(){alert('faild')}
+				});
+			});
+		
+		jQuery("select#childCategory").on("change", function(){
+			var cat_id = jQuery(this).val();
+			jQuery.ajax({
+				url : "<?php echo $this->getUrl('seller/index/getChildChildSubCatPost') ?>",
+				type: 'post',
+				data: {catid : cat_id},
+				success: function(resp){
+					if(resp)
+					{
+					jQuery("#childchildCategory").html(resp);
+					jQuery("#childchildCategory").addClass("validate-select required-entry");
+					}
+					else
+					{
+						jQuery("#childchildCategory").html(resp);
+						jQuery("#childchildCategory").removeClass("validate-select required-entry");
+					}
+					},
+				error: function(){alert('faild')}
+			});
+		});
+
+		jQuery("select#childchildCategory").on("change", function(){
+			var cat_id = jQuery(this).val();
+			jQuery.ajax({
+				url : "<?php echo $this->getUrl('seller/index/getChildChildChildSubCatPost') ?>",
+				type: 'post',
+				data: {catid : cat_id},
+				success: function(resp){
+					if(resp)
+					{
+						jQuery("#childchildchildCategory").html(resp);
+						jQuery("#childchildchildCategory").addClass("validate-select required-entry");
+					}
+					else
+					{
+						jQuery("#childchildchildCategory").html(resp);
+						jQuery("#childchildchildCategory").removeClass("validate-select required-entry");
+					}
+					},
+				error: function(){alert('faild')}
+			});
+		});
+    </script>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Item Subtitle') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">

@@ -93,6 +93,8 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$sellerModel->setDescription($description);
 			}
                         $originImages = $sellerModel->getImages();
+                        if ($_FILES['images']['name'][0])
+                        {
                         if (is_array($_FILES)) {
                         $sortImages = $this->reArrayFiles($_FILES);                                                            
                         $images = array();
@@ -125,6 +127,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
                             $sellerModel->setImages($allImages);
                         }
                     }
+                   }
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
 			$this->_redirect('seller/index');
