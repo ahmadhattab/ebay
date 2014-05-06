@@ -21,7 +21,7 @@
 		?>
 	<div style="width: 200px;">
 		<h2>
-			<?php echo $seller->getName();?>
+			<?php echo $seller->getUsername();?>
 			<span style="color: red; font-size: 14px"><a
 				href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)
 			</a>
