@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Ivan_ImageZoom>
+			<version>2.0.0</version>
+		</Ivan_ImageZoom>
+	</modules>
+	<global>
+		<helpers>
+			<imagezoom>
+				<class>Ivan_ImageZoom_Helper</class>
+			</imagezoom>
+		</helpers>
+		<blocks>
+			<imagezoom>
+				<class>Ivan_ImageZoom_Block</class>		
+			</imagezoom>	
+		</blocks>
+    </global>
+    <frontend>
+    	 <layout>
+            <updates>
+                <imagezoom>
+                    <file>ivan_imagezoom.xml</file>
+                </imagezoom>
+            </updates>
+        </layout>
+    </frontend>
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<imagezoom_options translate="title" module="imagezoom">
+											<title>Ivan Image Zoom Rules</title>
+										</imagezoom_options>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+</config>

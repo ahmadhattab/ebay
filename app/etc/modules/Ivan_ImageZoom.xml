@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ivan_ImageZoom>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Ivan_ImageZoom>
+    </modules>
+</config>

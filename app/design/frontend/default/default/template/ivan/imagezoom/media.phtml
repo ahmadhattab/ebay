@@ -1,0 +1,124 @@
+<div class="product-img-box">
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+?>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('#tc_products').slides22({
+		preload: true,
+		preloadImage: '<?php echo $this->getBaseUrl()?>skin/frontend/default/default/images/ivan_imagezoom/loading.gif',
+		container: 'tc_slides_container',
+		paginationClass:"tc_pagination",
+		effect: 'slide, fade',
+		crossfade: true,
+		slideSpeed: 350,
+		fadeSpeed: 500,
+		generateNextPrev: true,
+		generatePagination: false
+	});
+	
+	jQuery('.zhezao').click(
+		function(){
+			jQuery('#tc_container,.zhezao').hide();
+		}
+	);
+	
+	jQuery('#BigImage').click(
+		function(){
+			var offset = jQuery('#tc_container').offset();
+			jQuery('.zhezao').css('height',jQuery(document).height());
+			jQuery('#tc_container').css('top',offset.top);
+			jQuery('.zhezao,#tc_container').show();
+		}
+	);
+});
+</script>
+<div id="tc">
+<div class="zhezao"></div>
+<div id="tc_container">
+	<div id="products_example">
+		<div class="tc_title"><?php echo $_product->getName()?></div>
+		<div id="tc_products">
+						<div class="tc_slides_container">
+								
+                                
+                                <?php if (count($this->getGalleryImages()) > 0): ?>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        
+        <a href="#" target="_blank"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'images', $_image->getFile())->resize(600); ?>"  alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+        
+    <?php endforeach; ?>
+<?php endif; ?>
+							</div>
+									<ul class="tc_pagination">
+								
+								
+                                 
+                                <?php if (count($this->getGalleryImages()) > 0): ?>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        
+       
+        <li> <a href="#" ><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'images', $_image->getFile())->resize(63); ?>"  alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a></li>
+    <?php endforeach; ?>
+<?php endif; ?>
+                                
+							</ul>
+			      <br clear="all" />
+		</div>
+	</div>
+	<div class="tc_container_bottom"></div>
+</div>
+</div>
+
+
+
+<table>
+  <tr>
+    <td>
+    <div id="BigImage" class="jqzoom">
+    <?php
+        $_img = '<img id="_middleImage" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(400).'" longdesc="'.$this->helper('catalog/image')->init($_product, 'image')->resize(400).'" alt="'.$_product->getName().'" title="'.$_product->getName().'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+		
+        </div>
+    </td>
+   </tr>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<tr>
+<td>
+<div class="more-views">
+  <h4>More Views</h4>
+  <ul id="mycarousel" class="jcarousel-skin-tango">
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        <li>
+            <img class="curr_base" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(60); ?>" middlename="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(400); ?>" bigname="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(400); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+        </li>
+    <?php endforeach; ?>
+   </ul>
+</div>
+</td>
+</tr>
+<?php endif; ?>
+</table>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+   jQuery("#mycarousel").jcarousel({initCallback:mycarousel_initCallback});
+});
+
+function mycarousel_initCallback(carousel){
+	jQuery("#mycarousel li").mouseover(function(){
+		var JQ_img = jQuery("img", this);
+		var middlename = JQ_img.attr("middlename");
+		var bigname = JQ_img.attr("bigname");
+		jQuery("#_middleImage").attr("src", middlename).attr("longdesc", bigname); 
+		jQuery(this).siblings().each(function(){
+			jQuery("img", this).removeClass().addClass("curr_base");
+		})
+		JQ_img.addClass("cur_on");
+	})
+};
+</script>
+</div>
