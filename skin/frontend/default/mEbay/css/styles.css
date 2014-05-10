@@ -37,7 +37,7 @@ a:hover       { text-decoration:underline; }
 /* Headings */
 h1,h2,h3,
 h4,h5,h6      { margin:0 0 5px; line-height:1.35; color:#343640; }
-h1            { font-size:20px; font-weight:normal; }
+h1            { font-size:14px; font-weight:normal; }
 h2            { font-size:18px; font-weight:normal; }
 h3            { font-size:16px; font-weight:bold; }
 h4            { font-size:14px; font-weight:bold; }
@@ -538,7 +538,7 @@ tr.summary-details-excluded { font-style:italic; }
 .header .logo { float:left; text-decoration:none !important; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 .header h1.logo { margin:0; }
-.header .quick-access { float:right; width:600px; padding:20px 0px 0 0; }
+.header .quick-access { float:right; width:600px; padding:5px 0px 0 0; }
 .header .welcome-msg { margin:0; color:#000; text-align:right;font-size:11px;font-weight:bold;float: right;padding-right:10px; }
 .header .welcome-msg a { color:#ebbc58; }
 .form-search {}
@@ -2080,4 +2080,11 @@ padding-left: 10px;
 }
 .quick-access .links a.top-link-cart .cart-icon > img {
 	margin-top: -15px;
+}
+input#p_method_seller {
+display: none;
+}
+.quick-access .links a.top-link-cart .cart-icon img {
+	padding-top: 10px;
+width: 25px;
 }

@@ -153,6 +153,20 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
             <?php endif;?>
 			<?php if ($_product->getSellerId()): ?>
 				<div class="short-description">
+					<h2><?php echo $this->__('Item Condition'); ?></h2>
+					<div class="std"><?php 
+					$cond = $_product->getAttributeText('item_condition_static');
+					if ($cond == 'Other')
+					{
+						echo $cond . ': ' . $_product->getItemConditionOther();
+					}
+					else {
+						echo $cond;
+					}
+					?>
+					</div>
+				</div>
+				<div class="short-description">
 					<h2><?php echo $this->__('Location'); ?></h2>
 					<div class="std"><?php echo $_product->getLocation() ?></div>
 				</div>

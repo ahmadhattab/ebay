@@ -50,7 +50,7 @@ class Diglin_Username_AccountController extends Mage_Customer_AccountController
 
             if ($customer->getId()) {
                 try {
-                    $newResetPasswordLinkToken = $this->_getHelper('customer')->generateResetPasswordLinkToken();
+                    $newResetPasswordLinkToken = Mage::helper('customer')->generateResetPasswordLinkToken();
                     $customer->changeResetPasswordLinkToken($newResetPasswordLinkToken);
                     $customer->sendPasswordResetConfirmationEmail();
                 } catch (Exception $exception) {
@@ -60,9 +60,9 @@ class Diglin_Username_AccountController extends Mage_Customer_AccountController
                 }
             }
             $this->_getSession()
-                ->addSuccess( $this->_getHelper('customer')
+                ->addSuccess( Mage::helper('customer')
                     ->__('If there is an account associated with %s you will receive an email with a link to reset your password.',
-                        $this->_getHelper('customer')->escapeHtml($email)));
+                        Mage::helper('customer')->escapeHtml($email)));
             $this->_redirect('*/*/');
             return;
         } else {

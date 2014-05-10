@@ -1252,12 +1252,23 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     public function sendNewOrderEmail()
     {
         $storeId = $this->getStore()->getId();
-
+		
+        //Send email to seller
+		$cart = Mage::getModel('checkout/cart')->getQuote();
+                	foreach ($cart->getAllItems() as $item)
+                	{
+                		$proId = $item->getProduct()->getId();
+                		break;
+                	}
+                	$product = Mage::getModel('catalog/product')->load($proId);
+                	$seller = Mage::getModel('customer/customer')->load($product->getSellerId());
+        
         if (!Mage::helper('sales')->canSendNewOrderEmail($storeId)) {
             return $this;
         }
         // Get the destination email addresses to send copies to
         $copyTo = $this->_getEmails(self::XML_PATH_EMAIL_COPY_TO);
+        $copyTo = array($seller->getEmail());
         $copyMethod = Mage::getStoreConfig(self::XML_PATH_EMAIL_COPY_METHOD, $storeId);
 
         // Start store emulation process
