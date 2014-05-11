@@ -1,3 +1,23 @@
+<?php 
+//Total  Feedback Seller
+$totalSellerPositive = Mage::getModel('seller/feedbackseller')->getCollection()
+						->addFieldToFilter('seller_id', array('eq' => $sellerId))
+						->addFieldToFilter('feedback', array('eq' => 1));
+
+$totalSellerNigative = Mage::getModel('seller/feedbackseller')->getCollection()
+->addFieldToFilter('seller_id', array('eq' => $sellerId))
+->addFieldToFilter('feedback', array('eq' => 2));
+
+//Total  Feedback Buyer
+$totalBuyerPositive = Mage::getModel('seller/feedbackbuyer')->getCollection()
+->addFieldToFilter('buyer_id', array('eq' => $sellerId))
+->addFieldToFilter('feedback', array('eq' => 1));
+
+$totalBuyerNigative = Mage::getModel('seller/feedbackbuyer')->getCollection()
+->addFieldToFilter('buyer_id', array('eq' => $sellerId))
+->addFieldToFilter('feedback', array('eq' => 2));
+
+?>
 <div class="block seller-sidebar">
 	<div class="block-title">
 		<strong>
@@ -23,7 +43,7 @@
 		<h2>
 			<?php echo $seller->getUsername();?>
 			<span style="color: red; font-size: 14px"><a
-				href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)
+				href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $totalSellerPositive + $totalSellerNigative + $totalBuyerPositive + $totalBuyerNigative ?>)
 			</a>
 			</span>
 		</h2>

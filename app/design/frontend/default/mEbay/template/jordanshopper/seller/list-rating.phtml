@@ -52,7 +52,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
 		<div style="width: 200px;">
-					<h2><?php echo $seller->getUsername();?> <span>(<?php echo $orderCount?>)</span></h2>
+					<h2><?php echo $seller->getUsername();?> <span>(<?php echo $totalSellerPositive + $totalSellerNigative + $totalBuyerPositive + $totalBuyerNigative ?>)</span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">
@@ -67,7 +67,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 <div class="block block-layered-nav">
 	<div class="block-title">
 		<strong>
-			<span><?php echo $this->__('Rating as seller')?> <span>(<?php echo $orderCount?>)</span></span>
+			<span><?php echo $this->__('Rating as seller')?> <span>(<?php echo $totalSellerPositive + $totalSellerNigative ?>)</span></span>
 		</strong>
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
@@ -80,7 +80,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 	</div>
 	<div class="block-title">
 		<strong>
-			<span><?php echo $this->__('Rating as buyer')?> <span>(<?php echo $orderCount?>)</span></span>
+			<span><?php echo $this->__('Rating as buyer')?> <span>(<?php echo $totalBuyerPositive + $totalBuyerNigative ?>)</span></span>
 		</strong>
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
