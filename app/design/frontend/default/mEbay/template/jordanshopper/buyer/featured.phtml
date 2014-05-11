@@ -23,7 +23,7 @@ jQuery(function() {
 foreach ($products as $product):
 $_product = Mage::getModel('catalog/product')->load($product->getId());
 ?>
-<li>
+<li style="width:200px">
 <img width="125" src="<?php echo $_product->getImageUrl(); ?>" />
 <div class="product-info">
                 	<?php 
