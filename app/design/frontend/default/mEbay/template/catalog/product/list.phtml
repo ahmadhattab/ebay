@@ -86,6 +86,19 @@
                     <div class="desc std">
                     	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
                     </div>
+                    <div class="desc std">
+                    	<strong><?php echo $this->__('Item Condition');
+					$cond = $_product->getAttributeText('item_condition_static');
+					if ($cond == 'Other')
+					{
+						echo $cond . ': ' . $_product->getItemConditionOther();
+					}
+					else {
+						echo $cond;
+					}
+					?>
+					</strong>
+                    </div>
                 </div>
             </div>
             <?php echo $this->getPriceHtml($_product, true) ?>
