@@ -15,20 +15,19 @@ $sellerRatingText->getSelect()->limit(20);
 //Total  Feedback Seller
 $totalSellerPositive = Mage::getModel('seller/feedbackseller')->getCollection()
 						->addFieldToFilter('seller_id', array('eq' => $sellerId))
-						->addFieldToFilter('feedback', array('eq' => 1));
-
+						->addFieldToFilter('feedback', array('eq' => 1))->getSize();
 $totalSellerNigative = Mage::getModel('seller/feedbackseller')->getCollection()
 ->addFieldToFilter('seller_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 2));
+->addFieldToFilter('feedback', array('eq' => 2))->getSize();
 
 //Total  Feedback Buyer
 $totalBuyerPositive = Mage::getModel('seller/feedbackbuyer')->getCollection()
 ->addFieldToFilter('buyer_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 1));
+->addFieldToFilter('feedback', array('eq' => 1))->getSize();
 
 $totalBuyerNigative = Mage::getModel('seller/feedbackbuyer')->getCollection()
 ->addFieldToFilter('buyer_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 2));
+->addFieldToFilter('feedback', array('eq' => 2))->getSize();
 
 $buyerRatingTest = Mage::getModel('seller/feedbackbuyer')->getCollection()
 						->addFieldToFilter('buyer_id',array('eq' => $sellerId));
