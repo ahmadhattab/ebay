@@ -84,6 +84,9 @@
                         <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                     </div>
                     <div class="desc std">
+                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    </div>
+                                        <div class="desc std">
                     	<strong><?php echo $this->__('Item Condition');
 					$cond = $_product->getAttributeText('item_condition_static');
 					if ($cond == 'Other')
@@ -95,9 +98,6 @@
 					}
 					?>
 					</strong>
-                    </div>
-                    <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
                     </div>
                 </div>
             </div>
@@ -148,6 +148,9 @@
                     <div class="desc std">
                         <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                     </div>
+                    <div class="desc std">
+                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    </div>
                                         <div class="desc std">
                     	<strong><?php echo $this->__('Item Condition');
 					$cond = $_product->getAttributeText('item_condition_static');
@@ -161,10 +164,6 @@
 					?>
 					</strong>
                     </div>
-                    <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
-                    </div>
-
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
