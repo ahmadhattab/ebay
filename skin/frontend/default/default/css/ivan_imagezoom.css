@@ -149,7 +149,7 @@
 }
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
-	width:255px;
+	width:380px;
 	height:62px;
 	padding:0px 14px;
 }
@@ -220,7 +220,7 @@
 	/*cursor:pointer;*/}
 .jqzoom img{
 	float:left;
-	width: 280px;
+	width: 390px;
 }
 .zoomdiv{
 	z-index:100;
