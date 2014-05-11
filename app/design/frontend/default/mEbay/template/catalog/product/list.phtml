@@ -87,7 +87,8 @@
                     	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
                     </div>
                                         <div class="desc std">
-                    	<strong><?php echo $this->__('Item Condition');
+                    	<strong><?php echo $this->__('Item Condition') . ': ';?></strong>
+                    	<?php
 					$cond = $_product->getAttributeText('item_condition_static');
 					if ($cond == 'Other')
 					{
@@ -97,7 +98,7 @@
 						echo $cond;
 					}
 					?>
-					</strong>
+					
                     </div>
                 </div>
             </div>
@@ -152,7 +153,8 @@
                     	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
                     </div>
                                         <div class="desc std">
-                    	<strong><?php echo $this->__('Item Condition');
+                    	<strong><?php echo $this->__('Item Condition') .': ';?></strong>
+                    	<?php
 					$cond = $_product->getAttributeText('item_condition_static');
 					if ($cond == 'Other')
 					{
@@ -162,7 +164,6 @@
 						echo $cond;
 					}
 					?>
-					</strong>
                     </div>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
