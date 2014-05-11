@@ -15,19 +15,20 @@ $sellerRatingText->getSelect()->limit(20);
 //Total  Feedback Seller
 $totalSellerPositive = Mage::getModel('seller/feedbackseller')->getCollection()
 						->addFieldToFilter('seller_id', array('eq' => $sellerId))
-						->addFieldToFilter('feedback', array('eq' => 1))->getSize();
+						->addFieldToFilter('feedback', array('eq' => 1));
+						
 $totalSellerNigative = Mage::getModel('seller/feedbackseller')->getCollection()
 ->addFieldToFilter('seller_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 2))->getSize();
+->addFieldToFilter('feedback', array('eq' => 2));
 
 //Total  Feedback Buyer
 $totalBuyerPositive = Mage::getModel('seller/feedbackbuyer')->getCollection()
 ->addFieldToFilter('buyer_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 1))->getSize();
+->addFieldToFilter('feedback', array('eq' => 1));
 
 $totalBuyerNigative = Mage::getModel('seller/feedbackbuyer')->getCollection()
 ->addFieldToFilter('buyer_id', array('eq' => $sellerId))
-->addFieldToFilter('feedback', array('eq' => 2))->getSize();
+->addFieldToFilter('feedback', array('eq' => 2));
 
 $buyerRatingTest = Mage::getModel('seller/feedbackbuyer')->getCollection()
 						->addFieldToFilter('buyer_id',array('eq' => $sellerId));
@@ -51,7 +52,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
 		<div style="width: 200px;">
-					<h2><?php echo $seller->getUsername();?> <span>(<?php echo $totalSellerPositive + $totalSellerNigative + $totalBuyerPositive + $totalBuyerNigative ?>)</span></h2>
+					<h2><?php echo $seller->getUsername();?> <span>(<?php echo $totalSellerPositive->count() + $totalSellerNigative->count() + $totalBuyerPositive->count() + $totalBuyerNigative->count() ?>)</span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">
@@ -66,7 +67,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 <div class="block block-layered-nav">
 	<div class="block-title">
 		<strong>
-			<span><?php echo $this->__('Rating as seller')?> <span>(<?php echo $totalSellerPositive + $totalSellerNigative ?>)</span></span>
+			<span><?php echo $this->__('Rating as seller')?> <span>(<?php echo $totalSellerPositive->count() + $totalSellerNigative->count() ?>)</span></span>
 		</strong>
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
@@ -79,7 +80,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 	</div>
 	<div class="block-title">
 		<strong>
-			<span><?php echo $this->__('Rating as buyer')?> <span>(<?php echo $totalBuyerPositive + $totalBuyerNigative ?>)</span></span>
+			<span><?php echo $this->__('Rating as buyer')?> <span>(<?php echo $totalBuyerPositive->count() + $totalBuyerNigative->count() ?>)</span></span>
 		</strong>
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
