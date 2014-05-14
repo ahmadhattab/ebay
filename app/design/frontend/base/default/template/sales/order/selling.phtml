@@ -65,7 +65,7 @@
             if ($feedbackModel->getStatus() == 2 && $feedbackModel->getData())
             {
             ?>
-            <a href="<?php echo $this->getUrl('seller/rating/buyer', array('order_id' => $_order->getRealOrderId(), 'buyer_id' => $feedbackModel->getSellerId())); ?>">Rate: <?php echo $buyerModel->getName() ?></a>
+            <a href="<?php echo $this->getUrl('seller/rating/buyer', array('order_id' => $_order->getRealOrderId(), 'buyer_id' => $buyerModel->getId())); ?>">Rate: <?php echo $buyerModel->getName() ?></a>
             <?php
             }
             else
