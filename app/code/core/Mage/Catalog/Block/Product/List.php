@@ -32,6 +32,7 @@
  * @package    Mage_Catalog
  * @author      Magento Core Team <core@magentocommerce.com>
  */
+date_default_timezone_set('Asia/Amman');
 class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstract
 {
     /**
@@ -83,8 +84,9 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
                     $layer->setCurrentCategory($category);
                 }
             }
+            $date = date('Y:m:d');
             $this->_productCollection = $layer->getProductCollection();
-
+			$this->_productCollection->addAttributeToFilter('news_to_date', array('gteq' => $date));
             $this->prepareSortableFieldsByCategory($layer->getCurrentCategory());
 
             if ($origCategory) {

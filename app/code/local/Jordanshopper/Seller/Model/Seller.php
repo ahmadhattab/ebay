@@ -138,7 +138,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		return $order->getId();
 	}
 
-	public function createProduct($itemId)
+	public function createProduct($itemId, $start_date, $end_date)
 	{
 		$sellerItem = Mage::getModel('seller/seller')->load($itemId);
 		//print_r($sellerItem->getData());die;
@@ -156,6 +156,9 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$product->setDescription($sellerItem->getDescription());
 		$product->setVisibility(4);
 		$product->setStatus(1);
+		//Date
+		$product->setNewsFromDate($start_date);
+		$product->setNewsToDate($end_date);
 		$product->setTaxClassId(0);
 		$catIds = explode(',' , $sellerItem->getCategoriesIds());
 		$product->setCategoryIds(array($catIds));

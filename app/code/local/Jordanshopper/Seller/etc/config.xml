@@ -96,6 +96,14 @@
 			</jordanshopper_seller>
 		</helpers>
 	</global>
+	<crontab>
+		<jobs>
+			<expired_check_all>
+				<schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+				<run><model>seller/cron::checkExpired</model></run>
+			</expired_check_all>
+		</jobs>
+	</crontab>
 	<admin>
 		<routers>
 			<adminhtml>

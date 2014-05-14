@@ -35,7 +35,7 @@ class Mage_Core_Model_Locale
      * Default locale name
      */
     const DEFAULT_LOCALE    = 'en_US';
-    const DEFAULT_TIMEZONE  = 'UTC';
+    const DEFAULT_TIMEZONE  = 'Asia/Amman';
     const DEFAULT_CURRENCY  = 'USD';
 
     /**

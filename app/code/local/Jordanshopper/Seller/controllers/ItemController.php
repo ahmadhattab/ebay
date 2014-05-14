@@ -206,7 +206,9 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			if($item->getStatus() == 0 && $item->getData())
 			{
 				$itemModel = Mage::getModel('seller/seller');
-				$itemModel->createProduct($itemId);
+				$start_date = date('Y-m-d');
+				$end_date = strtotime(date("Y-m-d", strtotime($start_date)) . " +1 month");
+				$itemModel->createProduct($itemId, $start_date, $end_date);
 				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
 				$session->addSuccess($successMsg);
 				$this->_redirect('seller');
@@ -321,7 +323,6 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			$ItemName 		= $session->getItemName();
 			$ItemNumber 	= $session->getItemNo();
 			$ItemQTY 		= $session->getItemQTY();
-
 			$padata = 	'&TOKEN='.urlencode($token).
 						'&PAYERID='.urlencode($playerid).
 						'&PAYMENTACTION='.urlencode("SALE").
@@ -341,7 +342,9 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
 				$session->addSuccess($successMsg);
 				// create live product
-				$PayPalModel->createProduct($session->getProductID());
+				$start_date = date('Y-m-d');
+				$end_date = strtotime(date("Y-m-d", strtotime($start_date)) . " +" . $item->getPeriodDays() . " days");
+				$PayPalModel->createProduct($session->getProductID(), $start_date, $end_date);
 				$this->_redirect('seller/index');
 			}
 		}
