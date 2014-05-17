@@ -29,7 +29,7 @@
     <default>
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="contacts" ifconfig="contacts/contacts/enabled"><label>Contact Us</label><url>contacts</url><title>Contact Us</title><prepare>true</prepare></action>
-                        <action method="addLink" translate="label title"><label>Help</label><url>help</url><title>Help</title></action>
+                        <action method="addLink" translate="label title"><label>Help</label><url>help</url><title>Help</title><prepare>true</prepare></action>
             
         </reference>
     </default>
