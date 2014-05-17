@@ -67,21 +67,21 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
 </span>                        
 </div>
     	<div class="time-left">
-			<span><?php 
-			$start = new DateTime($_product->getNewsToDate());
-			$end = new DateTime($_product->getNewsFromDate());
-			$interval = $start->diff($end);
-			if ($interval->days == 0)
+			<span>
+			<?php 
+			$start = strtotime($_product->getNewsToDate());
+			$end = strtotime($_product->getNewsFromDate());
+			$days_between = ceil(abs($end - $start) / 86400);
+			if ($days_between == '0')
 			{
-				$dd = $interval->days + 1;
-				echo $dd . ' ' . $this->__('Day left');
+				echo $this->__('Today will finish');	
 			}
-			else
+			else 
 			{
-				echo $interval->days . ' ' . $this->__('Days left');
+				echo $days_between . ' ' . $this->__('days left');
 			}
-			
-			?></span>
+			?>
+			</span>
 		</div>
 </div>
 </li>
