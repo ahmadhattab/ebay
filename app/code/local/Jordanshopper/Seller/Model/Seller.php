@@ -164,7 +164,7 @@ class Jordanshopper_Seller_Model_Seller extends Mage_Core_Model_Abstract{
 		$product->setCategoryIds(array($catIds));
 		$product->setItemConditionStatic($sellerItem->getItemConditions());
 		$product->setContactMe($sellerItem->getContactMe());
-		if ($sellerItem->getItemConditions() == 'other')
+		if ($sellerItem->getItemConditions() == 4)
 		{
 			$product->setItemConditionOther($sellerItem->getItemConditionsOther());
 		}

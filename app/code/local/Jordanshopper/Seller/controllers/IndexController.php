@@ -76,7 +76,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				}
 				if (isset($itemConditions) && !empty($itemConditions)) {
 					$sellerModel->setItemConditions(trim($itemConditions));
-					if ($itemConditions == 'other') {
+					if ($itemConditions == 4) {
 						$sellerModel->setItemConditionsOther($itemConditionsOther);
 					}
 				}
