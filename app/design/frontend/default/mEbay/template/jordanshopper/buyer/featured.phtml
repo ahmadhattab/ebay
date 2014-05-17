@@ -10,36 +10,38 @@ jQuery(function() {
     });
 });
 </script>
-<h1><?php echo $this->__('Featured Items')?></h1>
+<h1>
+<?php echo $this->__('Featured Items')?>
+</h1>
 <div class="div-prev">
-<a href="#" class="featured-prev">&nbsp;</a>
+	<a href="#" class="featured-prev">&nbsp;</a>
 </div>
 <div class="div-next">
-<a href="#" class="featured-next">&nbsp;</a>
+	<a href="#" class="featured-next">&nbsp;</a>
 </div>
 <div class="featuredContent">
-<ul id="items">
-<?php
-foreach ($products as $product):
-$_product = Mage::getModel('catalog/product')->load($product->getId());
-?>
-<li style="width:200px">
-<img width="125" src="<?php echo $_product->getImageUrl(); ?>" />
-<div class="product-info">
-                	<?php 
-                	if ($_product->getSellerId())
-                	{
-					$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
-					$write = Mage::getSingleton('core/resource')->getConnection('core_write');
-					$readresult=$write->query("SELECT ((SUM(`item_desc`) + SUM(`price`) + SUM(`ship`) + SUM(`communication`)) / count(*)) / 5 as sellerfeedback from jordanshopper_feedback_seller where seller_id = " . $_product->getSellerId());
-					$sellerFeedback = $readresult->fetch();
-					$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
-					$orderCount = Mage::getModel('sales/order')->getCollection()
-										->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
-										->getSize();
+	<ul id="items">
+	<?php
+	foreach ($products as $product):
+	$_product = Mage::getModel('catalog/product')->load($product->getId());
+	?>
+		<li style="width: 200px"><img width="125"
+			src="<?php echo $_product->getImageUrl(); ?>" />
+			<div class="product-info">
+			<?php
+			if ($_product->getSellerId())
+			{
+				$seller = Mage::getModel('customer/customer')->load($_product->getSellerId());
+				$write = Mage::getSingleton('core/resource')->getConnection('core_write');
+				$readresult=$write->query("SELECT ((SUM(`item_desc`) + SUM(`price`) + SUM(`ship`) + SUM(`communication`)) / count(*)) / 5 as sellerfeedback from jordanshopper_feedback_seller where seller_id = " . $_product->getSellerId());
+				$sellerFeedback = $readresult->fetch();
+				$sellerFeedback = ceil($sellerFeedback['sellerfeedback']);
+				$orderCount = Mage::getModel('sales/order')->getCollection()
+				->addFieldToFilter('customer_id', array('eq' => $_product->getSellerId()))
+				->getSize();
 					
-					?>
-					<!--<div style="width: 200px;">
+				?>
+				<!--<div style="width: 200px;">
 					<h2><?php echo $seller->getName();?> <span style="color:red;font-size:14px"><a href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $orderCount ?>)</a></span></h2>
 					</div>
 					<div style="width: 200px;">
@@ -50,29 +52,48 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
         				<?php } ?>
         				</span>
 					</div>-->
-					<?php } ?>
-										<div style="width: 200px;">
-						<h1><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a></h1>
-					</div>
-                    <div class="desc std">
-                        <strong>Item Subtitle: </strong><?php echo $_product->getShortDescription(); ?>
-                    </div>
-                    <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
-                    </div>
+        				<?php } ?>
+				<div style="width: 200px;">
+					<h1>
+						<a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?>
+						</a>
+					</h1>
+				</div>
+				<div class="desc std">
+					<strong>Item Subtitle: </strong>
+					<?php echo $_product->getShortDescription(); ?>
+				</div>
+				<div class="desc std">
+					<strong>Loaction: </strong>
+					<?php echo $_product->getLocation(); ?>
+				</div>
 
-<div class="price-box">
-<span class="regular-price" id="product-price-9">
-<span class="price"><?php echo Mage::helper('core')->currency($_product->getPrice()); ?></span>
-</span>                        
-</div>
-    	<div class="time-left">
-			<span>2days left</span>
-		</div>
-</div>
-</li>
-<?php
-endforeach;
-?>
-</ul>
+				<div class="price-box">
+					<span class="regular-price" id="product-price-9"> <span
+						class="price"><?php echo Mage::helper('core')->currency($_product->getPrice()); ?>
+					</span> </span>
+				</div>
+				<div class="time-left">
+					<span><?php 
+					$start = new DateTime($_product->getNewsToDate());
+					$end = new DateTime($_product->getNewsFromDate());
+					$interval = $start->diff($end);
+					if ($interval->days == 0)
+					{
+						$dd = $interval->days + 1;
+						echo $dd . ' ' . $this->__('Day left');
+					}
+					else
+					{
+						echo $interval->days . ' ' . $this->__('Days left');
+					}
+
+					?></span>
+				</div>
+			</div>
+		</li>
+		<?php
+		endforeach;
+		?>
+	</ul>
 </div>

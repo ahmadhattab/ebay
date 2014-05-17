@@ -374,7 +374,21 @@
         <?php endif?>
     <?php endif; /* if ($this->getDisplayMinimalPrice() && $_minimalPrice && $_minimalPrice < $_finalPrice): */ ?>
     	<div class="time-left">
-			<span>2days left</span>
+			<span><?php 
+			$start = new DateTime($_product->getNewsToDate());
+			$end = new DateTime($_product->getNewsFromDate());
+			$interval = $start->diff($end);
+			if ($interval->days == 0)
+			{
+				$dd = $interval->days + 1;
+				echo $dd . ' ' . $this->__('Day left');
+			}
+			else
+			{
+				echo $interval->days . ' ' . $this->__('Days left');
+			}
+			
+			?></span>
 		</div>
     </div>
 <?php else: /* if (!$_product->isGrouped()): */ ?>
