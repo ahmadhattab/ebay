@@ -207,7 +207,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			{
 				$itemModel = Mage::getModel('seller/seller');
 				$start_date = date('Y-m-d');
-				$end_date = strtotime(date("Y-m-d", strtotime($start_date)) . " +1 month");
+				$end_date = strtotime(date("Y-m-d", strtotime($start_date)) . " +30 days");
 				$itemModel->createProduct($itemId, $start_date, $end_date);
 				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
 				$session->addSuccess($successMsg);

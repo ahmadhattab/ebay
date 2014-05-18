@@ -69,8 +69,8 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
     	<div class="time-left">
 			<span>
 			<?php 
-			$start = strtotime($_product->getNewsToDate());
-			$end = strtotime($_product->getNewsFromDate());
+			$start = strtotime(date('Y-m-d'));
+			$end = strtotime($_product->getNewsToDate());
 			$days_between = ceil(abs($end - $start) / 86400);
 			if ($days_between == '0')
 			{
