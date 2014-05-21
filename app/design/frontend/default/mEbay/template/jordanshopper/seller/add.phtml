@@ -150,9 +150,17 @@
         <h2 class="legend"><?php echo $this->__('Item Location'); ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">
             <li>
+            	<div class="input-box">
+            		<select name="item_location" class="countryselect">
+            			<option value="Worldwide" selected="selected">Worldwide</option>
+            			<option value="Jordan">Jordan</option>
+            		</select>
+            	</div>
+            </li>
+            <li>
                 <div class="input-box">
                     <select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value);
-                                setCityName(this.options[this.selectedIndex].text);" name="item_location">
+                                setCityName(this.options[this.selectedIndex].text);" name="item_city" style="display:none">
                         <option value="Irbid" selected="selected">Irbid</option>
                         <option value="Ajloun">Ajloun</option>
                         <option value="Jerash">Jerash</option>
@@ -170,6 +178,19 @@
             </li>
         </ul>
     </div>
+    <script>
+		jQuery(".countryselect").change(function(){
+			value = jQuery(".countryselect").val();
+			if (value == 'Jordan')
+			{
+				jQuery("#cityselect").css("display","block");
+			}
+			else if(value == 'Worldwide')
+			{
+				jQuery("#cityselect").css("display","none");
+			}
+			});
+    </script>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Price & Quntity') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">

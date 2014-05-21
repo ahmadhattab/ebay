@@ -51,6 +51,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				$itemConditions = $this->getRequest()->getParam('item_conditions');
 				$itemConditionsOther = $this->getRequest()->getParam('item_conditions_other');
 				$itemLocation = $this->getRequest()->getParam('item_location');
+				$itemCity = $this->getRequest()->getParam('item_city');
 				$price = $this->getRequest()->getParam('price');
 				$qty = $this->getRequest()->getParam('qty');
 				$deliveryDetails = $this->getRequest()->getParam('delivery_details');
@@ -81,7 +82,14 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 					}
 				}
 				if (isset($itemLocation) && !empty($itemLocation)) {
-					$sellerModel->setItemLocation(trim($itemLocation));
+					if ($itemLocation == 'Worldwide')
+					{
+						$sellerModel->setItemLocation(trim($itemLocation));
+					}
+					else
+					{
+						$sellerModel->setItemLocation(trim($itemCity));
+					}
 				}
 				if (isset($price) && !empty($price)) {
 					$sellerModel->setPrice(trim($price));
