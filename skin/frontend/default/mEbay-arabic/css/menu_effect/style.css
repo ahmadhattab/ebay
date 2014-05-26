@@ -1,8 +1,8 @@
 /* --------------------------- Create by ducna@asia-conect.com.vn,YM:duc_act ----------------------------- */
 ul.menu {list-style:none; margin:0 auto;width:960px;background:url(../../images/bg_menu.jpg) no-repeat; height:34px; padding-top:2px; text-transform:uppercase;position:relative;z-index:10;}
 ul.menu a {display:block; color:#fff; text-decoration:none;line-height:normal;}
-ul.menu li {position:relative; float:right; margin-right:0px;}
-ul.menu ul {position:absolute; top:33px; right:0; background:#e8e8e8; display:none;list-style:none; border-top:1px solid #ccc}
+ul.menu li {position:relative; float:left; margin-right:0px;}
+ul.menu ul {position:absolute; top:33px; left:0; background:#e8e8e8; display:none;list-style:none; border-top:1px solid #ccc}
 ul.menu ul li {position:relative; border:1px solid #ccc; border-top:none; width:174px; margin:0}
 ul.menu ul li a {display:block; padding:3px 7px 5px; background-color:#e8e8e8}
 ul.menu ul li.level1 a {display:block; padding:3px 7px 5px; background-color:#e8e8e8;border:none;}
@@ -51,7 +51,7 @@ ul.menu ul li a, ul.menu ul li a span {
 }
 ul.menu ul li {
 	background: none;
-	text-align:right;
+	text-align:left;
 }
 ul.menu ul li a,  ul.menu li.active li a {
 	border: none;
