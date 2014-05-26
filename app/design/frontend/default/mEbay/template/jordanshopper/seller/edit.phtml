@@ -116,27 +116,27 @@ $item = $this->getItem();
             </li>
         </ul>
     </div>
-    <div class="fieldset">
+        <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Item Condition') ?> <em style="color:red;">*</em></h2>
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" id="item_conditions1" <?php if($item->getItemConditions() == 'new'){?>checked="checked"<?php }?> value="new" class="radio " onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" value="3" <?php if($item->getItemConditions() == '3'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" id="item_conditions2" <?php if($item->getItemConditions() == 'used'){?>checked="checked"<?php }?> value="used" class="radio " onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" value="5" <?php if($item->getItemConditions() == '5'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" id="item_conditions3" <?php if($item->getItemConditions() == 'other'){?>checked="checked"<?php }?> value="other" class="radio " onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" value="4" <?php if($item->getItemConditions() == '4'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
                 </li>
                 <li>
-                    <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="<?php echo $item->getItemConditionsOther(); ?>" style="display: none;" class="input-text " />
+                    <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
                 </li>
             </ul>
             <script>
                         function check(value)
                         {
-                            if (value == 'other')
+                            if (value == '4')
                             {
                                 $('item_conditions_other').show();
                             }
@@ -146,38 +146,53 @@ $item = $this->getItem();
                             }
                         }
             </script>
-            <script type="text/javascript">
-            jQuery(document).ready(function(){
-            	if( jQuery("#item_conditions3").is(":checked")){
-            		jQuery('#item_conditions_other').show();
-            	}
-            });
-            </script>
         </div>
     </div>
-    <div class="fieldset ">
+        <div class="fieldset ">
         <h2 class="legend"><?php echo $this->__('Item Location'); ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">
             <li>
+            	<div class="input-box">
+            		<select name="item_location" class="countryselect">
+            			<option value="Worldwide" <?php if($item->getItemLocation() == 'Worldwide'){?>selected="selected"<?php } ?>>Worldwide</option>
+            			<option value="Jordan" <?php if($item->getItemLocation() != 'Worldwide'){?>selected="selected"<?php } ?>>Jordan</option>
+            		</select>
+            	</div>
+            </li>
+            <li>
                 <div class="input-box">
                     <select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value);
-                                setCityName(this.options[this.selectedIndex].text);" name="item_location">
-                        <option value="Al-sareeh" <?php if($item->getItemLocation() == 'Al-sareeh'){?>selected="selected"<?php } ?>>Al-sareeh</option>
-                        <option value="Amman" <?php if($item->getItemLocation() == 'Amman'){?>selected="selected"<?php } ?>>Amman</option>
-                        <option value="Aqaba" <?php if($item->getItemLocation() == 'Aqaba'){?>selected="selected"<?php } ?>>Aqaba</option>
+                                setCityName(this.options[this.selectedIndex].text);" name="item_city" <?php if($item->getItemLocation() == 'Worldwide'){?> style="display:none" <?php } ?>>
                         <option value="Irbid" <?php if($item->getItemLocation() == 'Irbid'){?>selected="selected"<?php } ?>>Irbid</option>
+                        <option value="Ajloun" <?php if($item->getItemLocation() == 'Ajloun'){?>selected="selected"<?php } ?>>Ajloun</option>
                         <option value="Jerash" <?php if($item->getItemLocation() == 'Jerash'){?>selected="selected"<?php } ?>>Jerash</option>
-                        <option value="Karak" <?php if($item->getItemLocation() == 'Karak'){?>selected="selected"<?php } ?>>Karak</option>
-                        <option value="Maa'N" <?php if($item->getItemLocation() == 'Maa\'N'){?>selected="selected"<?php } ?>>Maa'N</option>
                         <option value="Mafraq" <?php if($item->getItemLocation() == 'Mafraq'){?>selected="selected"<?php } ?>>Mafraq</option>
-                        <option value="Ramtha" <?php if($item->getItemLocation() == 'Ramtha'){?>selected="selected"<?php } ?>>Ramtha</option>
-                        <option value="Sult" <?php if($item->getItemLocation() == 'Sult'){?>selected="selected"<?php } ?>>Sult</option>
+                        <option value="Balqa" <?php if($item->getItemLocation() == 'Balqa'){?>selected="selected"<?php } ?>>Balqa</option>
+                        <option value="Amman" <?php if($item->getItemLocation() == 'Amman'){?>selected="selected"<?php } ?>>Amman</option>
                         <option value="Zarqa" <?php if($item->getItemLocation() == 'Zarqa'){?>selected="selected"<?php } ?>>Zarqa</option>
+                        <option value="Madaba" <?php if($item->getItemLocation() == 'Madaba'){?>selected="selected"<?php } ?>>Madaba</option>
+                        <option value="Karak" <?php if($item->getItemLocation() == 'Karak'){?>selected="selected"<?php } ?>>Karak</option>
+                        <option value="Tafilah" <?php if($item->getItemLocation() == 'Tafilah'){?>selected="selected"<?php } ?>>Tafilah</option>
+                        <option value="Ma'an" <?php if($item->getItemLocation() == 'Ma\'an'){?>selected="selected"<?php } ?>>Ma'an</option>
+                        <option value="Aqaba" <?php if($item->getItemLocation() == 'Aqaba'){?>selected="selected"<?php } ?>>Aqaba</option>
                     </select>
                 </div>
             </li>
         </ul>
     </div>
+        <script>
+		jQuery(".countryselect").change(function(){
+			value = jQuery(".countryselect").val();
+			if (value == 'Jordan')
+			{
+				jQuery("#cityselect").css("display","block");
+			}
+			else if(value == 'Worldwide')
+			{
+				jQuery("#cityselect").css("display","none");
+			}
+			});
+    </script>
     <div class="fieldset">
         <h2 class="legend"><?php echo $this->__('Price & Quntity') ?> <em style="color:red;">*</em></h2>
         <ul class="form-list">

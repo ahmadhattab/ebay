@@ -32,13 +32,14 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		$id = $this->getRequest()->getParam('item_id');
 		if (isset($id) && $this->getRequest()->isPost())
 		{
-			$sellerModel = Mage::getModel('seller/seller')->load($id);                                
+			$sellerModel = Mage::getModel('seller/seller')->load($id);
 			// get post Seller values
-			$sellerId           = $this->getRequest()->getParam('seller_id');                        
+			$sellerId           = $this->getRequest()->getParam('seller_id');
 			$productTitle       = $this->getRequest()->getParam('product_title');
 			$category           = $this->getRequest()->getParam('category');
 			$subtitle           = $this->getRequest()->getParam('subtitle');
 			$itemConditions     = $this->getRequest()->getParam('item_conditions');
+			$itemCity = $this->getRequest()->getParam('item_city');
 			$itemConditionsOther = $this->getRequest()->getParam('item_conditions_other');
 			$itemLocation       = $this->getRequest()->getParam('item_location');
 			$price              = $this->getRequest()->getParam('price');
@@ -70,7 +71,14 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				}
 			}
 			if (isset($itemLocation) && !empty($itemLocation)) {
-				$sellerModel->setItemLocation(trim($itemLocation));
+				if ($itemLocation == 'Worldwide')
+				{
+					$sellerModel->setItemLocation(trim($itemLocation));
+				}
+				else
+				{
+					$sellerModel->setItemLocation(trim($itemCity));
+				}
 			}
 			if (isset($price) && !empty($price)) {
 				$sellerModel->setPrice(trim($price));
@@ -93,43 +101,43 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			if (isset($description) && !empty($description)) {
 				$sellerModel->setDescription($description);
 			}
-                        $originImages = $sellerModel->getImages();
-                        if ($_FILES['images']['name'][0])
-                        {
-                        if (is_array($_FILES)) {
-                        $sortImages = $this->reArrayFiles($_FILES);                                                            
-                        $images = array();
-                        foreach ($sortImages as $image) {
-                            $uploader = new Varien_File_Uploader($image);
-                            $uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
-                            $uploader->setAllowRenameFiles(true);
-                            $uploader->setAllowCreateFolders(true);
-                            $uploader->setFilesDispersion(false);
-                            $path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId();
-                            if (!is_dir($path)) {
-                                mkdir($path, 0777, true);
-                            }
-                            if (isset($image['name']) && !empty($image['name'])) {
-                                $images[] = $image['name'];
-                                $fileName = date("Y-m-j-h-i") . $image['name'];
-                                $fileNames[] = $fileName;
-                                $move = $uploader->save($path . DS, $fileName);
-                                if (!$move) {
-                                    $session->addError("File was not uploaded, Please Check your file and try again.");
-                                    //$this->_redirect('*/*/add');
-                                    return;
-                                }
-                            } else {
-                                continue;
-                            }
-                        }
-                        if ($imageNames = implode(",", $fileNames)) {
-                            $allImages = $imageNames.",".$originImages;
-                            $sellerModel->setImages($allImages);
-                        }
-                    }
-                   }
-                   $sellerModel->setContactMe($contact_me);
+			$originImages = $sellerModel->getImages();
+			if ($_FILES['images']['name'][0])
+			{
+				if (is_array($_FILES)) {
+					$sortImages = $this->reArrayFiles($_FILES);
+					$images = array();
+					foreach ($sortImages as $image) {
+						$uploader = new Varien_File_Uploader($image);
+						$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+						$uploader->setAllowRenameFiles(true);
+						$uploader->setAllowCreateFolders(true);
+						$uploader->setFilesDispersion(false);
+						$path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId();
+						if (!is_dir($path)) {
+							mkdir($path, 0777, true);
+						}
+						if (isset($image['name']) && !empty($image['name'])) {
+							$images[] = $image['name'];
+							$fileName = date("Y-m-j-h-i") . $image['name'];
+							$fileNames[] = $fileName;
+							$move = $uploader->save($path . DS, $fileName);
+							if (!$move) {
+								$session->addError("File was not uploaded, Please Check your file and try again.");
+								//$this->_redirect('*/*/add');
+								return;
+							}
+						} else {
+							continue;
+						}
+					}
+					if ($imageNames = implode(",", $fileNames)) {
+						$allImages = $imageNames.",".$originImages;
+						$sellerModel->setImages($allImages);
+					}
+				}
+			}
+			$sellerModel->setContactMe($contact_me);
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
 			$this->_redirect('seller/index');
@@ -194,7 +202,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			$this->_redirect('seller');
 		}
 	}
-	
+
 	public function freesubmitAction()
 	{
 		$session    = Mage::getSingleton('core/session');
@@ -212,7 +220,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
 				$session->addSuccess($successMsg);
 				$this->_redirect('seller');
-				
+
 			}
 			elseif($item->getStatus() == 1)
 			{
@@ -257,18 +265,18 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 
 			//Data to be sent to paypal
 			$padata = 	'&CURRENCYCODE='.urlencode($PayPalCurrencyCode).
-				'&PAYMENTACTION=Sale'.
-				'&ALLOWNOTE=1'.
-				'&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode).
-				'&PAYMENTREQUEST_0_AMT='.urlencode($ItemTotalPrice).
-				'&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice). 
-				'&L_PAYMENTREQUEST_0_QTY0='. urlencode($ItemQty).
-				'&L_PAYMENTREQUEST_0_AMT0='.urlencode($ItemPrice).
-				'&L_PAYMENTREQUEST_0_NAME0='.urlencode($ItemName).
-				'&L_PAYMENTREQUEST_0_NUMBER0='.urlencode($ItemNumber).
-				'&AMT='.urlencode($ItemTotalPrice).				
-				'&RETURNURL='.urlencode($PayPalReturnURL ).
-				'&CANCELURL='.urlencode($PayPalCancelURL);
+			'&PAYMENTACTION=Sale'.
+			'&ALLOWNOTE=1'.
+			'&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode).
+			'&PAYMENTREQUEST_0_AMT='.urlencode($ItemTotalPrice).
+			'&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
+			'&L_PAYMENTREQUEST_0_QTY0='. urlencode($ItemQty).
+			'&L_PAYMENTREQUEST_0_AMT0='.urlencode($ItemPrice).
+			'&L_PAYMENTREQUEST_0_NAME0='.urlencode($ItemName).
+			'&L_PAYMENTREQUEST_0_NUMBER0='.urlencode($ItemNumber).
+			'&AMT='.urlencode($ItemTotalPrice).
+			'&RETURNURL='.urlencode($PayPalReturnURL ).
+			'&CANCELURL='.urlencode($PayPalCancelURL);
 
 			//We need to execute the "SetExpressCheckOut" method to obtain paypal token
 			$httpParsedResponseAr = $PayPalModel->PPHttpPost('SetExpressCheckout', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
@@ -324,10 +332,10 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 			$ItemNumber 	= $session->getItemNo();
 			$ItemQTY 		= $session->getItemQTY();
 			$padata = 	'&TOKEN='.urlencode($token).
-						'&PAYERID='.urlencode($playerid).
-						'&PAYMENTACTION='.urlencode("SALE").
-						'&AMT='.urlencode($ItemTotalPrice).
-						'&CURRENCYCODE='.urlencode($PayPalCurrencyCode);
+			'&PAYERID='.urlencode($playerid).
+			'&PAYMENTACTION='.urlencode("SALE").
+			'&AMT='.urlencode($ItemTotalPrice).
+			'&CURRENCYCODE='.urlencode($PayPalCurrencyCode);
 
 			//We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
 			$httpParsedResponseAr = $PayPalModel->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
@@ -351,46 +359,46 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 
 
 	}
-     
-    public function reArrayFiles(&$file_post) {
-        $file_ary = array();
-        $file_count = count($file_post['images']['name']);
-        $file_keys = array_keys($file_post['images']);
-        for ($i = 0; $i < $file_count; $i++) {
-            foreach ($file_keys as $key) {
-                $file_ary[$i][$key] = $file_post['images'][$key][$i];
-            }
-        }
-        return $file_ary;
-    }
-    
-    public function reportPostAction()
-    {
-    	if ($this->getRequest()->isPost())
-    	{
-    		$data = $this->getRequest()->getParams();
-    		$session = Mage::getSingleton('core/session');
+	 
+	public function reArrayFiles(&$file_post) {
+		$file_ary = array();
+		$file_count = count($file_post['images']['name']);
+		$file_keys = array_keys($file_post['images']);
+		for ($i = 0; $i < $file_count; $i++) {
+			foreach ($file_keys as $key) {
+				$file_ary[$i][$key] = $file_post['images'][$key][$i];
+			}
+		}
+		return $file_ary;
+	}
+
+	public function reportPostAction()
+	{
+		if ($this->getRequest()->isPost())
+		{
+			$data = $this->getRequest()->getParams();
+			$session = Mage::getSingleton('core/session');
 			$session->addSuccess($this->__('Thank you for your reporting'));
-    		$this->_redirectUrl($_SERVER['HTTP_REFERER']);
-    		
-    		$mail = Mage::getModel('core/email');
-    		$mail->setToName('JordnShopper');
-    		$mail->setToEmail('info@jordanshopper.com');
-    		$mail->setBody('
-    				<p><strong>Type:</strong> ' . $data['report-type'] . '</p>
-    				<p><strong>Note:</strong> ' . $data['note'] . '</p>
-    				<p><strong>Product URL:</strong> ' . $_SERVER['HTTP_REFERER'] . '</p>
-    				');
-    		$mail->setSubject('Listing Report');
-    		$mail->setFromEmail(Mage::getSingleton('customer/session')->getCustomer()->getEmail());
-    		$mail->setFromName(Mage::getSingleton('customer/session')->getCustomer()->getName());
-    		$mail->setType('html');// YOu can use Html or text as Mail format
-    		$mail->send();
-    	}
-    	else
-    	{
-    		$this->_redirect('/');
-    	}
-    }
+			$this->_redirectUrl($_SERVER['HTTP_REFERER']);
+
+			$mail = Mage::getModel('core/email');
+			$mail->setToName('JordnShopper');
+			$mail->setToEmail('info@jordanshopper.com');
+			$mail->setBody('
+					<p><strong>Type:</strong> ' . $data['report-type'] . '</p>
+					<p><strong>Note:</strong> ' . $data['note'] . '</p>
+					<p><strong>Product URL:</strong> ' . $_SERVER['HTTP_REFERER'] . '</p>
+					');
+			$mail->setSubject('Listing Report');
+			$mail->setFromEmail(Mage::getSingleton('customer/session')->getCustomer()->getEmail());
+			$mail->setFromName(Mage::getSingleton('customer/session')->getCustomer()->getName());
+			$mail->setType('html');// YOu can use Html or text as Mail format
+			$mail->send();
+		}
+		else
+		{
+			$this->_redirect('/');
+		}
+	}
 }
 ?>
