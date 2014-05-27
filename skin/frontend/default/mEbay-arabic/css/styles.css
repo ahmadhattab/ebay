@@ -51,7 +51,7 @@ legend        { display:none; }
 
 /* Table */
 table         { border:0; /*border-collapse:collapse;*/ border-spacing:0; empty-cells:show; font-size:100%; }
-caption,th,td { vertical-align:top; text-align:left; font-weight:normal; }
+caption,th,td { vertical-align:top; text-align:right; font-weight:normal; }
 
 /* Content */
 p             { margin:0 0 10px; }
@@ -577,7 +577,7 @@ tr.summary-details-excluded { font-style:italic; }
 .mw-reference {left: -999em; position: absolute; text-indent: -999em; top: -999em;}
 
 /********** < Navigation */
-.nav-container {/* background:#0a263d url(../images/bkg_nav0.jpg) 50% 0 repeat-y;*/width:960px; margin:0 auto; }
+.nav-container {/* background:#0a263d url(../images/bkg_nav0.jpg) 50% 0 repeat-y;*/width:960px; direction: rtl; margin:0 auto; }
 #nav { width:918px; margin:0 auto; padding:0 16px; font-size:13px; }
 
 /* All Levels */ /* Style consistent throughout all nav levels */
@@ -2093,3 +2093,7 @@ width: 25px;
 {
 float: right !important;
 }
+div.desc.std { direction: rtl;}
+div.time-left { direction: rtl;}
+div.product-info h1 { text-align: center;}
+.account-login .content { direction: rtl;}

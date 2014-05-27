@@ -55,10 +55,10 @@ $_product = Mage::getModel('catalog/product')->load($product->getId());
 						<h1><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName(); ?></a></h1>
 					</div>					         
                     <div class="desc std">
-                        <strong>Item Subtitle: </strong><?php echo $_product->getShortDescription(); ?>
+                        <strong><?php echo $this->__('Item Subtitle:') ?> </strong><?php echo $_product->getShortDescription(); ?>
                     </div>
                     <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    	<strong><?php echo $this->__('Loaction:') ?> </strong><?php echo $_product->getLocation(); ?>
                     </div>
 
 <div class="price-box">
