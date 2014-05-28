@@ -51,7 +51,7 @@ Customer account pages, rendered for all tabs in dashboard
     <customer_activity>
         <!-- Mage_Wishlist -->
         <reference name="customer_account_navigation">
-            <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active"><name>wishlist</name><path>wishlist/</path><label>Wishlist</label></action>
+            <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active"><name>wishlist</name><path>wishlist/</path><label>Wish List</label></action>
         </reference>
     </customer_activity>
 
@@ -76,7 +76,7 @@ Wishlist pages
         <reference name="content">
             <block type="wishlist/customer_wishlist" name="customer.wishlist" template="wishlist/view.phtml">
                 <action method="setTitle" translate="title">
-                    <title>My Wishlist</title>
+                    <title>My Wish List</title>
                 </action>
                 <block type="wishlist/customer_wishlist_items" name="customer.wishlist.items" as="items" template="wishlist/item/list.phtml">
                     <block type="wishlist/customer_wishlist_item_column_image" name="customer.wishlist.item.image" template="wishlist/item/column/image.phtml" />
