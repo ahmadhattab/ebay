@@ -78,7 +78,7 @@ ul,ol         { list-style:none; }
 .v-top        { vertical-align:top; }
 .v-middle     { vertical-align:middle; }
 .f-left,
-.left         { float:left !important; }
+.left         { float:left !important; direction: rtl;}
 .f-right,
 .right        { float:right !important; }
 .f-none       { float:none !important; }
@@ -313,7 +313,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .messages,
 .messages ul { list-style:none !important; margin:0 !important; padding:0 !important; }
 .messages { width:100%; overflow:hidden; }
-.messages li { margin:0 0 10px !important; }
+.messages li { margin:0 0 10px !important; direction: rtl;}
 .messages li li { margin:0 0 3px !important; }
 .error-msg,
 .success-msg,
