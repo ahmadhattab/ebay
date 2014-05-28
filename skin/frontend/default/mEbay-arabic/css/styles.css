@@ -502,7 +502,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* Misc */
 .links li { display:inline; }
 .links li.first { padding-left:0 !important; }
-.links li.last { background:none !important; padding-right:0 !important; }
+.links li.last { /*background:none !important; padding-right:0 !important;*/ }
 
 .link-cart { color:#002398 !important; font-weight:bold; }
 .link-wishlist { color:#002398 !important; font-weight:normal; }
@@ -1734,7 +1734,7 @@ background:#F3F3F3;
 .footer ul { display:block;float: left; }
 .footer ul.links { display:block; }
 .footer li { display:inline; background:url(../images/bkg_pipe2.gif) 100% 60% no-repeat; padding:0 5px 0 2px; }
-.footer ul.links li.last { background:none !important; padding-right:0 !important; }
+.footer ul.links li.last { /* background:none !important; padding-right:0 !important; */}
 .footer .links li.first {
     padding-left: 4px !important;
 }
