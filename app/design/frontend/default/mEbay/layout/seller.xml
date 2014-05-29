@@ -141,7 +141,7 @@
 	</seller_rating_list>
 	<customer_activity>
 		<reference name="customer_account_navigation">
-			<action method="addLink">
+			<action method="addLink" translate="label">
 				<name>seller_item</name>
 				<path>seller/index/add/</path>
 				<label>Sell an item</label>

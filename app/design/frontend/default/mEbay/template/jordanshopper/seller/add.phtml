@@ -119,13 +119,13 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" value="3" class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" value="3" class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('New')?>
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="5" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" value="5" class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('Used')?>
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="4" class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" value="4" class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('Other')?>
                 </li>
                 <li>
                     <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -152,8 +152,8 @@
             <li>
             	<div class="input-box">
             		<select name="item_location" class="countryselect">
-            			<option value="Worldwide" selected="selected">Worldwide</option>
-            			<option value="Jordan">Jordan</option>
+            			<option value="Worldwide" selected="selected"><?php echo $this->__('Worldwide')?></option>
+            			<option value="Jordan"><?php echo $this->__('Jordan')?></option>
             		</select>
             	</div>
             </li>
@@ -199,14 +199,14 @@
                     <ul class="form-list">
                         <li>
                             <div class="add-to-cart">
-                                <label for="price">Price:</label>
+                                <label for="price"><?php echo $this->__('Price:')?></label>
                                 <input type="text" name="price" id="price" value="" class="input-text required-entry images" />
                                 <strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
                             </div>
                         </li>
                         <li>
                             <div class="add-to-cart">
-                                <label for="qty">Qty:</label>
+                                <label for="qty"><?php echo $this->__('Qty:')?></label>
                                 <input type="text" name="qty" id="qty" value="" class="input-text required-entry images" />
                             </div>
                         </li>
@@ -220,13 +220,13 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="delivery_details" value="none" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>None
+                    <input type="radio" name="delivery_details" value="none" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/><?php echo $this->__('None')?>
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="free" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>Free
+                    <input type="radio" name="delivery_details" value="free" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/><?php echo $this->__('Free')?>
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="charge" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/>Delivery Charge
+                    <input type="radio" name="delivery_details" value="charge" class="radio validate-one-required-by-name" onclick="delivery(this.value)"/><?php echo $this->__('Delivery Charge')?>
                 </li>
                 <li>
                     <input type="text" name="delivery_cost" id="delivery_cost" class="images required-entry input-text" style="display: none;"/>
@@ -252,7 +252,7 @@
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="payment_method" checked="checked" value="1" class="radio validate-one-required-by-name" onclick="payment(this.value)"/>Cash On Delivery
+                    <input type="radio" name="payment_method" checked="checked" value="1" class="radio validate-one-required-by-name" onclick="payment(this.value)"/><?php echo $this->__('Cash On Delivery')?>
                 </li>
                <!-- <li>
                     <input type="radio" name="payment_method" value="2" class="radio validate-one-required-by-name" onclick="payment(this.value)"/>Paypal
@@ -282,8 +282,8 @@
             <li>
                 <div class="contact-me-div" id="contact-me-div">
                     <select name="contact_me" id="contact_me">
-                    	<option selected="selected" value="1">Yes</option>
-                    	<option value="0">No</option>
+                    	<option selected="selected" value="1"><?php echo $this->__('Yes')?></option>
+                    	<option value="0"><?php echo $this->__('No')?></option>
                     </select>
                 </div>
             </li>
@@ -293,7 +293,7 @@
         <h2 class="legend"><?php echo $this->__('Upload Images') ?></h2>
         <ul class="form-list">
             <li>
-                        <button type="button" value="add more" onclick="createNewUpload()" style="margin-left: 200px;">Add New Image</button>
+                        <button type="button" value="add more" onclick="createNewUpload()" style="margin-left: 200px;"><?php echo $this->__('Add New Image')?></button>
 
                 <div class="image-box" id="inp">
                     <input type="file" name="images[]" id="file" class="required-file images">
