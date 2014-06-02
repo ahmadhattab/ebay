@@ -47,16 +47,16 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 			<label><strong><?php echo $this->__('Your Name:')?></strong> <span><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName() ?></span></label>
 		</fieldset>
 		<fieldset>
-			<input type="radio" name="report-type" value="Fraud" class="radio validate-one-required-by-name"/><span><strong>Fraud.</strong> (You think that this listing or seller is a fraud, mass advertising and/or has no right to sell this item) </span>
+			<input type="radio" name="report-type" value="Fraud" class="radio validate-one-required-by-name"/><span><strong><?php echo $this->__('Fraud.') ?></strong> <?php echo $this->__('(You think that this listing or seller is a fraud, mass advertising and/or has no right to sell this item)')?> </span>
 		</fieldset>
 		<fieldset>
-			<input type="radio" name="report-type" value="Abusive Content" class="radio validate-one-required-by-name"/><span><strong>Abusive Content.</strong> (You think that this listing contains abusive, offensive and/or sexual material)</span>
+			<input type="radio" name="report-type" value="Abusive Content" class="radio validate-one-required-by-name"/><span><strong><?php echo $this->__('Abusive Content.')?></strong> <?php echo $this->__('(You think that this listing contains abusive, offensive and/or sexual material)') ?></span>
 		</fieldset>
 		<fieldset>
-			<input type="radio" name="report-type" value="Illegal item" class="radio validate-one-required-by-name"/><span><strong>Illegal item.</strong> (You think that this listing contains illegal or prohibited items as mentioned in our prohibited items section of the legal terms agreement)</span>
+			<input type="radio" name="report-type" value="Illegal item" class="radio validate-one-required-by-name"/><span><strong><?php echo $this->__('Illegal item.')?></strong> <?php echo $this->__('(You think that this listing contains illegal or prohibited items as mentioned in our prohibited items section of the legal terms agreement)') ?></span>
 		</fieldset>
 		<fieldset>
-			<input type="radio" name="report-type" value="Other" class="radio validate-one-required-by-name"/><span><strong>Other.</strong> (If none of the above fits your requirements. Please tell us why you think this listing should not be on jordanshopper.com)</span>
+			<input type="radio" name="report-type" value="Other" class="radio validate-one-required-by-name"/><span><strong><?php echo $this->__('Other.')?></strong> <?php echo $this->__('(If none of the above fits your requirements. Please tell us why you think this listing should not be on jordanshopper.com)') ?></span>
 		</fieldset>
 		<fieldset>
 		<p></p>
@@ -69,7 +69,7 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 			</p>
 		</fieldset>
 		<p>
-			<input type="submit" value="send" />
+			<input type="submit" value="<?php echo $this->__('send') ?>" />
 		</p>
 		</form>
 	</div>
@@ -93,7 +93,7 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 			</p>
 		</fieldset>
 		<p>
-			<input type="submit" value="send" />
+			<input type="submit" value="<?php echo $this->__('send') ?>" />
 		</p>
 		</form>
 	</div>

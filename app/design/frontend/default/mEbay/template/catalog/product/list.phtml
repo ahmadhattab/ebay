@@ -81,10 +81,10 @@
 						<h1><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h1>
 					</div>
                     <div class="desc std">
-                        <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <strong><?php echo $this->__('Item Subtitle:')?> </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                     </div>
                     <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    	<strong><?php echo $this->__('Loaction:')?> </strong><?php echo $_product->getLocation(); ?>
                     </div>
                                         <div class="desc std">
                     	<strong><?php echo $this->__('Item Condition') . ': ';?></strong>
@@ -147,10 +147,10 @@
 					<?php } ?>
 					<h1><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h1>
                     <div class="desc std">
-                        <strong>Item Subtitle: </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <strong><?php echo $this->__('Item Subtitle:')?> </strong><?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                     </div>
                     <div class="desc std">
-                    	<strong>Loaction: </strong><?php echo $_product->getLocation(); ?>
+                    	<strong><?php echo $this->__('Loaction:')?> </strong><?php echo $_product->getLocation(); ?>
                     </div>
                                         <div class="desc std">
                     	<strong><?php echo $this->__('Item Condition') .': ';?></strong>
