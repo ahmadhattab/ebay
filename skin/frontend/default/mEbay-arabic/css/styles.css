@@ -1229,7 +1229,7 @@ background:#F3F3F3;
 /* Checkout Types */
 .cart .page-title .checkout-types li { margin:0 0 5px; }
 .cart .title-buttons .checkout-types { float:right; }
-.cart .title-buttons .checkout-types li { float:left; margin:0 0 5px 5px; }
+.cart .title-buttons .checkout-types li { float:left; margin:0 10px 5px 5px; }
 .cart .checkout-types .paypal-or { margin:0 8px; line-height:2.3; }
 .cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:8px 55px 0 0; line-height:1.0; font-size:11px; }
 
@@ -1239,7 +1239,7 @@ background:#F3F3F3;
 .cart-table .product-name { font-weight:bold; margin:0 0 5px; color:#2f2f2f; }
 .cart-table .item-msg { margin:5px 0; font-size:11px; font-weight:bold; color:#df280a; }
 .cart-table tfoot td { padding:5px 10px; }
-.cart-table .btn-continue { float:left; }
+.cart-table .btn-continue { float:right; }
 .cart-table .btn-continue span,
 .cart-table .btn-update span { }
 
@@ -1424,8 +1424,8 @@ background:#F3F3F3;
 .opc li.section {}
 
 .opc .step-title { border-width:0 1px; border-style:solid; border-color:#fff #D1D1D1 #D1D1D1; background:#eee url(../images/bkg_opc-title-off.gif) 0 100% repeat-x; padding:4px 8px 6px; text-align:right; }
-.opc .step-title .number { float:left; background:#fff; border:1px solid #fff; padding:0 4px; margin:0 5px 0 0; font:bold 11px/14px arial, helvetica, sans-serif; color:#222; }
-.opc .step-title h2 { float:left; margin:0; font:bold 13px/16px Arial, Helvetica, sans-serif; color:#222; }
+.opc .step-title .number { float:right; background:#fff; border:1px solid #fff; padding:0 4px; margin:0 0 0 5px; font:bold 11px/14px arial, helvetica, sans-serif; color:#222; }
+.opc .step-title h2 { float:right; margin:0; font:bold 13px/16px Arial, Helvetica, sans-serif; color:#222; }
 .opc .step-title a { display:none; float:right; font-size:11px; line-height:16px; }
 
 .opc .allow .step-title { background:#f3f3f3; border:1px solid #D1D1D1; border-bottom:0; color:#a4b3b9; cursor:pointer; }
@@ -2101,3 +2101,5 @@ div.product-info h1 { text-align: center;}
 aside#leftmenu { float: right; }
 div.top-menu table tr td { float: right; }
 fieldset { direction: rtl; }
+.data-table tfoot button {float: right !important; padding: 10px}
+.checkout-types a {display: none;}
