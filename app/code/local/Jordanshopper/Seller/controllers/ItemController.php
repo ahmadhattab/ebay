@@ -119,7 +119,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 						}
 						if (isset($image['name']) && !empty($image['name'])) {
 							$images[] = $image['name'];
-							$fileName = date("Y-m-j-h-i") . $image['name'];
+							$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($image['name'],'.'),1);
 							$fileNames[] = $fileName;
 							$move = $uploader->save($path . DS, $fileName);
 							if (!$move) {
