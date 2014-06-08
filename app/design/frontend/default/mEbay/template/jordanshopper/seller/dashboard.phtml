@@ -58,8 +58,8 @@ if (!$items){
 					if ($item->getStatus() == 0)
 					{
 					?>
-					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>">Edit</a> | 
-					<a href="<?php echo Mage::getUrl('seller/item/submit',array('id' => $item->getId()))?>">Submit</a>
+					<a href="<?php echo Mage::getUrl('seller/item/edit',array('id' => $item->getId()))?>"><?php echo $this->__('Edit') ?></a> | 
+					<a href="<?php echo Mage::getUrl('seller/item/submit',array('id' => $item->getId()))?>"><?php echo $this->__('Submit') ?></a>
 					<?php
 					}
 					elseif ($item->getStatus() == 1)
