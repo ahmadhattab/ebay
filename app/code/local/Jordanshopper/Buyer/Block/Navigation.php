@@ -34,78 +34,98 @@
  */
 class Jordanshopper_Buyer_Block_Navigation extends Mage_Core_Block_Template
 {
+	public  function renderCategoriesMenuHtmlNew()
+	{
+		$root_category_id = Mage::app()->getStore()->getRootCategoryId();
+		$root = Mage::getModel('catalog/category')->load($root_category_id);
+		$parents = $root->getChildrenCategories();
+		$output = '<ul class="ul-wrapper">';
+		foreach ($parents as $parent)
+		{
+			$output .= '<li class="parent"><a class="parentLink" href="' . $parent->getUrl() . '">' . $parent->getName() . '</a>';
+			$output .= '<ul>';
+			$childs = $parent->getChildrenCategories();
+			foreach ($childs as $child)
+			{
+				$output .= '<li><a href="' . $child->getUrl() . '">' . $child->getName() . '</a></li>';
+			}
+			$output .= '</ul>';
+			$output .= '</li>'; 
+		}
+		$output .= '</ul>';
+		return $output;
+	}
+
 	public function renderCategoriesMenuHtml()
 	{
 		$object = new Mage_Catalog_Block_Navigation();
 		$actualCategoryId = $object->getCurrentCategory()->getId();
 		$actualCategory = Mage::getModel('catalog/category')->load($actualCategoryId);
 		$subCategories = explode(',', $actualCategory->getChildren());
-		
 		$categoryGroups = array_chunk($subCategories, (int)ceil(count($subCategories)/3));
-
 		$output .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" xmlns="http://www.w3.org/1999/xhtml"><tbody><tr>';
 		$i = 0;
-			foreach ($categoryGroups as $categoryGroup)
+		foreach ($categoryGroups as $categoryGroup)
+		{
+			$output .= '<td';
+			if ($i ==0 )
+			$output .=' style="width: 320px">';
+			else
+			$output .= '>';
+			foreach ($categoryGroup as $subCategoryId)
 			{
-					$output .= '<td';
-					if ($i ==0 )
-						$output .=' style="width: 320px">';
-					else 
-						$output .= '>';
-					foreach ($categoryGroup as $subCategoryId)
+				$category = Mage::getModel('catalog/category')->load($subCategoryId);
+				if ($category->getIsActive())
+				{
+					$output .= '<table><tbody>';
+					$output .= '<tr><td class="parent"><b><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></b></td></tr>';
+					if($category->hasChildren())
 					{
-						$category = Mage::getModel('catalog/category')->load($subCategoryId);
-						if ($category->getIsActive())
+						$childs = explode(',', $category->getChildren());
+						foreach ($childs as $child)
 						{
-							$output .= '<table><tbody>';
-							$output .= '<tr><td class="parent"><b><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></b></td></tr>';
-							if($category->hasChildren())
-							{
-								$childs = explode(',', $category->getChildren());
-								foreach ($childs as $child)
-								{
-									$subCategory = Mage::getModel('catalog/category')->load($child);
-									$output .= '<tr><td class="child"><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
-								}
-							}
-							$output .= '</table>';
-							
+							$subCategory = Mage::getModel('catalog/category')->load($child);
+							$output .= '<tr><td class="child"><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
 						}
-						
 					}
-					$output .= '</td>';
-					$i++;
+					$output .= '</table>';
+
+				}
+
 			}
+			$output .= '</td>';
+			$i++;
+		}
 		$output .= '</tr></tbody></table>';
 		/*
-		foreach ($subCategories as $subCategoryId)
-		{
+			foreach ($subCategories as $subCategoryId)
+			{
 			$category = Mage::getModel('catalog/category')->load($subCategoryId);
 			if ($category->getIsActive())
 			{
 
-				$output .= '<td>';
-				
-				$output .= '<table><tbody>';
-				$output .= '<tr><td><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></td></tr>';
-				if($category->hasChildren())
-				{
-					$childs = explode(',', $category->getChildren());
-					foreach ($childs as $child)
-					{
-						$subCategory = Mage::getModel('catalog/category')->load($child);
-						$output .= '<tr><td><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
-					}
-				}
-				$output .= '</table>';
+			$output .= '<td>';
 
-				$output .= '</td>';
+			$output .= '<table><tbody>';
+			$output .= '<tr><td><a href="' . $category->getUrl() . '">' . $category->getName() . '</a></td></tr>';
+			if($category->hasChildren())
+			{
+			$childs = explode(',', $category->getChildren());
+			foreach ($childs as $child)
+			{
+			$subCategory = Mage::getModel('catalog/category')->load($child);
+			$output .= '<tr><td><a href="' . $subCategory->getUrl() . '">' . $subCategory->getName() . '</a>';
+			}
+			}
+			$output .= '</table>';
+
+			$output .= '</td>';
 
 			}
 			$i++;
-		}
-		$output .= '</tr></tbody></table>';
-		*/
+			}
+			$output .= '</tr></tbody></table>';
+			*/
 		return $output;
 	}
 }

@@ -154,8 +154,8 @@ $item = $this->getItem();
             <li>
             	<div class="input-box">
             		<select name="item_location" class="countryselect">
-            			<option value="Worldwide" <?php if($item->getItemLocation() == 'Worldwide'){?>selected="selected"<?php } ?>>Worldwide</option>
-            			<option value="Jordan" <?php if($item->getItemLocation() != 'Worldwide'){?>selected="selected"<?php } ?>>Jordan</option>
+            			<option value="Worldwide" <?php if($item->getItemLocation() == 'Worldwide'){?>selected="selected"<?php } ?>><?php echo $this->__('Worldwide') ?></option>
+            			<option value="Jordan" <?php if($item->getItemLocation() != 'Worldwide'){?>selected="selected"<?php } ?>><?php echo $this->__('Jordan') ?></option>
             		</select>
             	</div>
             </li>
@@ -163,18 +163,18 @@ $item = $this->getItem();
                 <div class="input-box">
                     <select id="cityselect" onchange="setCityCode(this.options[this.selectedIndex].value);
                                 setCityName(this.options[this.selectedIndex].text);" name="item_city" <?php if($item->getItemLocation() == 'Worldwide'){?> style="display:none" <?php } ?>>
-                        <option value="Irbid" <?php if($item->getItemLocation() == 'Irbid'){?>selected="selected"<?php } ?>>Irbid</option>
-                        <option value="Ajloun" <?php if($item->getItemLocation() == 'Ajloun'){?>selected="selected"<?php } ?>>Ajloun</option>
-                        <option value="Jerash" <?php if($item->getItemLocation() == 'Jerash'){?>selected="selected"<?php } ?>>Jerash</option>
-                        <option value="Mafraq" <?php if($item->getItemLocation() == 'Mafraq'){?>selected="selected"<?php } ?>>Mafraq</option>
-                        <option value="Balqa" <?php if($item->getItemLocation() == 'Balqa'){?>selected="selected"<?php } ?>>Balqa</option>
-                        <option value="Amman" <?php if($item->getItemLocation() == 'Amman'){?>selected="selected"<?php } ?>>Amman</option>
-                        <option value="Zarqa" <?php if($item->getItemLocation() == 'Zarqa'){?>selected="selected"<?php } ?>>Zarqa</option>
-                        <option value="Madaba" <?php if($item->getItemLocation() == 'Madaba'){?>selected="selected"<?php } ?>>Madaba</option>
-                        <option value="Karak" <?php if($item->getItemLocation() == 'Karak'){?>selected="selected"<?php } ?>>Karak</option>
-                        <option value="Tafilah" <?php if($item->getItemLocation() == 'Tafilah'){?>selected="selected"<?php } ?>>Tafilah</option>
-                        <option value="Ma'an" <?php if($item->getItemLocation() == 'Ma\'an'){?>selected="selected"<?php } ?>>Ma'an</option>
-                        <option value="Aqaba" <?php if($item->getItemLocation() == 'Aqaba'){?>selected="selected"<?php } ?>>Aqaba</option>
+                        <option value="Irbid" <?php if($item->getItemLocation() == 'Irbid'){?>selected="selected"<?php } ?>><?php echo $this->__('Irbid') ?></option>
+                        <option value="Ajloun" <?php if($item->getItemLocation() == 'Ajloun'){?>selected="selected"<?php } ?>><?php echo $this->__('Ajloun') ?></option>
+                        <option value="Jerash" <?php if($item->getItemLocation() == 'Jerash'){?>selected="selected"<?php } ?>><?php echo $this->__('Jerash') ?></option>
+                        <option value="Mafraq" <?php if($item->getItemLocation() == 'Mafraq'){?>selected="selected"<?php } ?>><?php echo $this->__('Mafraq') ?></option>
+                        <option value="Balqa" <?php if($item->getItemLocation() == 'Balqa'){?>selected="selected"<?php } ?>><?php echo $this->__('Balqa') ?></option>
+                        <option value="Amman" <?php if($item->getItemLocation() == 'Amman'){?>selected="selected"<?php } ?>><?php echo $this->__('Amman') ?></option>
+                        <option value="Zarqa" <?php if($item->getItemLocation() == 'Zarqa'){?>selected="selected"<?php } ?>><?php echo $this->__('Zarqa') ?></option>
+                        <option value="Madaba" <?php if($item->getItemLocation() == 'Madaba'){?>selected="selected"<?php } ?>><?php echo $this->__('Madaba') ?></option>
+                        <option value="Karak" <?php if($item->getItemLocation() == 'Karak'){?>selected="selected"<?php } ?>><?php echo $this->__('Karak') ?></option>
+                        <option value="Tafilah" <?php if($item->getItemLocation() == 'Tafilah'){?>selected="selected"<?php } ?>><?php echo $this->__('Tafilah') ?></option>
+                        <option value="Ma'an" <?php if($item->getItemLocation() == 'Ma\'an'){?>selected="selected"<?php } ?>><?php echo $this->__('Ma\'an') ?></option>
+                        <option value="Aqaba" <?php if($item->getItemLocation() == 'Aqaba'){?>selected="selected"<?php } ?>><?php echo $this->__('Aqaba') ?></option>
                     </select>
                 </div>
             </li>
