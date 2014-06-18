@@ -11,11 +11,12 @@ class Jordanshopper_Buyer_Block_Featured extends Mage_Core_Block_Template
 	{
 		$collection = Mage::getModel('catalog/product')->getCollection()
 						->addAttributeToSelect('featured')
+						->addAttributeToFilter('status', array('eq' => 1))
 						->addAttributeToFilter('featured', array('eq' => 1));
 		$collection->getSelect()->order('rand()');
 		$collection->getSelect()->limit(20);
 		//echo '<pre>';
-	//	print_r($collection->getData());
+		//print_r($collection->getData());
 		return $collection;
 	}
 }

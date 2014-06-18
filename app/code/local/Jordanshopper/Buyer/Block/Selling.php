@@ -11,6 +11,7 @@ class Jordanshopper_Buyer_Block_Selling extends Mage_Core_Block_Template
 	{
 		$collection = Mage::getModel('catalog/product')->getCollection()
 						->addAttributeToSelect('selling')
+						->addAttributeToFilter('status', array('eq' => 1))
 						->addAttributeToFilter('selling', array('eq' => 1));
 		$collection->getSelect()->order('rand()');
 		$collection->getSelect()->limit(20);
