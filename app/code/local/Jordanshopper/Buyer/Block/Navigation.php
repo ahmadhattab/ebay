@@ -34,29 +34,33 @@
  */
 class Jordanshopper_Buyer_Block_Navigation extends Mage_Core_Block_Template
 {
-	public  function renderCategoriesMenuHtmlNew()
+	public  function renderCategoriesMenuHtml()
 	{
 		$root_category_id = Mage::app()->getStore()->getRootCategoryId();
 		$root = Mage::getModel('catalog/category')->load($root_category_id);
 		$parents = $root->getChildrenCategories();
-		$output = '<ul class="ul-wrapper">';
+		$output .= '<ul class="ul-parent">';
+		//$output .= '<ul class="ul-wrapper">';
 		foreach ($parents as $parent)
 		{
-			$output .= '<li class="parent"><a class="parentLink" href="' . $parent->getUrl() . '">' . $parent->getName() . '</a>';
-			$output .= '<ul>';
+			$output .= '<li class="li-parent"><a class="parentLink" href="' . $parent->getUrl() . '">' . $parent->getName();
+			//$output .= '<ul>';
 			$childs = $parent->getChildrenCategories();
+			$output .='<ul class="ul-child">';
 			foreach ($childs as $child)
 			{
-				$output .= '<li><a href="' . $child->getUrl() . '">' . $child->getName() . '</a></li>';
+				$output .= '<li class="li-child"><a href="' . $child->getUrl() . '">' . $child->getName() . '</a></li>';
 			}
-			$output .= '</ul>';
-			$output .= '</li>'; 
+			$output .='</li></ul>';
+			//$output .= '</ul>';
+			//$output .= '</li>'; 
 		}
-		$output .= '</ul>';
+		//$output .= '</ul>';
+		$output .= '</il>';
 		return $output;
 	}
 
-	public function renderCategoriesMenuHtml()
+	public function renderCategoriesMenuHtmlOld()
 	{
 		$object = new Mage_Catalog_Block_Navigation();
 		$actualCategoryId = $object->getCurrentCategory()->getId();
