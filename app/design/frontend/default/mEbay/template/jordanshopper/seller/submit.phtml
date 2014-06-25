@@ -3,7 +3,7 @@ $item = $this->getItem();
 ?>
 <div class="page-title title-buttons">
 	<h1>
-	<?php echo $this->__('Submit Your Item') ?>
+	<?php echo $this->__('Select your listing period') ?>
 	</h1>
 </div>
 <div class="fieldset">
@@ -15,10 +15,7 @@ $item = $this->getItem();
 	<ul class="form-list">
 		<li>
 			<div class="box">
-				<h3>
-				Please select the period you would like your item "<span style="color: red;"><?php echo $item->getProductTitle(); ?>
-					</span>" to be listed.
-				</h3>
+		
 				<ul class="form-list">
 				<?php
 				$listingItems = $this->getListingItems();
@@ -26,7 +23,7 @@ $item = $this->getItem();
 					<li>
 						<table class="procut_item" border="0" cellpadding="4">
 							<tr>
-								<td width="50%"><h4>
+								<td width="50%"><h4 class="paypal-name">
 								<?php echo $listingItem->getName(); ?>
 								<?php echo 'USD' . (int)$listingItem->getPrice(); ?>
 									</h4></td>
@@ -41,9 +38,11 @@ $item = $this->getItem();
 											value="<?php echo $item->getId(); ?>" /> <input type="hidden"
 											name="itemprice"
 											value="<?php echo (int)$listingItem->getPrice(); ?>" /> <input
-											type="hidden" name="itemQty" value="1" /> <input
+											type="hidden" name="itemQty" value="1" /> 
+<button type="submit" title="Search" class="button paypal-but"><span><span><?php echo $this->__('Buy Now') ?></span></span></button>
+											<!-- <input
 											class="dw_button" type="submit" name="submitbutt"
-											value="Buy Now" />
+											value="Buy Now" />-->
 									</form></td>
 							</tr>
 						</table>

@@ -15,6 +15,8 @@ class Jordanshopper_Seller_Model_Cron extends Mage_Core_Model_Abstract
 			$product->setStoreId(0);
 			$product->setStatus(2);
 			$product->save();
+			echo $product->getId();
+			echo '<br />';
 		}
 		echo 'Cron Excuted';
 	}

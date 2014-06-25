@@ -1,6 +1,6 @@
 <div class="page-title title-buttons">
 	<h1>
-	<?php echo $this->__('Payment Options') ?>
+	<?php echo $this->__('Pay for your listing') ?>
 	</h1>
 </div>
 <div class="fieldset">
@@ -13,7 +13,7 @@
 		<li>
 			<div class="input-box">
 				<form id="discount-Form" action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>" method="post">
-				<label>Enter you discount code:</label> 
+				<label><?php echo $this->__('Enter you discount code:') ?></label> 
 				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
 				<input type="text"
 					name="discountCode" id="discountCode"
@@ -21,7 +21,7 @@
 				<div style="float:left; padding:8px 0 0;">
 					<button type="button" title="Apply Coupon" class="button"
 						onclick="discountForm.submit(false)" value="Apply Coupon">
-						<span><span>Apply Coupon</span> </span>
+						<span><span><?php echo $this->__('Apply Coupon') ?></span> </span>
 					</button>
 				</div>
 				</form>
@@ -31,7 +31,7 @@
 </div>
 <div class="fieldset">
 	<h2 class="legend">
-	<?php echo $this->__('Paid Listing') ?>
+	<?php echo $this->__('Listing Options') ?>
 		<em style="color: red;">*</em>
 	</h2>
 	<ul class="form-list">

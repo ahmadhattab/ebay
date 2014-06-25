@@ -158,17 +158,17 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 					$cond = $_product->getAttributeText('item_condition_static');
 					if ($cond == 'Other')
 					{
-						echo $cond . ': ' . $_product->getItemConditionOther();
+						echo $this->__($cond) . ': ' . $_product->getItemConditionOther();
 					}
 					else {
-						echo $cond;
+						echo $this->__($cond);
 					}
 					?>
 					</div>
 				</div>
 				<div class="short-description">
 					<h2><?php echo $this->__('Item Location'); ?></h2>
-					<div class="std"><?php echo $_product->getLocation() ?></div>
+					<div class="std"><?php echo $this->__($_product->getLocation()) ?></div>
 				</div>
 				<div class="short-description">
 					<h2><?php echo $this->__('Shipping Info'); ?></h2>

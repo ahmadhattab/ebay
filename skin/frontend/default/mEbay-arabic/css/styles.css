@@ -38,7 +38,7 @@ a:hover       { text-decoration:underline; }
 h1,h2,h3,
 h4,h5,h6      { margin:0 0 5px; line-height:1.35; color:#343640; }
 h1            { font-size:14px; font-weight:normal; text-align: right;}
-h2            { font-size:18px; font-weight:normal; }
+h2            { font-size:18px; font-weight:normal; direction:rtl; }
 h3            { font-size:16px; font-weight:bold; }
 h4            { font-size:14px; font-weight:bold; }
 h5            { font-size:12px; font-weight:bold; }
@@ -142,7 +142,7 @@ input,select,textarea,button { font:12px/15px Arial, Helvetica, sans-serif; vert
 input.input-text,select,textarea { background:#fff; border:1px solid #ddd; }
 input.input-text,textarea { padding:2px; }
 select { padding:1px; }
-select option { padding-right:10px; text-align: right }
+select option { padding-right:10px; text-align: left; }
 select.multiselect option { border-bottom:1px solid #ddd; padding:2px 5px; }
 select.multiselect option:last-child { border-bottom:0; }
 textarea { overflow:auto; }
@@ -555,12 +555,12 @@ tr.summary-details-excluded { font-style:italic; }
 .form-search .search-autocomplete li .amount { float:right; font-weight:bold; }
 .form-search .search-autocomplete li.odd { background-color:#fffefb; }
 .form-search .search-autocomplete li.selected { background-color:#f7e8dd; }
-.header .form-language { display:none; clear:both; padding:5px 0 0; text-align:right; }
+.header .form-language { clear:both; padding:5px 0 0; text-align:right; }
 .header .form-language label { font-weight:bold; padding-right:5px; color:#000; vertical-align:middle;font-size:11px; float: right; direction: rtl; }
 .header .form-language select { padding:0; }
 .header .form-language select.flags option { background-position:4px 50%; background-repeat:no-repeat; padding-left:25px; }
 .header .links { float:right; margin:0 0 6px; }
-.header .links li { font-size:11px; background:url(../images/bkg_pipe1.gif) 100% 60% no-repeat; padding:0 8px 0 7px; float: left;}
+.header .links li { font-size:11px; background:url(../images/bkg_pipe1.gif) 100% 60% no-repeat; padding:0 8px 0 7px; float: left; direction: rtl;}
 .header .links a { color:#666;text-decoration:none; }
 .header .links a:hover { color:#002398;text-decoration:none; }
 .header-container .top-container { clear:both; padding:5px 10px 0 12px; text-align:right; }
@@ -2103,3 +2103,5 @@ div.top-menu table tr td { float: right; }
 fieldset { direction: rtl; }
 .data-table tfoot button {float: right !important; padding: 10px}
 .checkout-types a {display: none;}
+.paypal-name {width: 250px; }
+.paypal-but { float: right !important;}
