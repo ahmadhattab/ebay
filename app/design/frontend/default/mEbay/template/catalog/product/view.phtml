@@ -172,7 +172,7 @@ $cat = Mage::getModel('catalog/category')->load(end($_product->getCategoryIds())
 				</div>
 				<div class="short-description">
 					<h2><?php echo $this->__('Shipping Info'); ?></h2>
-					<div class="std"><?php echo $_product->getDeliveryDetails() ?></div>
+					<div class="std"><?php echo $_product->getDeliveryDetails() ?> <?php if($_product->getDeliveryCost()) { echo Mage::helper('core')->currency($_product->getDeliveryCost()); } ?></div>
 				</div>		
 			<?php endif;?>
             <?php echo $this->getChildHtml('other');?>
