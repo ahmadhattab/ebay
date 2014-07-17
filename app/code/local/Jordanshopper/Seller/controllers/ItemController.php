@@ -102,41 +102,62 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 				$sellerModel->setDescription($description);
 			}
 			$originImages = $sellerModel->getImages();
+			$arr_of_origin_images = explode(",", $originImages);
 			if ($_FILES['images']['name'][0])
 			{
-				if (is_array($_FILES)) {
-					$sortImages = $this->reArrayFiles($_FILES);
-					$images = array();
-					foreach ($sortImages as $image) {
-						$uploader = new Varien_File_Uploader($image);
-						$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
-						$uploader->setAllowRenameFiles(true);
-						$uploader->setAllowCreateFolders(true);
-						$uploader->setFilesDispersion(false);
-						$path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId();
-						if (!is_dir($path)) {
-							mkdir($path, 0777, true);
-						}
-						if (isset($image['name']) && !empty($image['name'])) {
-							$images[] = $image['name'];
-							$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($image['name'],'.'),1);
-							$fileNames[] = $fileName;
-							$move = $uploader->save($path . DS, $fileName);
-							if (!$move) {
-								$session->addError("File was not uploaded, Please Check your file and try again.");
-								//$this->_redirect('*/*/add');
-								return;
+				if (count($arr_of_origin_images) <= 10)
+				{
+					if (is_array($_FILES)) {
+						$sortImages = $this->reArrayFiles($_FILES);
+						$images = array();
+						foreach ($sortImages as $image) {
+							$uploader = new Varien_File_Uploader($image);
+							$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+							$uploader->setAllowRenameFiles(true);
+							$uploader->setAllowCreateFolders(true);
+							$uploader->setFilesDispersion(false);
+							$path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId();
+							if (!is_dir($path)) {
+								mkdir($path, 0777, true);
 							}
-						} else {
-							continue;
+							if (isset($image['name']) && !empty($image['name'])) {
+								$images[] = $image['name'];
+								$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($image['name'],'.'),1);
+								$fileNames[] = $fileName;
+								$move = $uploader->save($path . DS, $fileName);
+								if (!$move) {
+									$session->addError("File was not uploaded, Please Check your file and try again.");
+									//$this->_redirect('*/*/add');
+									return;
+								}
+							} else {
+								continue;
+							}
 						}
-					}
-					if ($imageNames = implode(",", $fileNames)) {
-						$allImages = $imageNames.",".$originImages;
-						$sellerModel->setImages($allImages);
+						if ($imageNames = implode(",", $fileNames)) {
+							$allImages = $imageNames.",".$originImages;
+							$sellerModel->setImages($allImages);
+						}
 					}
 				}
 			}
+				
+			if ($this->getRequest()->getParam('delimg'))
+			{
+				$del_imgs = $this->getRequest()->getParam('delimg');
+				foreach($del_imgs as $del_img)
+				{
+					$originImages = $sellerModel->getImages();
+					$originImages = explode(",", $originImages);
+					unset($originImages[array_search($del_img, $originImages)]);
+					$all_images = implode(",", $originImages);
+					//$all_images = str_replace($del_img . ',', "", $originImages);
+					$sellerModel->setImages($all_images);
+					$path = Mage::getBaseDir('media') . DS . $sellerModel->getSellerId() . DS . $del_img;
+					unlink($path);
+				}
+			}
+				
 			$sellerModel->setContactMe($contact_me);
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
@@ -359,7 +380,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 
 
 	}
-	 
+
 	public function reArrayFiles(&$file_post) {
 		$file_ary = array();
 		$file_count = count($file_post['images']['name']);

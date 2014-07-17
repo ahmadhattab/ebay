@@ -18,7 +18,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$this->_initLayoutMessages('catalog/session');
 
 		$this->getLayout()->getBlock('content')->append(
-		$this->getLayout()->createBlock('customer/account_dashboard')
+				$this->getLayout()->createBlock('customer/account_dashboard')
 		);
 		$this->getLayout()->getBlock('head')->setTitle($this->__('My Summary'));
 		$this->renderLayout();
@@ -115,33 +115,37 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				if (is_array($_FILES)) {
 					$sortImages = $this->reArrayFiles($_FILES);
 					$images = array();
-					foreach ($sortImages as $image) {
-						$uploader = new Varien_File_Uploader($image);
-						$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
-						$uploader->setAllowRenameFiles(true);
-						$uploader->setAllowCreateFolders(true);
-						$uploader->setFilesDispersion(false);
-						$path = Mage::getBaseDir('media') . DS . $sellerId;
-						if (!is_dir($path)) {
-							mkdir($path, 0777, true);
-						}
-						if (isset($image['name']) && !empty($image['name'])) {
-							$images[] = $image['name'];
-							$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($image['name'],'.'),1);
-							$fileNames[] = $fileName;
-							$move = $uploader->save($path . DS, $fileName);
-							if (!$move) {
-								$session->addError("File was not uploaded, Please Check your file and try again.");
-								$this->_redirect('*/*/add');
-								return;
+						//foreach ($sortImages as $image)
+						for($i=0;$i<=9;$i++) 
+						{
+							$uploader = new Varien_File_Uploader($sortImages[$i]);
+							$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+							$uploader->setAllowRenameFiles(true);
+							$uploader->setAllowCreateFolders(true);
+							$uploader->setFilesDispersion(false);
+							$path = Mage::getBaseDir('media') . DS . $sellerId;
+							if (!is_dir($path)) {
+								mkdir($path, 0777, true);
 							}
-						} else {
-							continue;
+							if (isset($sortImages[0]['name']) && !empty($sortImages[0]['name'])) {
+								$images[] = $sortImages[0]['name'];
+								$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($sortImages[0]['name'],'.'),1);
+								$fileNames[] = $fileName;
+								$move = $uploader->save($path . DS, $fileName);
+								if (!$move) {
+									$session->addError("File was not uploaded, Please Check your file and try again.");
+									$this->_redirect('*/*/add');
+									return;
+								}
+							} else {
+								continue;
+							}
 						}
-					}
-					if ($imageNames = implode(",", $fileNames)) {
-						$sellerModel->setImages($imageNames);
-					}
+
+						if ($imageNames = implode(",", $fileNames)) {
+							$sellerModel->setImages($imageNames);
+						}
+					
 				}
 				$sellerModel->setCreatedAt(time());
 				$sellerModel->setStatus(0);
@@ -251,35 +255,35 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$session = Mage::getSingleton('core/session');
 		$item = Mage::getModel('catalog/product')->load($item_id);
 		$seller = Mage::getModel('customer/customer')->load($item->getSellerId());
-	 	$fromEmail = $customer->getCustomer()->getEmail();
-	 	$fromName = $customer->getCustomer()->getName();
-	 	
-	 	$toEmail = $seller->getEmail();
-	 	$toName = $seller->getName();
-	 	$body = '<p>Customer Name: ' . $customer->getCustomer()->getName() . '</p>' . 
-	 	'<p>Customer Email: ' . $customer->getCustomer()->getEmail() . '</p>' .
-	 	'<p>Item URL: ' . $item->getProductUrl() . '</p>'
-	 	. '<p>Customer Note: ' . $this->getRequest()->getParam('note') . '</p>'
-	 	;
-	 	
-	 	// body text
-		$subject = "jordanshopper.com - " . $item->getName();
-		// subject text
+		$fromEmail = $customer->getCustomer()->getEmail();
+		$fromName = $customer->getCustomer()->getName();
+		 
+		$toEmail = $seller->getEmail();
+		$toName = $seller->getName();
+		$body = '<p>Customer Name: ' . $customer->getCustomer()->getName() . '</p>' .
+				'<p>Customer Email: ' . $customer->getCustomer()->getEmail() . '</p>' .
+				'<p>Item URL: ' . $item->getProductUrl() . '</p>'
+				. '<p>Customer Note: ' . $this->getRequest()->getParam('note') . '</p>'
+				;
+				 
+				// body text
+				$subject = "jordanshopper.com - " . $item->getName();
+				// subject text
 
-	 try{
-	 	$mail = new Zend_Mail();
-	 	$mail->setFrom($fromEmail, $fromName);
-	 	$mail->addTo($toEmail, $toName);
-	 	$mail->setSubject($subject);
-	 	$mail->setBodyHtml($body); // here u also use setBodyText options.
-	 	$mail->send();
-	 	$session->addSuccess($this->__('Your email has been sent to the seller'));
-	 	$this->_redirectUrl($item->getProductUrl());
+				try{
+					$mail = new Zend_Mail();
+					$mail->setFrom($fromEmail, $fromName);
+					$mail->addTo($toEmail, $toName);
+					$mail->setSubject($subject);
+					$mail->setBodyHtml($body); // here u also use setBodyText options.
+					$mail->send();
+					$session->addSuccess($this->__('Your email has been sent to the seller'));
+					$this->_redirectUrl($item->getProductUrl());
 
-	 }catch(Exception $e){
-	 	echo $e->getMassage();
+				}catch(Exception $e){
+					echo $e->getMassage();
 
-	 }
+				}
 	}
 
 }
