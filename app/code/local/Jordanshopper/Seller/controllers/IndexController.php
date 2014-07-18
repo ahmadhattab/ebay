@@ -18,7 +18,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$this->_initLayoutMessages('catalog/session');
 
 		$this->getLayout()->getBlock('content')->append(
-				$this->getLayout()->createBlock('customer/account_dashboard')
+		$this->getLayout()->createBlock('customer/account_dashboard')
 		);
 		$this->getLayout()->getBlock('head')->setTitle($this->__('My Summary'));
 		$this->renderLayout();
@@ -115,10 +115,13 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				if (is_array($_FILES)) {
 					$sortImages = $this->reArrayFiles($_FILES);
 					$images = array();
-						//foreach ($sortImages as $image)
-						for($i=0;$i<=9;$i++) 
+					$i = 1;
+					foreach ($sortImages as $image)
+					//for($i=0;$i<=count($sortImages);$i++)
+					{
+						if ($i <= 10 )
 						{
-							$uploader = new Varien_File_Uploader($sortImages[$i]);
+							$uploader = new Varien_File_Uploader($image);
 							$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
 							$uploader->setAllowRenameFiles(true);
 							$uploader->setAllowCreateFolders(true);
@@ -127,9 +130,9 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 							if (!is_dir($path)) {
 								mkdir($path, 0777, true);
 							}
-							if (isset($sortImages[0]['name']) && !empty($sortImages[0]['name'])) {
-								$images[] = $sortImages[0]['name'];
-								$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($sortImages[0]['name'],'.'),1);
+							if (isset($image['name']) && !empty($image['name'])) {
+								$images[] = $image['name'];
+								$fileName = date("Y-m-j-h-i") . '-' . rand(0, 3000) . '.' . substr(strrchr($image['name'],'.'),1);
 								$fileNames[] = $fileName;
 								$move = $uploader->save($path . DS, $fileName);
 								if (!$move) {
@@ -141,11 +144,17 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 								continue;
 							}
 						}
-
-						if ($imageNames = implode(",", $fileNames)) {
-							$sellerModel->setImages($imageNames);
+						else
+						{
+							break;
 						}
-					
+						$i++;
+					}
+
+					if ($imageNames = implode(",", $fileNames)) {
+						$sellerModel->setImages($imageNames);
+					}
+						
 				}
 				$sellerModel->setCreatedAt(time());
 				$sellerModel->setStatus(0);
@@ -257,7 +266,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 		$seller = Mage::getModel('customer/customer')->load($item->getSellerId());
 		$fromEmail = $customer->getCustomer()->getEmail();
 		$fromName = $customer->getCustomer()->getName();
-		 
+			
 		$toEmail = $seller->getEmail();
 		$toName = $seller->getName();
 		$body = '<p>Customer Name: ' . $customer->getCustomer()->getName() . '</p>' .
@@ -265,7 +274,7 @@ class Jordanshopper_Seller_IndexController extends Mage_Core_Controller_Front_Ac
 				'<p>Item URL: ' . $item->getProductUrl() . '</p>'
 				. '<p>Customer Note: ' . $this->getRequest()->getParam('note') . '</p>'
 				;
-				 
+					
 				// body text
 				$subject = "jordanshopper.com - " . $item->getName();
 				// subject text
