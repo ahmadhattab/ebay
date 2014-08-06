@@ -44,7 +44,7 @@ $totalBuyerNigative = Mage::getModel('seller/feedbackbuyer')->getCollection()
 		<h2>
 			<?php echo $seller->getUsername();?>
 			<span style="color: red; font-size: 14px"><a
-				href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>">(<?php echo $totalSellerPositive->count() + $totalSellerNigative->count() + $totalBuyerPositive->count() + $totalBuyerNigative->count() ?>)
+				href="<?php echo $this->getUrl('seller/rating/list', array('id' => $_product->getSellerId())) ?>"><?php echo $totalSellerPositive->count() + $totalSellerNigative->count() + $totalBuyerPositive->count() + $totalBuyerNigative->count() ?>
 			</a>
 			</span>
 		</h2>

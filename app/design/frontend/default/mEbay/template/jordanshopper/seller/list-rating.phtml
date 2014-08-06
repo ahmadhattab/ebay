@@ -52,7 +52,7 @@ $orderCount = Mage::getModel('sales/order')->getCollection()
 	</div>
 	<div class="block-content" style="background: white; margin-top: 10px;">
 		<div style="width: 200px;">
-					<h2><?php echo $seller->getUsername();?> <span>(<?php echo $totalSellerPositive->count() + $totalSellerNigative->count() + $totalBuyerPositive->count() + $totalBuyerNigative->count() ?>)</span></h2>
+					<h2><?php echo $seller->getUsername();?> : <span><?php echo $totalSellerPositive->count() + $totalSellerNigative->count() + $totalBuyerPositive->count() + $totalBuyerNigative->count() ?></span></h2>
 					</div>
 					<div style="width: 200px;">
 					 <span class="rating">

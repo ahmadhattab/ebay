@@ -2122,3 +2122,10 @@ font-weight: bold;
 ul.ul-child {
 padding-right: 10px;
 }
+.some-class {
+	float: right !important;	
+}
+input[type="radio"], input.radio {
+	float: right !important;
+	margin: 2px 4px 0px 0px !important;
+	}
