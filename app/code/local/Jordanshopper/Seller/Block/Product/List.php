@@ -43,7 +43,8 @@ class Jordanshopper_Seller_Block_Product_List extends Mage_Catalog_Block_Product
             
             $collection = Mage::getModel('catalog/product')->getCollection()
             				->addAttributeToSelect('*')
-            				->addAttributeToFilter('seller_id',array('eq' => $sellerId));
+            				->addAttributeToFilter('status', array('eq'=> 1))
+					->addAttributeToFilter('seller_id',array('eq' => $sellerId));
             //$this->_productCollection = $layer->getProductCollection();
 			$this->_productCollection = $collection;
             $this->prepareSortableFieldsByCategory($layer->getCurrentCategory());
