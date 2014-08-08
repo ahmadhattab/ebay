@@ -16,7 +16,7 @@ class jordanshopper_Buyer_Model_Observer {
 			$proCart = Mage::getModel('catalog/product')->load($item->getProductId());
 			if ($product->getSellerId() != $proCart->getSellerId())
 			{
-				$session->addError(Mage::helper('core')->__("You can't add it to your cart"));
+				$session->addError(Mage::helper('core')->__("You can't add it to your cart from different seller"));
 				Mage::app()->getFrontController()->getResponse()->setRedirect($_SERVER['HTTP_REFERER']);
 				Mage::app()->getResponse()->sendResponse();
 				exit;
