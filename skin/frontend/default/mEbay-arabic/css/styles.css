@@ -2129,3 +2129,9 @@ input[type="radio"], input.radio {
 	float: right !important;
 	margin: 2px 4px 0px 0px !important;
 	}
+p {
+font-size: 12px !important;
+}
+.rating {
+font-size: 12px !important;
+}

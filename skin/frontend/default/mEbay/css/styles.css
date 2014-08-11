@@ -2106,3 +2106,6 @@ font-weight: bold;
 ul.ul-child {
 padding-left: 10px;
 }
+b {
+font-size: 12px !important;
+}
