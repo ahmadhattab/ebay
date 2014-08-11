@@ -172,13 +172,14 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
         $cart   = $this->_getCart();
         $params = $this->getRequest()->getParams();
         try {
-            if (isset($params['qty'])) {
+            /** Remove this code for upate shopping cart in arabic store
+        	if (isset($params['qty'])) {
                 $filter = new Zend_Filter_LocalizedToNormalized(
                     array('locale' => Mage::app()->getLocale()->getLocaleCode())
                 );
                 $params['qty'] = $filter->filter($params['qty']);
             }
-
+			**/
             $product = $this->_initProduct();
             $related = $this->getRequest()->getParam('related_product');
 
@@ -314,13 +315,16 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
             $params['options'] = array();
         }
         try {
-            if (isset($params['qty'])) {
+            
+            /**  Remove this code for upate shopping cart in arabic store
+        	if (isset($params['qty'])) {
                 $filter = new Zend_Filter_LocalizedToNormalized(
                     array('locale' => Mage::app()->getLocale()->getLocaleCode())
                 );
                 $params['qty'] = $filter->filter($params['qty']);
             }
-
+			**/
+        	
             $quoteItem = $cart->getQuote()->getItemById($id);
             if (!$quoteItem) {
                 Mage::throwException($this->__('Quote item is not found.'));
@@ -410,9 +414,11 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
                     array('locale' => Mage::app()->getLocale()->getLocaleCode())
                 );
                 foreach ($cartData as $index => $data) {
-                    if (isset($data['qty'])) {
+                    /**  Remove this code for upate shopping cart in arabic store
+                	if (isset($data['qty'])) {
                         $cartData[$index]['qty'] = $filter->filter(trim($data['qty']));
                     }
+                    **/
                 }
                 $cart = $this->_getCart();
                 if (! $cart->getCustomerSession()->getCustomer()->getId() && $cart->getQuote()->getCustomerId()) {
