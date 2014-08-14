@@ -2109,3 +2109,8 @@ padding-left: 10px;
 b {
 font-size: 12px !important;
 }
+.free-button
+{
+	float:left;
+	padding:8px 0 0;
+}

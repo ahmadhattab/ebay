@@ -6,22 +6,23 @@
 <div class="fieldset">
 <?php echo $this->getBlockHtml('formkey') ?>
 	<h2 class="legend">
-	<?php echo $this->__('Discount Code') ?>
+	<?php echo $this->__('Free Submit') ?>
 		<em style="color: red;">*</em>
 	</h2>
 	<ul class="form-list">
 		<li>
 			<div class="input-box">
 				<form id="discount-Form" action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>" method="post">
-				<label><?php echo $this->__('Enter you discount code:') ?></label> 
+				<!-- <label><?php echo $this->__('Enter you discount code:') ?></label> --> 
 				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
-				<input type="text"
+				<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+				<!-- <input type="text"
 					name="discountCode" id="discountCode"
-					class="input-text required-entry images" />
-				<div style="float:left; padding:8px 0 0;">
+					class="input-text required-entry images" /> -->
+				<div class="free-button">
 					<button type="button" title="Apply Coupon" class="button"
 						onclick="discountForm.submit(false)" value="Apply Coupon">
-						<span><span><?php echo $this->__('Apply Coupon') ?></span> </span>
+						<span><span><?php echo $this->__('Free Submit') ?></span> </span>
 					</button>
 				</div>
 				</form>

@@ -227,8 +227,8 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 	public function freesubmitAction()
 	{
 		$session    = Mage::getSingleton('core/session');
-		$code = $this->getRequest()->getParam('discountCode');
-		if ($code == 'jsdiscount')
+		//$code = $this->getRequest()->getParam('discountCode');
+		if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('form_key') == Mage::getSingleton('core/session')->getFormKey()))
 		{
 			$itemId = $this->getRequest()->getParam('seller_id');
 			$item = Mage::getModel('seller/seller')->load($itemId);
@@ -256,7 +256,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		}
 		else
 		{
-			$error = 'This discount code not valid';
+			$error = 'this request not allowed';
 			$session->addError($error);
 			$this->_redirect('seller');
 		}

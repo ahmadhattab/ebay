@@ -2135,3 +2135,8 @@ font-size: 12px !important;
 .rating {
 font-size: 12px !important;
 }
+.free-button
+{
+	float:right;
+	padding:8px 0 0;
+}
