@@ -228,7 +228,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 	{
 		$session    = Mage::getSingleton('core/session');
 		$code = $this->getRequest()->getParam('discountCode');
-		if ($code == 'dscxsale')
+		if ($code == 'jsdiscount')
 		{
 			$itemId = $this->getRequest()->getParam('seller_id');
 			$item = Mage::getModel('seller/seller')->load($itemId);
