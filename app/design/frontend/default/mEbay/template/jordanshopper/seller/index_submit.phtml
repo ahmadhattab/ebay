@@ -1,3 +1,7 @@
+<?php
+$seller_collection = Mage::getModel('catalog/product')->getCollection()
+					->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()));
+?>
 <div class="page-title title-buttons">
 	<h1>
 	<?php echo $this->__('Pay for your listing') ?>
@@ -11,20 +15,25 @@
 	</h2>
 	<ul class="form-list">
 		<li>
-			<div class="input-box">
+			<div class="box">
 				<form id="discount-Form" action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>" method="post">
 				<!-- <label><?php echo $this->__('Enter you discount code:') ?></label> --> 
+				<p><?php echo $this->__('You have %s/10 submission for now', $seller_collection->count())?></p>
 				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
 				<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
 				<!-- <input type="text"
 					name="discountCode" id="discountCode"
 					class="input-text required-entry images" /> -->
+				<?php if($seller_collection->count() <= 10) {?>
 				<div class="free-button">
 					<button type="button" title="Apply Coupon" class="button"
 						onclick="discountForm.submit(false)" value="Apply Coupon">
 						<span><span><?php echo $this->__('Free Submit') ?></span> </span>
 					</button>
 				</div>
+				<?php } else {?>
+					<p style="color: red;"><?php echo $this->__('You have exceeded the free submit for your items')?></p>
+					<?php }?>
 				</form>
 			</div>
 		</li>

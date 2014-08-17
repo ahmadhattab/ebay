@@ -141,7 +141,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 					}
 				}
 			}
-				
+
 			if ($this->getRequest()->getParam('delimg'))
 			{
 				$del_imgs = $this->getRequest()->getParam('delimg');
@@ -157,7 +157,7 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 					unlink($path);
 				}
 			}
-				
+
 			$sellerModel->setContactMe($contact_me);
 			$sellerModel->save();
 			$session->addSuccess($this->__('The item has been updated'));
@@ -228,7 +228,11 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 	{
 		$session    = Mage::getSingleton('core/session');
 		//$code = $this->getRequest()->getParam('discountCode');
-		if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('form_key') == Mage::getSingleton('core/session')->getFormKey()))
+
+		$seller_collection = Mage::getModel('catalog/product')->getCollection()
+		->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()));
+			
+		if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('form_key') == Mage::getSingleton('core/session')->getFormKey()) && ($seller_collection->count() <= 10))
 		{
 			$itemId = $this->getRequest()->getParam('seller_id');
 			$item = Mage::getModel('seller/seller')->load($itemId);
