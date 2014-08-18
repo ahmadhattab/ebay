@@ -230,7 +230,8 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		//$code = $this->getRequest()->getParam('discountCode');
 
 		$seller_collection = Mage::getModel('catalog/product')->getCollection()
-		->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()));
+		->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()))
+		->addAttributeToFilter('created_at', array('gteq' => date('Y-m-d H:i:s')));
 			
 		if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('form_key') == Mage::getSingleton('core/session')->getFormKey()) && ($seller_collection->count() <= 10))
 		{
