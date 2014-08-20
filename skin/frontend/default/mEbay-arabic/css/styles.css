@@ -374,7 +374,9 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
     display: block;
     float: left;
     margin: 0 5px 0 0;
-    padding:2px 10px;text-indent: -9999px;
+	font-size: 0;
+	width: 16px;
+	height: 16px;
 }
 .sorter .view-mode a.grid {
     background: url("../images/sort-grid.png") no-repeat scroll 0 0 transparent;
@@ -385,7 +387,9 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
     display: block;
     float: left;
     margin: 0 5px 0 0;
-    padding: 2px 10px;text-indent: -9999px;
+    font-size: 0px;
+    width: 16px;
+    height: 16px;
 }
 .sorter .view-mode strong.list {
     background: url("../images/sort-list.png") no-repeat scroll 0 0 transparent;
