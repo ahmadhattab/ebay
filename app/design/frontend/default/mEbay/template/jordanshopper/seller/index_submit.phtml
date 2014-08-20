@@ -1,7 +1,8 @@
 <?php
+//date_default_timezone_set('Asia/Amman');
 $seller_collection = Mage::getModel('catalog/product')->getCollection()
 					->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()))
-					->addAttributeToFilter('created_at', array('gteq' => date('Y-m-d H:i:s')));
+					->addAttributeToFilter('created_at', array('gteq' => date('2014-08-18 00:00:00')));
 ?>
 <div class="page-title title-buttons">
 	<h1>
