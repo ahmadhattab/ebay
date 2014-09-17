@@ -24,20 +24,32 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<style>
+.icon_insta {
+background: url(http://www.kidsandfriends.se/media/wysiwyg/Layout/instagram-icon-footer.gif) no-repeat left !important;
+}
+</style>
 <footer id="footer_mw">
-<div class="footer-container">
-    <div class="footer">
-		<div class="box_links_footer">
-			<div class="left">
-				<?php echo $this->getChildHtml() ?>
+	<div class="footer-container">
+		<div class="footer">
+			<div class="box_links_footer">
+				<div class="left">
+					<?php echo $this->getChildHtml() ?>
+				</div>
+				<div class="right">
+					<ul class="icon_links">
+						<li class="icon_fb"><a
+							href="https://www.facebook.com/pages/Jordanshoppercom/472095216219124"
+							onclick="this.target='_blank'">Facebook</a></li>
+						<li class="icon_insta"><a
+							href="http://instagram.com/jordanshopper"
+							onclick="this.target='_blank'">Instagram</a></li>
+
+					</ul>
+
+				</div>
+				<div class="clear_b">&nbsp;</div>
 			</div>
-			<div class="right">
-				<ul class="icon_links">
-					<li class="icon_fb"><a href="https://www.facebook.com/pages/Jordanshoppercom/472095216219124" onclick="this.target='_blank'" >Facebook</a></li>
-				</ul>
-			</div>
-			<div class="clear_b">&nbsp;</div>
 		</div>
-    </div>
-</div>
+	</div>
 </footer>
