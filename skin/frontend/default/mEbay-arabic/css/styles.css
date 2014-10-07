@@ -2144,3 +2144,14 @@ font-size: 12px !important;
 	float:right;
 	padding:8px 0 0;
 }
+li.item h1
+{
+height: 17px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 100%;
+display: inline-block;
+font-weight: normal;
+}
+
