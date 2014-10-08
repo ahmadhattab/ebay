@@ -1,3 +1,7 @@
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 <form action="<?php echo $this->getUrl('seller/index/sellerPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Sell an item') ?></h1>
@@ -306,7 +310,7 @@
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                    <textarea name="description" class="jqte-test required-entry"></textarea>                	
+                    <textarea name="description" class="jqte-test required-entry" style="width: 100%;"></textarea>                	
                 </div>
             </li>
         </ul>
@@ -318,6 +322,7 @@
     </div>
 </form>
 <script>
+/*
                             jQuery('.jqte-test').jqte();
 
                             // settings of status
@@ -327,6 +332,7 @@
                                 jqteStatus = jqteStatus ? false : true;
                                 jQuery('.jqte-test').jqte({"status": jqteStatus})
                             });
+*/
 </script>
 <script type="text/javascript">
 //<![CDATA[

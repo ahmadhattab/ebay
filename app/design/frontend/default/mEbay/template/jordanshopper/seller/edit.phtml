@@ -1,3 +1,7 @@
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 <?php 
 $item = $this->getItem();
 ?>
@@ -121,13 +125,13 @@ $item = $this->getItem();
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="item_conditions" value="3" <?php if($item->getItemConditions() == '3'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>New
+                    <input type="radio" name="item_conditions" value="3" <?php if($item->getItemConditions() == '3'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('New'); ?>
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="5" <?php if($item->getItemConditions() == '5'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>Used
+                    <input type="radio" name="item_conditions" value="5" <?php if($item->getItemConditions() == '5'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('Used') ?>
                 </li>
                 <li>
-                    <input type="radio" name="item_conditions" value="4" <?php if($item->getItemConditions() == '4'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/>Other
+                    <input type="radio" name="item_conditions" value="4" <?php if($item->getItemConditions() == '4'){?>checked="checked"<?php }?> class="radio validate-one-required-by-name" onclick="check(this.value)"/><?php echo $this->__('Other') ?>
                 </li>
                 <li>
                     <input type="text" name="item_conditions_other" id="item_conditions_other" class="condition-other input-text images required-entry" value="" style="display: none;" class="input-text " />
@@ -201,14 +205,14 @@ $item = $this->getItem();
                     <ul class="form-list">
                         <li>
                             <div class="add-to-cart">
-                                <label for="price">Price:</label>
+                                <label for="price"><?php echo $this->__('Price:') ?></label>
                                 <input type="text" name="price" id="price" value="<?php echo $item->getPrice(); ?>" class="input-text images" />
                                 <strong>[<?php echo Mage::app()->getStore()->getBaseCurrencyCode(); ?>]</strong>
                             </div>
                         </li>
                         <li>
                             <div class="add-to-cart">
-                                <label for="qty">Qty:</label>
+                                <label for="qty"><?php echo $this->__('Qty:') ?></label>
                                 <input type="text" name="qty" id="qty" value="<?php echo $item->getQty(); ?>" class="input-text images" />
                             </div>
                         </li>
@@ -340,7 +344,7 @@ $item = $this->getItem();
         <ul class="form-list">
             <li>
                 <div class="input-box desc">
-                    <textarea name="description" id="description" class="jqte-test"><?php echo $item->getDescription(); ?></textarea>                	
+                    <textarea name="description" id="description" class="jqte-test" style="width: 100%;"><?php echo $item->getDescription(); ?></textarea>                	
                 </div>
             </li>
         </ul>
@@ -351,17 +355,6 @@ $item = $this->getItem();
         <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Update') ?></span></span></button>
     </div>
 </form>
-<script>
-                            jQuery('.jqte-test').jqte();
-
-                            // settings of status
-                            var jqteStatus = true;
-                            jQuery(".status").click(function()
-                            {
-                                jqteStatus = jqteStatus ? false : true;
-                                jQuery('.jqte-test').jqte({"status": jqteStatus})
-                            });
-</script>
 <script type="text/javascript">
 //<![CDATA[
     var dataForm = new VarienForm('form-validate', true);
