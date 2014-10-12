@@ -49,7 +49,21 @@ if (!$items){
 			<?php foreach ($items->getItems() as $item): ?>
 				<tr>
 					<td><?php echo $item->getProductTitle(); ?></td>
-					<td><?php echo $item->getItemConditions(); ?></td>
+					<td>
+						<?php 
+						 switch ($item->getItemConditions()) {
+						 	case 3:
+						 		echo $this->__('New');
+						 		break;
+						 	case 5:
+						 		echo $this->__('Used');
+						 		break;
+						 	default:
+						 		echo $this->__('Other');
+						 		break;
+						 }; 
+
+						?></td>
 					<td><?php echo $item->getPrice(); ?></td>
 					<td><?php echo $item->getQty(); ?></td>
 					<td><?php echo $item->getCreatedAt(); ?></td>

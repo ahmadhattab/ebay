@@ -2124,3 +2124,28 @@ width: 100%;
 display: inline-block;
 font-weight: normal;
 }
+.products-list li.item h1 {
+width: 162px !important;
+}
+.products-list .desc.std {
+	display: block !important;
+	width: 400px !important;
+}
+.product-info h1 {
+	height: 17px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 100%;
+display: inline-block;
+font-weight: normal;
+}
+.desc.std {
+	height: 17px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 100%;
+display: inline-block;
+font-weight: normal;
+}
