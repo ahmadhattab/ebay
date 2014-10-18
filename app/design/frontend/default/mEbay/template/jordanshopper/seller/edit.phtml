@@ -226,13 +226,13 @@ $item = $this->getItem();
         <div class="input-box">
             <ul class="form-list">
                 <li>
-                    <input type="radio" name="delivery_details" value="none" <?php if($item->getDeliveryDetails() == 'none'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>None
+                    <input type="radio" name="delivery_details" value="none" <?php if($item->getDeliveryDetails() == 'none'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/><?php echo $this->__('None')?>
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" value="free" <?php if($item->getDeliveryDetails() == 'free'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>Free
+                    <input type="radio" name="delivery_details" value="free" <?php if($item->getDeliveryDetails() == 'free'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/><?php echo $this->__('Free')?>
                 </li>
                 <li>
-                    <input type="radio" name="delivery_details" id="charge" value="charge" <?php if($item->getDeliveryDetails() == 'charge'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/>Delivery Charge
+                    <input type="radio" name="delivery_details" id="charge" value="charge" <?php if($item->getDeliveryDetails() == 'charge'){?>checked="checked"<?php }?> class="radio " onclick="delivery(this.value)"/><?php echo $this->__('Delivery Charge')?>
                 </li>
                 <li>
                     <input type="text" name="delivery_cost" id="delivery_cost" value="<?php echo $item->getDeliveryCost(); ?>" class="images required-entry input-text" style="display: none;"/>

@@ -467,8 +467,9 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
 
                 // log in and send greeting email, then die happy
                 $this->_getSession()->setCustomerAsLoggedIn($customer);
-                $successUrl = $this->_welcomeCustomer($customer, true);
-                $this->_redirectSuccess($backUrl ? $backUrl : $successUrl);
+                //$successUrl = $this->_welcomeCustomer($customer, true);
+                //$this->_redirectSuccess($backUrl ? $backUrl : $successUrl);
+                $this->_redirect('customer/address/new');
                 return;
             }
 
