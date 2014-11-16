@@ -1,8 +1,8 @@
 <?php
 //date_default_timezone_set('Asia/Amman');
 $seller_collection = Mage::getModel('catalog/product')->getCollection()
-					->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()))
-					->addAttributeToFilter('created_at', array('gteq' => date('2014-08-18 00:00:00')));
+->addAttributeToFilter('seller_id', array('eq' => Mage::getSingleton('customer/session')->getCustomer()->getId()))
+->addAttributeToFilter('created_at', array('gteq' => date('2014-08-18 00:00:00')));
 ?>
 <div class="page-title title-buttons">
 	<h1>
@@ -18,24 +18,58 @@ $seller_collection = Mage::getModel('catalog/product')->getCollection()
 	<ul class="form-list">
 		<li>
 			<div class="box">
-				<form id="discount-Form" action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>" method="post">
-				<!-- <label><?php echo $this->__('Enter you discount code:') ?></label> --> 
-				<p><?php echo $this->__('You have %s/10 left of your free listings', $seller_collection->count())?></p>
-				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
-				<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
-				<!-- <input type="text"
+				<form id="free-Form"
+					action="<?php echo $this->getUrl('seller/item/freesubmit'); ?>"
+					method="post">
+					<!-- <label><?php echo $this->__('Enter you discount code:') ?></label> -->
+					<p>
+					<?php echo $this->__('You have %s/10 left of your free listings', $seller_collection->count())?>
+					</p>
+					<input type="hidden" name="seller_id" id="seller_id"
+						value="<?php echo $this->getRequest()->getParam('id'); ?>" /> <input
+						type="hidden" name="form_key"
+						value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+					<!-- <input type="text"
 					name="discountCode" id="discountCode"
 					class="input-text required-entry images" /> -->
-				<?php if($seller_collection->count() <= 10) {?>
-				<div class="free-button">
+						<?php if($seller_collection->count() <= 10) {?>
+					<div class="free-button">
+						<button type="button" title="Apply Coupon" class="button"
+							onclick="freeForm.submit(false)" value="Apply Coupon">
+							<span><span><?php echo $this->__('Free Submit') ?> </span> </span>
+						</button>
+					</div>
+					<?php } else {?>
+					<p style="color: red;">
+					<?php echo $this->__('You have reached your limit of free listings for this account')?>
+					</p>
+					<?php }?>
+				</form>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="fieldset">
+<?php echo $this->getBlockHtml('formkey') ?>
+	<h2 class="legend">
+	<?php echo $this->__('Discount Code') ?>
+		<em style="color: red;">*</em>
+	</h2>
+	<ul class="form-list">
+		<li>
+			<div class="input-box">
+				<form id="discount-Form-code" action="<?php echo $this->getUrl('seller/item/freesubmitcode'); ?>" method="post">
+				<label><?php echo $this->__('Enter you discount code:') ?></label> 
+				<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $this->getRequest()->getParam('id'); ?>" />
+				<input type="text"
+					name="discountCode" id="discountCode"
+					class="input-text required-entry images" />
+				<div style="float:left; padding:8px 0 0;">
 					<button type="button" title="Apply Coupon" class="button"
 						onclick="discountForm.submit(false)" value="Apply Coupon">
-						<span><span><?php echo $this->__('Free Submit') ?></span> </span>
+						<span><span><?php echo $this->__('Apply Coupon') ?></span> </span>
 					</button>
 				</div>
-				<?php } else {?>
-					<p style="color: red;"><?php echo $this->__('You have reached your limit of free listings for this account')?></p>
-					<?php }?>
 				</form>
 			</div>
 		</li>
@@ -49,14 +83,22 @@ $seller_collection = Mage::getModel('catalog/product')->getCollection()
 	<ul class="form-list">
 		<li>
 			<div class="input-box">
-				<h2><a href="<?php echo $this->getUrl('seller/item/paidsubmit',array('id'=>$this->getRequest()->getParam('id'))) ?>"><?php echo $this->__('Click Here')?></a></h2>
+				<h2>
+					<a
+						href="<?php echo $this->getUrl('seller/item/paidsubmit',array('id'=>$this->getRequest()->getParam('id'))) ?>"><?php echo $this->__('Click Here')?>
+					</a>
+				</h2>
 			</div>
 		</li>
 	</ul>
 </div>
 <script type="text/javascript">
-var discountForm = new VarienForm('discount-Form', true);
+var discountForm = new VarienForm('discount-Form-code', true);
 discountForm.submit = function (isRemove){
 	return VarienForm.prototype.submit.bind(discountForm)();
+}
+var freeForm = new VarienForm('free-Form', true);
+freeForm.submit = function (isRemove){
+	return VarienForm.prototype.submit.bind(freeForm)();
 }
 </script>

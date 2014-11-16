@@ -267,6 +267,43 @@ class Jordanshopper_Seller_ItemController extends Mage_Core_Controller_Front_Act
 		}
 	}
 
+	public function freesubmitcodeAction()
+	{
+		$session    = Mage::getSingleton('core/session');
+		$code = $this->getRequest()->getParam('discountCode');
+		if ($code == 'sell_now')
+		{
+			$itemId = $this->getRequest()->getParam('seller_id');
+			$item = Mage::getModel('seller/seller')->load($itemId);
+			if($item->getStatus() == 0 && $item->getData())
+			{
+				$itemModel = Mage::getModel('seller/seller');
+				$start_date = date('Y-m-d');
+				$end_date = strtotime(date("Y-m-d", strtotime($start_date)) . " +30 days");
+				$itemModel->createProduct($itemId, $start_date, $end_date);
+				$successMsg = $this->__('Your order has been received <a href="%s">click here</a> to view it', Mage::getUrl('sales/order/view', array('order_id' => $orderNumber)));
+				$session->addSuccess($successMsg);
+				$this->_redirect('seller');
+			}
+			elseif($item->getStatus() == 1)
+			{
+				$session->addError($this->__('This item already submitted if you have any problem with it please contact admin'));
+				$this->_redirect('seller');
+			}
+			else
+			{
+				$session->addError($this->__('There\'s no item related'));
+				$this->_redirect('seller');
+			}
+		}
+		else
+		{
+			$error = 'This discount code not valid';
+			$session->addError($error);
+			$this->_redirect('seller');
+		}
+	}
+
 	public function checkoutAction()
 	{
 		$session = Mage::getSingleton('core/session');
